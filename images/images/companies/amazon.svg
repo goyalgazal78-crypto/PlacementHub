@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 56" role="img" aria-label="Amazon">
+  <title>Amazon</title>
+  <text x="20" y="36" fill="#232F3E" font-family="Poppins, 'Segoe UI', Arial, sans-serif" font-size="30" font-weight="700">amazon</text>
+  <path d="M24 43 C58 54, 106 54, 138 42" stroke="#FF9900" stroke-width="5" fill="none" stroke-linecap="round"/>
+  <path d="M132 39 L142 41 L136 48 Z" fill="#FF9900"/>
+</svg>

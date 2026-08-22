@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 56" role="img" aria-label="Infosys">
+  <title>Infosys</title>
+  <circle cx="22" cy="28" r="12" fill="none" stroke="#007CC3" stroke-width="4"/>
+  <circle cx="22" cy="28" r="4" fill="#6CC24A"/>
+  <text x="44" y="38" fill="#007CC3" font-family="Poppins, 'Segoe UI', Arial, sans-serif" font-size="27" font-weight="600">Infosys</text>
+</svg>
