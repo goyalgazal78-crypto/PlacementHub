@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlacementHub | Mock Tests</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/quiz.css">
+</head>
+<body>
+
+<header class="navbar">
+    <a href="index.html" class="logo">Placement<span>Hub</span></a>
+
+    <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="dsa.html">DSA</a>
+        <a href="quiz.html" class="active">Mock Tests</a>
+        <a href="aptitude.html">Aptitude</a>
+        <a href="experience.html">Experience</a>
+    </nav>
+
+    <div class="nav-actions">
+        <button class="theme-btn" id="themeBtn" aria-label="Toggle theme">☾</button>
+        <a href="signin.html" class="signin-btn">Sign In</a>
+        <a href="signup.html" class="primary-btn">Sign Up</a>
+    </div>
+
+    <button class="menu-btn" id="menuBtn">☰</button>
+</header>
+
+<main>
+    <section class="page-head">
+        <div>
+            <span class="eyebrow">PLACEMENT PRACTICE</span>
+            <h1>Mock Tests</h1>
+            <p>Practice real placement-style questions with a timer and instant results.</p>
+        </div>
+    </section>
+
+    <section class="mock-container">
+
+        <div class="filter-row">
+            <button class="filter-btn active" data-subject="Java">Java</button>
+            <button class="filter-btn" data-subject="DSA">DSA</button>
+            <button class="filter-btn" data-subject="Aptitude">Aptitude</button>
+            <button class="filter-btn" data-subject="OS">Operating Systems</button>
+            <button class="filter-btn" data-subject="Web">Web Development</button>
+        </div>
+
+        <div class="mock-heading">
+            <div>
+                <span class="eyebrow">AVAILABLE TESTS</span>
+                <h2 id="mockTitle">Java Mock Tests</h2>
+            </div>
+            <span class="test-count" id="testCount">3 tests</span>
+        </div>
+
+        <div class="mock-grid" id="mockGrid"></div>
+
+        <div class="empty-state hidden" id="emptyState">
+            No mock tests available for this subject yet.
+        </div>
+
+        <!-- Existing quiz setup kept hidden so the current quiz engine continues to work. -->
+        <div class="setup-box hidden" id="setupCard">
+            <div class="subject-buttons">
+                <button class="subject-btn active" data-subject="Java">Java</button>
+                <button class="subject-btn" data-subject="DSA">DSA</button>
+                <button class="subject-btn" data-subject="Aptitude">Aptitude</button>
+                <button class="subject-btn" data-subject="OS">OS</button>
+                <button class="subject-btn" data-subject="Web">Web</button>
+            </div>
+
+            <span id="selectedSubjectLabel">JAVA PRACTICE</span>
+            <p id="subjectDescription"></p>
+
+            <div class="question-numbers">
+                <button class="number-choice active" data-count="5">5</button>
+                <button class="number-choice" data-count="10">10</button>
+                <button class="number-choice" data-count="15">15</button>
+            </div>
+
+            <div class="setup-footer">
+                <strong id="selectedSubject">Java</strong>
+                <strong id="selectedCount">5 Questions</strong>
+                <strong id="selectedTime">02:00</strong>
+                <button class="primary-btn" id="startBtn">Start Quiz</button>
+            </div>
+        </div>
+
+        <div class="start-popup hidden" id="startModal" aria-hidden="true">
+            <div class="start-box">
+                <button class="close-modal" id="closeModal">×</button>
+                <span class="eyebrow">READY?</span>
+                <h2>Start Mock Test?</h2>
+                <p id="modalText">You are about to start your Java mock test.</p>
+
+                <div class="start-details">
+                    <div><span>SUBJECT</span><strong id="modalSubject">Java</strong></div>
+                    <div><span>QUESTIONS</span><strong id="modalQuestions">5</strong></div>
+                    <div><span>TIME</span><strong id="modalTime">02:00</strong></div>
+                </div>
+
+                <button class="primary-btn confirm-btn" id="confirmStart">Start Test →</button>
+            </div>
+        </div>
+
+        <div class="quiz-details hidden" id="quizInfo">
+            <div class="info-box"><span>SUBJECT</span><strong id="quizSubject">Java</strong></div>
+            <div class="info-box"><span>QUESTION</span><strong id="questionNumber">1 / 5</strong></div>
+            <div class="info-box"><span>TIME LEFT</span><strong id="timer">02:00</strong></div>
+            <div class="info-box"><span>SCORE</span><strong id="liveScore">0</strong></div>
+        </div>
+
+        <div class="question-card hidden" id="quizCard">
+            <div class="quiz-top">
+                <div class="progress-area">
+                    <span class="question-label">PROGRESS</span>
+                    <div class="progress-track"><div class="progress-fill" id="progressBar"></div></div>
+                </div>
+                <span class="progress-text" id="progressText">20%</span>
+            </div>
+
+            <div class="question-buttons">
+                <button class="bookmark-btn" id="bookmarkBtn">☆ Bookmark</button>
+                <button class="surprise-mini" id="surpriseMini">Surprise Me</button>
+            </div>
+
+            <div class="question-box">
+                <span class="eyebrow">QUESTION</span>
+                <h2 id="question"></h2>
+                <div class="palette" id="palette"></div>
+                <div class="options" id="options"></div>
+            </div>
+
+            <div class="quiz-bottom">
+                <p class="message" id="message"></p>
+                <button class="primary-btn next-btn" id="nextBtn">Next Question →</button>
+            </div>
+        </div>
+
+        <div class="result-box hidden" id="resultCard">
+            <div class="result-icon">✓</div>
+            <span class="eyebrow">TEST COMPLETED</span>
+            <h2 id="resultTitle">Good Job!</h2>
+            <p class="result-subtitle">Here is your mock-test performance.</p>
+
+            <div class="result-score">
+                <span id="score">0 / 5</span>
+                <small id="percentage">0%</small>
+            </div>
+
+            <div class="result-details">
+                <div><span>Correct</span><strong id="correctCount">0</strong></div>
+                <div><span>Wrong</span><strong id="wrongCount">0</strong></div>
+                <div><span>Time Used</span><strong id="timeUsed">00:00</strong></div>
+            </div>
+
+            <div class="performance-bar"><div id="performanceFill"></div></div>
+            <p class="result-message" id="resultMessage"></p>
+
+            <div class="score-analysis">
+                <div class="analysis-heading">
+                    <div>
+                        <span class="eyebrow">PERFORMANCE</span>
+                        <h3>Your Result</h3>
+                    </div>
+                    <strong id="accuracyValue">0%</strong>
+                </div>
+
+                <div class="analysis-track"><i id="accuracyFill"></i></div>
+
+                <div class="analysis-details">
+                    <div class="analysis-item"><span>Strongest Area</span><strong id="strongArea">-</strong></div>
+                    <div class="analysis-item"><span>Needs Practice</span><strong id="weakArea">-</strong></div>
+                    <div class="analysis-item"><span>Next Step</span><strong id="nextStep">-</strong></div>
+                </div>
+            </div>
+
+            <div class="study-suggestion">
+                <div class="suggestion-icon">✦</div>
+                <div>
+                    <span class="eyebrow">NEXT STEP</span>
+                    <h3 id="aiTitle">Keep practicing</h3>
+                    <p id="aiSuggestion">Review your mistakes and try again.</p>
+                </div>
+            </div>
+
+            <div class="review-popup hidden" id="reviewBox">
+                <div class="review-box">
+                    <div class="review-title">
+                        <div>
+                            <span class="eyebrow">REVISION</span>
+                            <h3>Review Mistakes</h3>
+                        </div>
+                        <button class="close-review" id="closeReview">×</button>
+                    </div>
+                    <p class="review-text" id="reviewSubtitle"></p>
+                    <div id="wrongAnswers"></div>
+                </div>
+            </div>
+
+            <div class="result-buttons">
+                <button class="secondary-btn review-trigger" id="reviewBtn">Review Mistakes</button>
+                <button class="secondary-btn" id="changeQuizBtn">All Mock Tests</button>
+                <button class="primary-btn restart-btn" id="restartBtn">Try Again</button>
+            </div>
+        </div>
+    </section>
+</main>
+
+<div class="toast hidden" id="toast">Test completed!</div>
+
+<footer class="footer">
+    <div>
+        <h3>PlacementHub</h3>
+        <p>Simple, focused placement practice.</p>
+    </div>
+    <div>
+        <h4>Quick Links</h4>
+        <a href="index.html">Home</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="dsa.html">DSA</a>
+    </div>
+    <div>
+        <h4>Practice</h4>
+        <a href="quiz.html">Mock Tests</a>
+        <a href="aptitude.html">Aptitude</a>
+        <a href="experience.html">Interviews</a>
+    </div>
+</footer>
+
+<script src="js/quiz.js"></script>
+</body>
+</html>

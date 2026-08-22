@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 56" role="img" aria-label="Accenture">
+  <title>Accenture</title>
+  <path d="M14 16 L34 28 L14 40" fill="none" stroke="#A100FF" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="42" y="38" fill="#2B2B2B" font-family="Poppins, 'Segoe UI', Arial, sans-serif" font-size="25" font-weight="500">accenture</text>
+</svg>

@@ -1,0 +1,197 @@
+/* Page */
+body {
+    padding-top: 72px;
+}
+
+
+/* Navigation Bar */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    height: 72px;
+}
+
+
+/* Progress Container */
+.progress-container {
+    padding: 24px;
+}
+
+
+/* Progress Statistics */
+.progress-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-bottom: 40px;
+}
+
+
+/* Statistics Card */
+.stat-card {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 24px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+
+/* Statistics Card Hover */
+.stat-card:hover {
+    border-color: #6366f1;
+    box-shadow: 0 8px 24px rgba(99, 102, 241, 0.15);
+}
+
+
+/* Statistics Number */
+.stat-value {
+    font-size: 36px;
+    font-weight: 700;
+    color: #6366f1;
+    margin-bottom: 8px;
+}
+
+
+/* Statistics Text */
+.stat-label {
+    color: #6b7280;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+
+/* Progress Bar */
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background: #e5e7eb;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 16px;
+}
+
+
+/* Progress Fill */
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #6366f1, #8b5cf6);
+    transition: width 0.3s ease;
+}
+
+
+/* Difficulty Section */
+.difficulty-breakdown {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-bottom: 40px;
+}
+
+
+/* Difficulty Card */
+.difficulty-card {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 24px;
+}
+
+
+/* Category Progress */
+.category-progress {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 40px;
+}
+
+
+/* Category Item */
+.category-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 0;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+
+/* Remove border from last category */
+.category-item:last-child {
+    border-bottom: none;
+}
+
+
+/* Category Name */
+.category-name {
+    color: #111827;
+    font-weight: 500;
+    min-width: 150px;
+}
+
+
+/* Category Statistics */
+.category-stats {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+    flex: 1;
+}
+
+
+/* Category Progress Bar */
+.category-bar {
+    flex: 1;
+    min-width: 200px;
+}
+
+
+/* Category Count */
+.category-count {
+    color: #6b7280;
+    font-size: 13px;
+    min-width: 80px;
+    text-align: right;
+}
+
+
+/* Action Buttons */
+.action-buttons {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 40px;
+}
+
+
+/* Buttons */
+.action-buttons button {
+    padding: 12px 24px;
+    border: 1px solid #e5e7eb;
+    background: white;
+    color: #111827;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+
+/* Button Hover */
+.action-buttons button:hover {
+    background: #6366f1;
+    color: white;
+}
+
+
+/* Primary Button */
+.action-buttons button.primary {
+    background: #6366f1;
+    color: white;
+}

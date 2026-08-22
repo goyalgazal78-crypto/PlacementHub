@@ -1,0 +1,198 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Progress Tracker - PlacementHub</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="styleh.css">
+  <link rel="stylesheet" href="dsa.css">
+  <link rel="stylesheet" href="progress.css">
+
+    /* Ensure navbar is fixed */
+    </head>
+
+<body>
+  <nav class="navbar">
+    <a href="index.html" class="navbar-logo">PlacementHub</a>
+    <div class="navbar-center">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="dashboard.html" class="nav-link">Dashboard</a>
+      <a href="dsa.html" class="nav-link">DSA</a>
+      <a href="quiz.html" class="nav-link">Quiz</a>
+      <a href="aptitude.html" class="nav-link">Aptitude</a>
+      <a href="experience.html" class="nav-link">Experience</a>
+    </div>
+    <div class="navbar-right">
+      <div class="theme-toggle"><div class="toggle-circle">🌙</div></div>
+      <a href="signin.html" class="btn btn-secondary btn-sm">Sign In</a>
+      <a href="signup.html" class="btn btn-primary btn-sm">Sign Up</a>
+    </div>
+    <div class="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </nav>
+
+  <main class="dsa-main">
+    <div class="dsa-container">
+      <!-- Sidebar -->
+      <aside class="dsa-sidebar">
+        <div class="sidebar-toggle">
+          <i class="fas fa-chevron-left"></i>
+        </div>
+        <nav class="sidebar-nav">
+          <a href="dsa.html" class="sidebar-link">
+            <i class="fas fa-code"></i>
+            <span>DSA Sheet</span>
+          </a>
+          <a href="notes.html" class="sidebar-link">
+            <i class="fas fa-book"></i>
+            <span>Downloadable Notes</span>
+          </a>
+          <a href="progress.html" class="sidebar-link active">
+            <i class="fas fa-chart-line"></i>
+            <span>Progress Tracker</span>
+          </a>
+          <a href="saved.html" class="sidebar-link">
+            <i class="fas fa-bookmark"></i>
+            <span>Saved Problems</span>
+          </a>
+        </nav>
+      </aside>
+
+      <!-- Main Content -->
+      <section class="dsa-content">
+        <!-- Header Block -->
+        <header class="dsa-header">
+          <h1 class="dsa-title">
+            <span class="title-primary">Progress Tracker -</span>
+            <span class="title-accent">Your DSA Journey</span>
+          </h1>
+
+          <div class="header-description">
+            <ul class="description-list">
+              <li>Monitor your problem-solving progress</li>
+              <li>View statistics by difficulty level and category</li>
+              <li>Track completion rate and maintain your streak 🔥</li>
+            </ul>
+          </div>
+
+          <div class="header-actions">
+            <button class="action-pill" onclick="loadProgress()">
+              <i class="fas fa-sync"></i> Refresh
+            </button>
+            <button class="action-pill" onclick="resetProgress()">
+              <i class="fas fa-redo"></i> Reset
+            </button>
+            <button class="action-pill" onclick="exportProgress()">
+              <i class="fas fa-download"></i> Export
+            </button>
+          </div>
+        </header>
+
+        <div class="progress-container">
+
+      <div class="progress-stats">
+        <div class="stat-card">
+          <div class="stat-value" id="totalProblems">0</div>
+          <div class="stat-label">Saved Problems</div>
+          <div class="progress-bar"><div class="progress-fill" id="savedBar" style="width: 0%"></div></div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" id="completedCount">0</div>
+          <div class="stat-label">Completed</div>
+          <div class="progress-bar"><div class="progress-fill" id="completedBar" style="width: 0%"></div></div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" id="completionRate">0%</div>
+          <div class="stat-label">Completion Rate</div>
+          <div class="progress-bar"><div class="progress-fill" id="rateBar" style="width: 0%"></div></div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" id="streakDays">0</div>
+          <div class="stat-label">Day Streak 🔥</div>
+        </div>
+      </div>
+
+      <h2 style="color: var(--text-primary);">Progress by Difficulty</h2>
+      <div class="difficulty-breakdown">
+        <div class="difficulty-card">
+          <h3 style="color: #10b981;">🟢 Easy</h3>
+          <p id="easyCount" style="color: var(--text-secondary);">0 / 41</p>
+          <div class="progress-bar"><div class="progress-fill" id="easyBar" style="width: 0%; background: #10b981;"></div></div>
+        </div>
+        <div class="difficulty-card">
+          <h3 style="color: #f59e0b;">🟡 Medium</h3>
+          <p id="mediumCount" style="color: var(--text-secondary);">0 / 119</p>
+          <div class="progress-bar"><div class="progress-fill" id="mediumBar" style="width: 0%; background: #f59e0b;"></div></div>
+        </div>
+        <div class="difficulty-card">
+          <h3 style="color: #ef4444;">🔴 Hard</h3>
+          <p id="hardCount" style="color: var(--text-secondary);">0 / 33</p>
+          <div class="progress-bar"><div class="progress-fill" id="hardBar" style="width: 0%; background: #ef4444;"></div></div>
+        </div>
+      </div>
+
+      <h2 style="color: var(--text-primary);">Progress by Category</h2>
+      <div class="category-progress" id="categoryProgress">
+        <p style="text-align: center; color: var(--text-secondary);">Save problems from DSA sheet to see category breakdown</p>
+      </div>
+
+      <div style="background: var(--surface); border-left: 4px solid var(--primary); padding: var(--spacing-lg); border-radius: var(--radius-lg); margin-top: var(--spacing-3xl);">
+        <h3 style="color: var(--primary);">💡 Pro Tips</h3>
+        <ul style="color: var(--text-secondary);">
+          <li>Save important interview problems</li>
+          <li>Practice 3-5 problems daily</li>
+          <li>Focus on understanding the approach</li>
+          <li>Start with Easy problems to build confidence</li>
+          <li>Maintain a daily streak for consistency</li>
+        </ul>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-column">
+        <h4>About PlacementHub</h4>
+        <p>Your complete placement preparation platform for mastering DSA and landing your dream job.</p>
+      </div>
+      <div class="footer-column">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="dsa.html">DSA Problems</a></li>
+          <li><a href="progress.html">Progress Tracker</a></li>
+          <li><a href="saved.html">Saved Problems</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="#">Study Notes</a></li>
+          <li><a href="#">Interview Tips</a></li>
+          <li><a href="#">Learning Guide</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Get in Touch</h4>
+        <p><i class="fas fa-envelope"></i> <a href="mailto:contact@placementhub.com">contact@placementhub.com</a></p>
+        <p><i class="fas fa-phone"></i> <a href="tel:+919876543210">+91 987-654-3210</a></p>
+        <div class="footer-social">
+          <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom"><p>&copy; 2026 PlacementHub. All Rights Reserved. | Empowering Students to Succeed</p></div>
+  </footer>
+
+  <script src="scripth.js"></script>
+  <script src="progress.js"></script>
+</body>
+</html>

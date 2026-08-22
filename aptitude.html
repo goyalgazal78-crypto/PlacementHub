@@ -1,0 +1,1069 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aptitude Preparation - PlacementHub</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/aptitude.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="index.html" class="navbar-logo">PlacementHub</a>
+    <div class="navbar-center">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="dashboard.html" class="nav-link">Dashboard</a>
+      <a href="dsa.html" class="nav-link">DSA</a>
+      <a href="quiz.html" class="nav-link">Quiz</a>
+      <a href="aptitude.html" class="nav-link active">Aptitude</a>
+      <a href="experience.html" class="nav-link">Experience</a>
+    </div>
+    <div class="navbar-right">
+      <div class="theme-toggle">
+        <div class="toggle-circle">🌙</div>
+      </div>
+      <a href="signin.html" class="btn btn-secondary btn-sm">Sign In</a>
+      <a href="signup.html" class="btn btn-primary btn-sm">Sign Up</a>
+    </div>
+    <div class="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </nav>
+
+  <main>
+    <!-- Page Banner -->
+    <section class="page-banner">
+      <div class="container">
+        <p class="page-banner-label">Aptitude Preparation</p>
+        <h1>Master the Round That Filters Everyone First</h1>
+        <p class="page-banner-text">
+          Quick notes, ready-to-use formulas, and practice questions across the three areas
+          almost every placement test covers.
+        </p>
+        <div class="banner-stats">
+          <div class="banner-stat">
+            <span class="banner-stat-number">3</span>
+            <span class="banner-stat-title">Subjects</span>
+          </div>
+          <div class="banner-stat">
+            <span class="banner-stat-number">26</span>
+            <span class="banner-stat-title">Topics</span>
+          </div>
+          <div class="banner-stat">
+            <span class="banner-stat-number">52</span>
+            <span class="banner-stat-title">Practice Questions</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Aptitude Explorer -->
+    <section class="section aptitude-section">
+      <div class="container">
+
+        <div class="section-heading">
+          <p class="section-heading-label">Pick A Subject</p>
+          <h2>Notes, Formulas &amp; Practice — In One Place</h2>
+          <p>Switch between subjects, open a topic, and try the questions before checking the answer.</p>
+        </div>
+
+        <!-- Subject selectors -->
+        <input class="subject-input" type="radio" name="subject" id="s-quant" checked>
+        <input class="subject-input" type="radio" name="subject" id="s-logical">
+        <input class="subject-input" type="radio" name="subject" id="s-verbal">
+
+        <div class="subject-tabs">
+          <label class="subject-tab" for="s-quant"><i class="fas fa-calculator"></i> Quantitative Aptitude</label>
+          <label class="subject-tab" for="s-logical"><i class="fas fa-brain"></i> Logical Reasoning</label>
+          <label class="subject-tab" for="s-verbal"><i class="fas fa-comments"></i> Verbal Ability</label>
+        </div>
+
+        <div class="subject-panels">
+
+          <!-- ============ QUANTITATIVE APTITUDE ============ -->
+          <div class="subject-panel" id="panel-quant">
+            <p class="subject-panel-intro">The most scoring section if you memorise the shortcuts below — most questions are variations of the same five topics.</p>
+
+            <div class="topic-accordion">
+
+              <details class="topic-item" open>
+                <summary><span class="topic-number">1</span> Percentages <span class="topic-toggle">+</span></summary>
+                <div class="topic-body">
+                  <p class="topic-subhead">Notes</p>
+                  <ul class="topic-notes">
+                    <li>A percentage is just a fraction expressed out of 100 — 25% is the same as 25/100 or 0.25.</li>
+                    <li>"x% of y" always equals "y% of x" — pick whichever is easier to compute mentally.</li>
+                    <li>To find what percentage A is of B, compute (A / B) × 100.</li>
+                  </ul>
+
+                  <p class="topic-subhead">Formulas</p>
+                  <div class="formula-box">
+                    <code>Percentage change = (New − Old) / Old × 100</code>
+                    <code>Successive % change = a + b + (a × b / 100)</code>
+                    <code>New value after change = Old × (1 ± rate/100)</code>
+                  </div>
+
+                  <p class="topic-subhead">Practice Questions</p>
+                  <ol class="question-list">
+                    <li>
+                      <details class="question-item">
+                        <summary>A number is increased by 20% and then decreased by 20%. What is the net percentage change?</summary>
+                        <p class="answer"><strong>Answer:</strong> A net decrease of 4%. Using successive change: 20 − 20 + (20 × −20)/100 = −4%.</p>
+                      </details>
+                    </li>
+                    <li>
+                      <details class="question-item">
+                        <summary>In an election, a candidate got 65% of the votes and won by 4,200 votes. What was the total number of votes cast?</summary>
+                        <p class="answer"><strong>Answer:</strong> 14,000. Winning margin = 30% of total = 4,200, so total = 4,200 / 0.30 = 14,000.</p>
+                      </details>
+                    </li>
+                  </ol>
+                </div>
+              </details>
+
+              <details class="topic-item">
+                <summary><span class="topic-number">2</span> Profit &amp; Loss <span class="topic-toggle">+</span></summary>
+                <div class="topic-body">
+                  <p class="topic-subhead">Notes</p>
+                  <ul class="topic-notes">
+                    <li>Cost Price (CP) is what the seller paid; Selling Price (SP) is what the buyer pays.</li>
+                    <li>Marked Price (MP) is the "sticker price" before any discount is applied.</li>
+                    <li>When two articles are sold at the same price with equal % profit and loss, there is always a net loss.</li>
+                  </ul>
+
+                  <p class="topic-subhead">Formulas</p>
+                  <div class="formula-box">
+                    <code>Profit % = (SP − CP) / CP × 100</code>
+                    <code>Loss % = (CP − SP) / CP × 100</code>
+                    <code>SP = MP × (1 − discount%/100)</code>
+                  </div>
+
+                  <p class="topic-subhead">Practice Questions</p>
+                  <ol class="question-list">
+                    <li>
+                      <details class="question-item">
+                        <summary>A shopkeeper marks an item 40% above cost price and gives a 25% discount. What is his overall profit or loss %?</summary>
+                        <p class="answer"><strong>Answer:</strong> 5% profit. Take CP = 100 → MP = 140 → SP = 140 × 0.75 = 105, so profit = 5%.</p>
+                      </details>
+                    </li>
+                    <li>
+                      <details class="question-item">
+                        <summary>By selling an article for ₹720, a man loses 10%. At what price should he sell it to gain 15%?</summary>
+                        <p class="answer"><strong>Answer:</strong> ₹920. CP = 720 / 0.90 = ₹800. Required SP = 800 × 1.15 = ₹920.</p>
+                      </details>
+                    </li>
+                  </ol>
+                </div>
+              </details>
+
+              <details class="topic-item">
+                <summary><span class="topic-number">3</span> Time, Speed &amp; Distance <span class="topic-toggle">+</span></summary>
+                <div class="topic-body">
+                  <p class="topic-subhead">Notes</p>
+                  <ul class="topic-notes">
+                    <li>Speed, distance and time always follow the same core relationship — fix one to solve for the other two.</li>
+                    <li>For a moving train crossing a platform, the distance covered = length of train + length of platform.</li>
+                    <li>In boats and streams, "downstream" adds the current's speed, "upstream" subtracts it.</li>
+                  </ul>
+
+                  <p class="topic-subhead">Formulas</p>
+                  <div class="formula-box">
+                    <code>Speed = Distance / Time</code>
+                    <code>km/h to m/s: multiply by 5/18</code>
+                    <code>Downstream speed = boat + stream, Upstream speed = boat − stream</code>
+                  </div>
+
+                  <p class="topic-subhead">Practice Questions</p>
+                  <ol class="question-list">
+                    <li>
+                      <details class="question-item">
+                        <summary>A train 150 m long crosses a platform 250 m long in 20 seconds. What is the speed of the train in km/h?</summary>
+                        <p class="answer"><strong>Answer:</strong> 72 km/h. Total distance = 400 m in 20 s → 20 m/s → 20 × 18/5 = 72 km/h.</p>
+                      </details>
+                    </li>
+                    <li>
+                      <details class="question-item">
+                        <summary>A boat covers 32 km downstream in 4 hours and the same distance upstream in 8 hours. Find the speed of the boat in still water.</summary>
+                        <p class="answer"><strong>Answer:</strong> 6 km/h. Downstream speed = 8 km/h, upstream speed = 4 km/h. Boat speed = (8 + 4)/2 = 6 km/h.</p>
+                      </details>
+                    </li>
+                  </ol>
+                </div>
+              </details>
+
+              <details class="topic-item">
+                <summary><span class="topic-number">4</span> Time &amp; Work <span class="topic-toggle">+</span></summary>
+                <div class="topic-body">
+                  <p class="topic-subhead">Notes</p>
+                  <ul class="topic-notes">
+                    <li>Think in terms of "work done per day" (1/n of the job) rather than tracking the whole job at once.</li>
+                    <li>When people work together, add their individual one-day work rates.</li>
+                    <li>Efficiency and time taken are inversely proportional — more efficient means less time.</li>
+                  </ul>
+
+                  <p class="topic-subhead">Formulas</p>
+                  <div class="formula-box">
+                    <code>If A finishes work in n days, A's 1-day work = 1/n</code>
+                    <code>Combined 1-day work = 1/A + 1/B</code>
+                    <code>Total time together = 1 / (1/A + 1/B)</code>
+                  </div>
+
+                  <p class="topic-subhead">Practice Questions</p>
+                  <ol class="question-list">
+                    <li>
+                      <details class="question-item">
+                        <summary>A can do a piece of work in 12 days and B in 18 days. In how many days can they finish it together?</summary>
+                        <p class="answer"><strong>Answer:</strong> 7.2 days. Combined rate = 1/12 + 1/18 = 5/36, so time = 36/5 = 7.2 days.</p>
+                      </details>
+                    </li>
+                    <li>
+                      <details class="question-item">
+                        <summary>A and B together can finish a job in 10 days. A alone can do it in 15 days. How long would B alone take?</summary>
+                        <p class="answer"><strong>Answer:</strong> 30 days. B's rate = 1/10 − 1/15 = 1/30, so B alone takes 30 days.</p>
+                      </details>
+                    </li>
+                  </ol>
+                </div>
+              </details>
+
+              <details class="topic-item">
+                <summary><span class="topic-number">5</span> Simple &amp; Compound Interest <span class="topic-toggle">+</span></summary>
+                <div class="topic-body">
+                  <p class="topic-subhead">Notes</p>
+                  <ul class="topic-notes">
+                    <li>Simple interest is calculated only on the original principal, every year.</li>
+                    <li>Compound interest is calculated on principal + accumulated interest, so it grows faster.</li>
+                    <li>For short durations (1–2 years) at the same rate, CI is only slightly more than SI.</li>
+                  </ul>
+
+                  <p class="topic-subhead">Formulas</p>
+                  <div class="formula-box">
+                    <code>SI = (P × R × T) / 100</code>
+                    <code>CI = P × (1 + R/100)^T − P</code>
+                    <code>Difference between CI and SI for 2 years = P × (R/100)²</code>
+                  </div>
+
+                  <p class="topic-subhead">Practice Questions</p>
+                  <ol class="question-list">
+                    <li>
+                      <details class="question-item">
+                        <summary>Find the compound interest on ₹10,000 for 2 years at 10% per annum, compounded annually.</summary>
+                        <p class="answer"><strong>Answer:</strong> ₹2,100. Amount = 10,000 × 1.1² = 12,100, so CI = ₹2,100.</p>
+                      </details>
+                    </li>
+                    <li>
+                      <details class="question-item">
+                        <summary>The difference between CI and SI on a sum for 2 years at 5% per annum is ₹25. Find the sum.</summary>
+                        <p class="answer"><strong>Answer:</strong> ₹10,000. Using difference = P × (R/100)², 25 = P × 0.0025, so P = ₹10,000.</p>
+                      </details>
+                    </li>
+                  </ol>
+                </div>
+              </details>
+
+              <details class="topic-item">
+                <summary><span class="topic-number">6</span> HCF &amp; LCM <span class="topic-toggle">+</span></summary>
+                <div class="topic-body">
+                  <p class="topic-subhead">Notes</p>
+                  <ul class="topic-notes">
+                    <li>HCF (Highest Common Factor) is the largest number that divides two or more numbers exactly.</li>
+                    <li>LCM (Lowest Common Multiple) is the smallest number that is divisible by all the given numbers.</li>
+                    <li>For fractions, find HCF using numerators/denominators separately rather than converting to decimals.</li>
+                  </ul>
+
+                  <p class="topic-subhead">Formulas</p>
+                  <div class="formula-box">
+                    <code>HCF × LCM = Product of the two numbers (for exactly two numbers)</code>
+                    <code>HCF of fractions = HCF(numerators) / LCM(denominators)</code>
+                    <code>LCM of fractions = LCM(numerators) / HCF(denominators)</code>
+                  </div>
+
+                  <p class="topic-subhead">Practice Questions</p>
+                  <ol class="question-list">
+                    <li>
+                      <details class="question-item">
+                        <summary>Find the HCF and LCM of 24 and 36.</summary>
+                        <p class="answer"><strong>Answer:</strong> HCF = 12, LCM = 72. Since HCF × LCM = 24 × 36 = 864, LCM = 864 / 12 = 72.</p>
+                      </details>
+                    </li>
+                    <li>
+                      <details class="question-item">
+                        <summary>The HCF of two numbers is 12 and their LCM is 240. If one number is 48, find the other.</summary>
+                        <p class="answer"><strong>Answer:</strong> 60. Product of numbers = HCF × LCM = 12 × 240 = 2,880. Other number = 2,880 / 48 = 60.</p>
+                      </details>
+                    </li>
+                  </ol>
+                </div>
+              </details>
+
+              <details class="topic-item">
+                <summary><span class="topic-number">7</span> Permutation &amp; Combination <span class="topic-toggle">+</span></summary>
+                <div class="topic-body">
+                  <p class="topic-subhead">Notes</p>
+                  <ul class="topic-notes">
+                    <li>Permutation counts arrangements where order matters; combination counts selections where order doesn't.</li>
+                    <li>Use permutation for "arrangement", "ranking", or "seating" problems, and combination for "selection" or "grouping" problems.</li>
+                    <li>Factorial notation n! means n × (n−1) × (n−2) × ... × 1, with 0! defined as 1.</li>
+                  </ul>
+
+                  <p class="topic-subhead">Formulas</p>
+                  <div class="formula-box">
+                    <code>nPr = n! / (n − r)!</code>
+                    <code>nCr = n! / (r! × (n − r)!)</code>
+                    <code>nCr = nC(n − r)</code>
+                  </div>
+
+                  <p class="topic-subhead">Practice Questions</p>
+                  <ol class="question-list">
+                    <li>
+                      <details class="question-item">
+                        <summary>In how many ways can 5 people be seated in a row?</summary>
+                        <p class="answer"><strong>Answer:</strong> 120 ways. 5 people in 5 seats = 5! = 120.</p>
+                      </details>
+                    </li>
+                    <li>
+                      <details class="question-item">
+                        <summary>From a group of 7 people, in how many ways can a committee of 3 be formed?</summary>
+                        <p class="answer"><strong>Answer:</strong> 35 ways. 7C3 = 7! / (3! × 4!) = 35.</p>
+                      </details>
+                    </li>
+                  </ol>
+                </div>
+              </details>
+
+              <details class="topic-item">
+                <summary><span class="topic-number">8</span> Probability <span class="topic-toggle">+</span></summary>
+                <div class="topic-body">
+                  <p class="topic-subhead">Notes</p>
+                  <ul class="topic-notes">
+                    <li>Probability of an event = favourable outcomes / total possible outcomes, and always lies between 0 and 1.</li>
+                    <li>For independent events, multiply individual probabilities to get the probability of both happening.</li>
+                    <li>For mutually exclusive events, add individual probabilities to get the probability of either happening.</li>
+                  </ul>
+
+                  <p class="topic-subhead">Formulas</p>
+                  <div class="formula-box">
+                    <code>P(Event) = Favourable outcomes / Total outcomes</code>
+                    <code>P(A and B) = P(A) × P(B), for independent events</code>
+                    <code>P(A or B) = P(A) + P(B), for mutually exclusive events</code>
+                  </div>
+
+                  <p class="topic-subhead">Practice Questions</p>
+                  <ol class="question-list">
+                    <li>
+                      <details class="question-item">
+                        <summary>A die is rolled once. What is the probability of getting a number greater than 4?</summary>
+                        <p class="answer"><strong>Answer:</strong> 1/3. Favourable outcomes {5, 6} = 2, total outcomes = 6, so probability = 2/6 = 1/3.</p>
+                      </details>
+                    </li>
+                    <li>
+                      <details class="question-item">
+                        <summary>A bag contains 4 red and 6 blue balls. One ball is drawn at random. What is the probability it is red?</summary>
+                        <p class="answer"><strong>Answer:</strong> 2/5. Favourable = 4, total = 10, so probability = 4/10 = 2/5.</p>
+                      </details>
+                    </li>
+                  </ol>
+                </div>
+              </details>
+
+              <details class="topic-item">
+                <summary><span class="topic-number">9</span> Number System <span class="topic-toggle">+</span></summary>
+                <div class="topic-body">
+                  <p class="topic-subhead">Notes</p>
+                  <ul class="topic-notes">
+                    <li>Natural numbers start from 1; whole numbers include 0; integers additionally include negative numbers.</li>
+                    <li>A number is divisible by 3 if its digit sum is divisible by 3, and by 9 if its digit sum is divisible by 9.</li>
+                    <li>Prime numbers have exactly two factors (1 and itself); 2 is the only even prime number.</li>
+                  </ul>
+
+                  <p class="topic-subhead">Formulas</p>
+                  <div class="formula-box">
+                    <code>Sum of first n natural numbers = n(n + 1) / 2</code>
+                    <code>Sum of first n squares = n(n + 1)(2n + 1) / 6</code>
+                    <code>Divisibility by 11: (sum of digits at odd places) − (sum of digits at even places) is 0 or a multiple of 11</code>
+                  </div>
+
+                  <p class="topic-subhead">Practice Questions</p>
+                  <ol class="question-list">
+                    <li>
+                      <details class="question-item">
+                        <summary>What is the remainder when 2^50 is divided by 7?</summary>
+                        <p class="answer"><strong>Answer:</strong> 4. Since 2^3 = 8 ≡ 1 (mod 7), 2^50 = (2^3)^16 × 2^2 ≡ 1 × 4 = 4 (mod 7).</p>
+                      </details>
+                    </li>
+                    <li>
+                      <details class="question-item">
+                        <summary>Find the sum of the first 20 natural numbers.</summary>
+                        <p class="answer"><strong>Answer:</strong> 210. Using n(n + 1)/2 = (20 × 21)/2 = 210.</p>
+                      </details>
+                    </li>
+                  </ol>
+                </div>
+              </details>
+
+              <details class="topic-item">
+                <summary><span class="topic-number">10</span> Averages <span class="topic-toggle">+</span></summary>
+                <div class="topic-body">
+                  <p class="topic-subhead">Notes</p>
+                  <ul class="topic-notes">
+                    <li>Average is the sum of all values divided by the number of values.</li>
+                    <li>Adding a new value shifts the average toward that value, proportional to the size of the group.</li>
+                    <li>Weighted average is used when items in a group carry different importance or quantity.</li>
+                  </ul>
+
+                  <p class="topic-subhead">Formulas</p>
+                  <div class="formula-box">
+                    <code>Average = Sum of observations / Number of observations</code>
+                    <code>New average after adding one term = (Old sum + New value) / (n + 1)</code>
+                    <code>Weighted average = (w1x1 + w2x2 + ...) / (w1 + w2 + ...)</code>
+                  </div>
+
+                  <p class="topic-subhead">Practice Questions</p>
+                  <ol class="question-list">
+                    <li>
+                      <details class="question-item">
+                        <summary>The average of 5 numbers is 20. If one number is excluded, the average becomes 19. Find the excluded number.</summary>
+                        <p class="answer"><strong>Answer:</strong> 24. Original sum = 5 × 20 = 100; remaining sum = 4 × 19 = 76; excluded number = 100 − 76 = 24.</p>
+                      </details>
+                    </li>
+                    <li>
+                      <details class="question-item">
+                        <summary>The average age of a class of 30 students is 15 years. Including the teacher's age, the average becomes 15.5. Find the teacher's age.</summary>
+                        <p class="answer"><strong>Answer:</strong> 30.5 years. Original total = 30 × 15 = 450; new total = 31 × 15.5 = 480.5; teacher's age = 480.5 − 450 = 30.5.</p>
+                      </details>
+                    </li>
+                  </ol>
+                </div>
+              </details>
+
+            </div>
+          </div>
+
+          <!-- ============ LOGICAL REASONING ============ -->
+          <div class="subject-panel" id="panel-logical">
+            <p class="subject-panel-intro">Less about formulas, more about pattern spotting — the fastest way to improve here is timed practice.</p>
+
+            <div class="topic-accordion">
+
+              <details class="topic-item" open>
+                <summary><span class="topic-number">1</span> Blood Relations <span class="topic-toggle">+</span></summary>
+                <div class="topic-body">
+                  <p class="topic-subhead">Notes</p>
+                  <ul class="topic-notes">
+                    <li>Draw a quick family tree as you read — don't try to hold the relationships in your head.</li>
+                    <li>Use "+" for male and "−" for female next to each name to avoid confusion later in the question.</li>
+                    <li>Watch for indirect phrasing like "the only son of my mother's mother" — that's simply "my uncle/maternal uncle".</li>
+                  </ul>
+
+                  <p class="topic-subhead">Key Rules</p>
+                  <div class="formula-box">
+                    <code>Mother's/Father's son = Brother</code>
+                    <code>Son's wife = Daughter-in-law</code>
+                    <code>Father's/Mother's father = Grandfather</code>
+                  </div>
+
+                  <p class="topic-subhead">Practice Questions</p>
+                  <ol class="question-list">
+                    <li>
+                      <details class="question-item">
+                        <summary>Pointing to a photograph, a man says, "She is the daughter of my grandfather's only son." How is the girl related to the man?</summary>
+                        <p class="answer"><strong>Answer:</strong> Sister. "My grandfather's only son" is the man's father, so the girl is his father's daughter — his sister.</p>
+                      </details>
+                    </li>
+                    <li>
+                      <details class="question-item">
+                        <summary>A is B's sister. C is B's mother. D is C's father. E is D's mother. How is A related to D?</summary>
+                        <p class="answer"><strong>Answer:</strong> Granddaughter. C is D's daughter, and A is C's daughter, so A is D's granddaughter.</p>
+                      </details>
+                    </li>
+                  </ol>
+                </div>
+              </details>
+
+              <details class="topic-item">
+                <summary><span class="topic-number">2</span> Coding–Decoding <span class="topic-toggle">+</span></summary>
+                <div class="topic-body">
+                  <p class="topic-subhead">Notes</p>
+                  <ul class="topic-notes">
+                    <li>Write out the alphabet with position numbers (A=1 … Z=26) on rough paper before you start.</li>
+                    <li>Check if the code shifts letters by a fixed number, reverses the word, or substitutes by a pattern.</li>
+                    <li>Once you crack the rule on the example given, apply the exact same rule to the actual question.</li>
+                  </ul>
+
+                  <p class="topic-subhead">Key Rules</p>
+                  <div class="formula-box">
+                    <code>Forward shift by n: letter position + n</code>
+                    <code>Reverse coding: A↔Z, B↔Y, C↔X ...</code>
+                  </div>
+
+                  <p class="topic-subhead">Practice Questions</p>
+                  <ol class="question-list">
+                    <li>
+                      <details class="question-item">
+                        <summary>In a code, "CAT" is written as "DBU". How is "DOG" written in the same code?</summary>
+                        <p class="answer"><strong>Answer:</strong> EPH. Each letter is shifted forward by 1: D→E, O→P, G→H.</p>
+                      </details>
+                    </li>
+                    <li>
+                      <details class="question-item">
+                        <summary>If "PAPER" is coded as "QCSIW", what is the coding pattern applied to each letter?</summary>
+                        <p class="answer"><strong>Answer:</strong> Each letter shifts forward by an increasing amount (+1, +2, +3, +4, +5): P→Q, A→C, P→S, E→I, R→W.</p>
+                      </details>
+                    </li>
+                  </ol>
+                </div>
+              </details>
+
+              <details class="topic-item">
+                <summary><span class="topic-number">3</span> Series &amp; Sequences <span class="topic-toggle">+</span></summary>
+                <div class="topic-body">
+                  <p class="topic-subhead">Notes</p>
+                  <ul class="topic-notes">
+                    <li>Check the difference between consecutive terms first — constant, increasing, or alternating.</li>
+                    <li>If differences don't reveal a pattern, try ratios, squares/cubes, or alternate-term series.</li>
+                    <li>For letter series, convert to numbers (A=1...Z=26) to spot the pattern faster.</li>
+                  </ul>
+
+                  <p class="topic-subhead">Key Rules</p>
+                  <div class="formula-box">
+                    <code>Arithmetic series: constant difference between terms</code>
+                    <code>Geometric series: constant ratio between terms</code>
+                  </div>
+
+                  <p class="topic-subhead">Practice Questions</p>
+                  <ol class="question-list">
+                    <li>
+                      <details class="question-item">
+                        <summary>Find the next term: 2, 6, 12, 20, 30, ?</summary>
+                        <p class="answer"><strong>Answer:</strong> 42. Differences are 4, 6, 8, 10, 12 — each term is n(n+1), so the next is 6×7 = 42.</p>
+                      </details>
+                    </li>
+                    <li>
+                      <details class="question-item">
+                        <summary>Find the missing letter: B, D, G, K, ?</summary>
+                        <p class="answer"><strong>Answer:</strong> P. The gap between letters increases by 1 each time (+2, +3, +4, +5): K + 5 = P.</p>
+                      </details>
+                    </li>
+                  </ol>
+                </div>
+              </details>
+
+              <details class="topic-item">
+                <summary><span class="topic-number">4</span> Syllogisms <span class="topic-toggle">+</span></summary>
+                <div class="topic-body">
+                  <p class="topic-subhead">Notes</p>
+                  <ul class="topic-notes">
+                    <li>Draw Venn diagrams for each statement rather than reasoning in your head.</li>
+                    <li>Evaluate a conclusion as true only if it holds in every possible diagram, not just one.</li>
+                    <li>"Some" statements only guarantee overlap — they don't say anything about the rest of the group.</li>
+                  </ul>
+
+                  <p class="topic-subhead">Key Rules</p>
+                  <div class="formula-box">
+                    <code>All A are B + All B are C → All A are C</code>
+                    <code>Some A are B does NOT imply Some B are A is false — it's actually always true (reversible)</code>
+                  </div>
+
+                  <p class="topic-subhead">Practice Questions</p>
+                  <ol class="question-list">
+                    <li>
+                      <details class="question-item">
+                        <summary>Statements: All pens are books. All books are tables. Conclusion: All pens are tables. Is the conclusion valid?</summary>
+                        <p class="answer"><strong>Answer:</strong> Valid. This is a direct chain: All A are B, All B are C, so All A are C holds in every possible diagram.</p>
+                      </details>
+                    </li>
+                    <li>
+                      <details class="question-item">
+                        <summary>Statements: Some cats are dogs. Some dogs are rats. Conclusion: Some cats are rats. Is the conclusion valid?</summary>
+                        <p class="answer"><strong>Answer:</strong> Not valid. Two "some" statements never combine into a guaranteed conclusion — the overlaps might not intersect.</p>
+                      </details>
+                    </li>
+                  </ol>
+                </div>
+              </details>
+
+              <details class="topic-item">
+                <summary><span class="topic-number">5</span> Puzzles &amp; Seating Arrangement <span class="topic-toggle">+</span></summary>
+                <div class="topic-body">
+                  <p class="topic-subhead">Notes</p>
+                  <ul class="topic-notes">
+                    <li>Read all clues once fully before drawing anything, then place the most specific clue first.</li>
+                    <li>For circular arrangements, fix one person's position to stop the whole diagram from "rotating" in your head.</li>
+                    <li>Cross off clues as you use them so you don't accidentally reapply or skip one.</li>
+                  </ul>
+
+                  <p class="topic-subhead">Key Rules</p>
+                  <div class="formula-box">
+                    <code>"Facing centre" in a circle: left/right are as the person sees them</code>
+                    <code>"Facing outward": left/right are reversed from an outside view</code>
+                  </div>
+
+                  <p class="topic-subhead">Practice Questions</p>
+                  <ol class="question-list">
+                    <li>
+                      <details class="question-item">
+                        <summary>Five friends P, Q, R, S, T sit in a row. Q is immediately right of P. R is at one end. S is between Q and T. Who is at the other end?</summary>
+                        <p class="answer"><strong>Answer:</strong> One valid order is R, P, Q, S, T — so T sits at the other end, opposite R.</p>
+                      </details>
+                    </li>
+                    <li>
+                      <details class="question-item">
+                        <summary>Six people sit around a circular table facing the centre. A is second to the right of B, and C is immediately left of A. Where is C relative to B?</summary>
+                        <p class="answer"><strong>Answer:</strong> C is immediately to the right of B — since A is two seats right of B and C sits just before A (going clockwise), C lands directly next to B.</p>
+                      </details>
+                    </li>
+                  </ol>
+                </div>
+              </details>
+
+              <details class="topic-item">
+                <summary><span class="topic-number">6</span> Number Series <span class="topic-toggle">+</span></summary>
+                <div class="topic-body">
+                  <p class="topic-subhead">Notes</p>
+                  <ul class="topic-notes">
+                    <li>Check the difference or ratio between consecutive numbers before guessing the next term.</li>
+                    <li>Some series mix two interleaved patterns — check the odd-position and even-position terms separately.</li>
+                    <li>Squares, cubes, and prime-number series are common; recognise the first 15–20 of each by memory.</li>
+                  </ul>
+
+                  <p class="topic-subhead">Key Rules</p>
+                  <div class="formula-box">
+                    <code>Check simple difference/ratio pattern first</code>
+                    <code>If no pattern is found, split into two alternating sub-series</code>
+                    <code>Try squares (1, 4, 9, 16...), cubes (1, 8, 27, 64...), or primes (2, 3, 5, 7, 11...)</code>
+                  </div>
+
+                  <p class="topic-subhead">Practice Questions</p>
+                  <ol class="question-list">
+                    <li>
+                      <details class="question-item">
+                        <summary>Find the next term: 5, 11, 23, 47, ?</summary>
+                        <p class="answer"><strong>Answer:</strong> 95. Each term follows ×2 + 1: 5×2+1=11, 11×2+1=23, 23×2+1=47, 47×2+1=95.</p>
+                      </details>
+                    </li>
+                    <li>
+                      <details class="question-item">
+                        <summary>Find the missing term: 3, 8, 15, 24, 35, ?</summary>
+                        <p class="answer"><strong>Answer:</strong> 48. Differences are 5, 7, 9, 11, 13 (increasing by 2), so 35 + 13 = 48.</p>
+                      </details>
+                    </li>
+                  </ol>
+                </div>
+              </details>
+
+              <details class="topic-item">
+                <summary><span class="topic-number">7</span> Direction Sense <span class="topic-toggle">+</span></summary>
+                <div class="topic-body">
+                  <p class="topic-subhead">Notes</p>
+                  <ul class="topic-notes">
+                    <li>Sketch a rough compass (N, S, E, W) and mark the starting point before plotting any movements.</li>
+                    <li>A left turn rotates you 90° anticlockwise; a right turn rotates you 90° clockwise from your current facing direction.</li>
+                    <li>To find the shortest distance between the start and end points, apply the Pythagorean theorem to the net horizontal and vertical displacement.</li>
+                  </ul>
+
+                  <p class="topic-subhead">Key Rules</p>
+                  <div class="formula-box">
+                    <code>Facing North, left turn → West; right turn → East</code>
+                    <code>Net displacement: distance = √(x² + y²)</code>
+                    <code>Facing the sunrise means facing East; facing the sunset means facing West</code>
+                  </div>
+
+                  <p class="topic-subhead">Practice Questions</p>
+                  <ol class="question-list">
+                    <li>
+                      <details class="question-item">
+                        <summary>A man walks 4 km North, then turns right and walks 3 km. How far is he from his starting point?</summary>
+                        <p class="answer"><strong>Answer:</strong> 5 km. He now stands 4 km North and 3 km East of start — straight-line distance = √(4² + 3²) = √25 = 5 km.</p>
+                      </details>
+                    </li>
+                    <li>
+                      <details class="question-item">
+                        <summary>Ravi walks 6 km East, turns left and walks 6 km, then turns left again and walks 6 km. In which direction is he from his starting point?</summary>
+                        <p class="answer"><strong>Answer:</strong> North. His path forms three sides of a square — East, then North, then West — cancelling the East move and leaving him 6 km due North of the start.</p>
+                      </details>
+                    </li>
+                  </ol>
+                </div>
+              </details>
+
+              <details class="topic-item">
+                <summary><span class="topic-number">8</span> Calendar &amp; Clock <span class="topic-toggle">+</span></summary>
+                <div class="topic-body">
+                  <p class="topic-subhead">Notes</p>
+                  <ul class="topic-notes">
+                    <li>An ordinary year has 365 days (52 weeks + 1 odd day); a leap year has 366 days (52 weeks + 2 odd days).</li>
+                    <li>A calendar repeats for a given year when the total odd days between the two years is 0 and February has the same number of days.</li>
+                    <li>On a clock, the minute hand moves 6° per minute and the hour hand moves 0.5° per minute — use their relative speed for angle problems.</li>
+                  </ul>
+
+                  <p class="topic-subhead">Key Rules</p>
+                  <div class="formula-box">
+                    <code>Angle between hands = |(11/2 × M) − (30 × H)| degrees</code>
+                    <code>Odd days: ordinary year = 1, leap year = 2</code>
+                    <code>A correct clock completes a 12-hour cycle in 720 minutes</code>
+                  </div>
+
+                  <p class="topic-subhead">Practice Questions</p>
+                  <ol class="question-list">
+                    <li>
+                      <details class="question-item">
+                        <summary>If 1st January 2026 is a Thursday, what day of the week is 1st January 2027?</summary>
+                        <p class="answer"><strong>Answer:</strong> Friday. 2026 is not a leap year, so it has 1 odd day — the day advances by exactly one, from Thursday to Friday.</p>
+                      </details>
+                    </li>
+                    <li>
+                      <details class="question-item">
+                        <summary>At what time between 3 and 4 o'clock will the hands of a clock first be at right angles?</summary>
+                        <p class="answer"><strong>Answer:</strong> About 3:32:44. Solving (11/2)M − 90 = 90 gives M ≈ 32.7 minutes past 3.</p>
+                      </details>
+                    </li>
+                  </ol>
+                </div>
+              </details>
+
+            </div>
+          </div>
+
+          <!-- ============ VERBAL ABILITY ============ -->
+          <div class="subject-panel" id="panel-verbal">
+            <p class="subject-panel-intro">Vocabulary and grammar reward daily practice more than last-minute cramming — little and often works best here.</p>
+
+            <div class="topic-accordion">
+
+              <details class="topic-item" open>
+                <summary><span class="topic-number">1</span> Reading Comprehension <span class="topic-toggle">+</span></summary>
+                <div class="topic-body">
+                  <p class="topic-subhead">Notes</p>
+                  <ul class="topic-notes">
+                    <li>Skim the passage once for the main idea before reading the questions — don't hunt line by line first.</li>
+                    <li>Answers to fact-based questions are usually stated directly; don't overthink them.</li>
+                    <li>For "tone" or "inference" questions, look for the author's word choice rather than your own opinion.</li>
+                  </ul>
+
+                  <p class="topic-subhead">Key Rules</p>
+                  <div class="formula-box">
+                    <code>Main idea = usually in the first or last sentence of a paragraph</code>
+                    <code>Eliminate extreme-word options ("always", "never") unless the passage itself is extreme</code>
+                  </div>
+
+                  <p class="topic-subhead">Practice Questions</p>
+                  <ol class="question-list">
+                    <li>
+                      <details class="question-item">
+                        <summary>Passage: "Remote work reduced commute times but blurred the boundary between office hours and personal time for many employees." What is the passage's main point?</summary>
+                        <p class="answer"><strong>Answer:</strong> Remote work brought a trade-off — it saved commute time but made work-life boundaries less clear.</p>
+                      </details>
+                    </li>
+                    <li>
+                      <details class="question-item">
+                        <summary>In the same passage, what tone does the author take toward remote work?</summary>
+                        <p class="answer"><strong>Answer:</strong> Balanced/neutral — the sentence presents one benefit and one drawback without favoring either.</p>
+                      </details>
+                    </li>
+                  </ol>
+                </div>
+              </details>
+
+              <details class="topic-item">
+                <summary><span class="topic-number">2</span> Synonyms &amp; Antonyms <span class="topic-toggle">+</span></summary>
+                <div class="topic-body">
+                  <p class="topic-subhead">Notes</p>
+                  <ul class="topic-notes">
+                    <li>Learn words in groups by theme (e.g. words for "criticize": rebuke, admonish, reprimand) — it sticks better than isolated lists.</li>
+                    <li>If unsure of the exact meaning, judge whether the word feels positive, negative, or neutral and match that tone.</li>
+                    <li>Watch for options that are related but not actually synonymous — a common trap in MCQs.</li>
+                  </ul>
+
+                  <p class="topic-subhead">Key Rules</p>
+                  <div class="formula-box">
+                    <code>Synonym = closest same meaning, not just "related topic"</code>
+                    <code>Antonym questions: eliminate any option that is itself a synonym first</code>
+                  </div>
+
+                  <p class="topic-subhead">Practice Questions</p>
+                  <ol class="question-list">
+                    <li>
+                      <details class="question-item">
+                        <summary>Choose the synonym of "TRANSIENT": (a) Permanent (b) Fleeting (c) Solid (d) Massive</summary>
+                        <p class="answer"><strong>Answer:</strong> (b) Fleeting — both mean lasting only a short time.</p>
+                      </details>
+                    </li>
+                    <li>
+                      <details class="question-item">
+                        <summary>Choose the antonym of "FRUGAL": (a) Thrifty (b) Wasteful (c) Careful (d) Modest</summary>
+                        <p class="answer"><strong>Answer:</strong> (b) Wasteful — frugal means careful with money/resources, so its opposite is wasteful.</p>
+                      </details>
+                    </li>
+                  </ol>
+                </div>
+              </details>
+
+              <details class="topic-item">
+                <summary><span class="topic-number">3</span> Sentence Correction <span class="topic-toggle">+</span></summary>
+                <div class="topic-body">
+                  <p class="topic-subhead">Notes</p>
+                  <ul class="topic-notes">
+                    <li>Check subject-verb agreement first — it's the most commonly tested error.</li>
+                    <li>Read the sentence in your head with each option substituted; the correct one should sound natural, not just "less wrong".</li>
+                    <li>Keep tense consistent across a sentence unless the meaning clearly requires a shift.</li>
+                  </ul>
+
+                  <p class="topic-subhead">Key Rules</p>
+                  <div class="formula-box">
+                    <code>Singular subject → singular verb; Plural subject → plural verb</code>
+                    <code>"Neither...nor" and "Either...or" agree with the nearer subject</code>
+                  </div>
+
+                  <p class="topic-subhead">Practice Questions</p>
+                  <ol class="question-list">
+                    <li>
+                      <details class="question-item">
+                        <summary>Correct the error: "Each of the students have submitted their assignment."</summary>
+                        <p class="answer"><strong>Answer:</strong> "Each of the students has submitted their assignment." — "Each" is singular, so it takes "has", not "have".</p>
+                      </details>
+                    </li>
+                    <li>
+                      <details class="question-item">
+                        <summary>Correct the error: "Neither the manager nor the employees was informed about the change."</summary>
+                        <p class="answer"><strong>Answer:</strong> "...were informed..." — the verb agrees with the nearer subject "employees", which is plural.</p>
+                      </details>
+                    </li>
+                  </ol>
+                </div>
+              </details>
+
+              <details class="topic-item">
+                <summary><span class="topic-number">4</span> Para Jumbles <span class="topic-toggle">+</span></summary>
+                <div class="topic-body">
+                  <p class="topic-subhead">Notes</p>
+                  <ul class="topic-notes">
+                    <li>Find the sentence that introduces the topic — it usually doesn't contain pronouns like "it" or "this" referring back.</li>
+                    <li>Look for linking words ("however", "therefore", "this") to chain sentences together.</li>
+                    <li>Once you have a likely first and last sentence, the middle order is often easier to lock in.</li>
+                  </ul>
+
+                  <p class="topic-subhead">Key Rules</p>
+                  <div class="formula-box">
+                    <code>Opening line: introduces subject, no dangling pronoun</code>
+                    <code>Closing line: often has a concluding word ("thus", "finally", "in the end")</code>
+                  </div>
+
+                  <p class="topic-subhead">Practice Questions</p>
+                  <ol class="question-list">
+                    <li>
+                      <details class="question-item">
+                        <summary>Arrange into a coherent paragraph: (1) This made the harvest larger than expected. (2) The monsoon arrived early this year. (3) Farmers were initially worried about the timing. (4) However, the rains were steady and well-spread.</summary>
+                        <p class="answer"><strong>Answer:</strong> 2-3-4-1. Introduce the event (2), reaction (3), contrast with "however" (4), then the result (1).</p>
+                      </details>
+                    </li>
+                    <li>
+                      <details class="question-item">
+                        <summary>Which sentence most likely opens the paragraph: "It soon became the city's most visited landmark." / "The old clock tower was restored last year after decades of neglect."</summary>
+                        <p class="answer"><strong>Answer:</strong> "The old clock tower was restored last year after decades of neglect." — it introduces the subject; the other sentence relies on "it" referring back to something already named.</p>
+                      </details>
+                    </li>
+                  </ol>
+                </div>
+              </details>
+
+              <details class="topic-item">
+                <summary><span class="topic-number">5</span> One-Word Substitution <span class="topic-toggle">+</span></summary>
+                <div class="topic-body">
+                  <p class="topic-subhead">Notes</p>
+                  <ul class="topic-notes">
+                    <li>These are best learned in small daily batches of 8–10 words rather than long lists at once.</li>
+                    <li>Group words by category (people, places, actions) to make them easier to recall under time pressure.</li>
+                    <li>Many of these words also double as vocabulary/synonym questions, so learning them helps both sections.</li>
+                  </ul>
+
+                  <p class="topic-subhead">Key Rules</p>
+                  <div class="formula-box">
+                    <code>Learn the word + a one-line definition + a sample sentence together</code>
+                  </div>
+
+                  <p class="topic-subhead">Practice Questions</p>
+                  <ol class="question-list">
+                    <li>
+                      <details class="question-item">
+                        <summary>One word for "a person who knows a lot about many different subjects": (a) Specialist (b) Polymath (c) Novice (d) Skeptic</summary>
+                        <p class="answer"><strong>Answer:</strong> (b) Polymath.</p>
+                      </details>
+                    </li>
+                    <li>
+                      <details class="question-item">
+                        <summary>One word for "a statement that is obviously true and not worth mentioning": (a) Paradox (b) Truism (c) Anomaly (d) Fallacy</summary>
+                        <p class="answer"><strong>Answer:</strong> (b) Truism.</p>
+                      </details>
+                    </li>
+                  </ol>
+                </div>
+              </details>
+
+              <details class="topic-item">
+                <summary><span class="topic-number">6</span> Spotting Errors <span class="topic-toggle">+</span></summary>
+                <div class="topic-body">
+                  <p class="topic-subhead">Notes</p>
+                  <ul class="topic-notes">
+                    <li>Read the sentence in parts (usually split into 3–4 chunks) and check each chunk independently for a grammatical error.</li>
+                    <li>Common error zones: subject-verb agreement, article usage (a/an/the), preposition choice, and tense consistency.</li>
+                    <li>If no error is found after checking every part, the answer is often "No error" — don't force-fit a mistake.</li>
+                  </ul>
+
+                  <p class="topic-subhead">Key Rules</p>
+                  <div class="formula-box">
+                    <code>Check subject-verb agreement, tense, and article usage first — they cover most errors</code>
+                    <code>A comparative sentence ("more...than", "as...as") needs matching structure on both sides</code>
+                    <code>Certain verbs take fixed prepositions ("depend on", "different from") — memorise the common ones</code>
+                  </div>
+
+                  <p class="topic-subhead">Practice Questions</p>
+                  <ol class="question-list">
+                    <li>
+                      <details class="question-item">
+                        <summary>Spot the error: "Neither of the two students / have completed / their homework on time."</summary>
+                        <p class="answer"><strong>Answer:</strong> Error in part 2 — "have" should be "has", since "Neither of" takes a singular verb.</p>
+                      </details>
+                    </li>
+                    <li>
+                      <details class="question-item">
+                        <summary>Spot the error: "She is enough intelligent / to solve / this problem easily."</summary>
+                        <p class="answer"><strong>Answer:</strong> Error in part 1 — "enough" should follow the adjective: "intelligent enough", not "enough intelligent".</p>
+                      </details>
+                    </li>
+                  </ol>
+                </div>
+              </details>
+
+              <details class="topic-item">
+                <summary><span class="topic-number">7</span> Idioms &amp; Phrases <span class="topic-toggle">+</span></summary>
+                <div class="topic-body">
+                  <p class="topic-subhead">Notes</p>
+                  <ul class="topic-notes">
+                    <li>Learn idioms together with their meaning and a sample sentence, not as a standalone phrase — context helps recall.</li>
+                    <li>Most idioms can't be understood literally, so guessing from the individual words rarely works.</li>
+                    <li>Group idioms by theme (body parts, animals, colours) to make revision faster and stickier.</li>
+                  </ul>
+
+                  <p class="topic-subhead">Key Rules</p>
+                  <div class="formula-box">
+                    <code>An idiom's meaning is figurative, not literal — always learn its intended sense</code>
+                    <code>Match the idiom to the closest meaning, not the most literal-sounding option</code>
+                  </div>
+
+                  <p class="topic-subhead">Practice Questions</p>
+                  <ol class="question-list">
+                    <li>
+                      <details class="question-item">
+                        <summary>Choose the meaning of "to burn the midnight oil": (a) To waste money (b) To work late into the night (c) To start a fire (d) To relax</summary>
+                        <p class="answer"><strong>Answer:</strong> (b) To work late into the night.</p>
+                      </details>
+                    </li>
+                    <li>
+                      <details class="question-item">
+                        <summary>Choose the meaning of "to let the cat out of the bag": (a) To adopt a pet (b) To reveal a secret accidentally (c) To escape danger (d) To cause confusion</summary>
+                        <p class="answer"><strong>Answer:</strong> (b) To reveal a secret accidentally.</p>
+                      </details>
+                    </li>
+                  </ol>
+                </div>
+              </details>
+
+              <details class="topic-item">
+                <summary><span class="topic-number">8</span> Sentence Completion <span class="topic-toggle">+</span></summary>
+                <div class="topic-body">
+                  <p class="topic-subhead">Notes</p>
+                  <ul class="topic-notes">
+                    <li>Read the whole sentence first to grasp its overall logic before deciding on the missing word — the second half often signals the answer.</li>
+                    <li>Watch for contrast words ("but", "although", "however") and continuation words ("and", "similarly") — they hint whether the blank should match or oppose the rest.</li>
+                    <li>For double-blank questions, eliminate any option where even one word doesn't fit before checking the other.</li>
+                  </ul>
+
+                  <p class="topic-subhead">Key Rules</p>
+                  <div class="formula-box">
+                    <code>Contrast connectors ("but", "yet", "despite", "although") signal the blank should oppose the rest of the sentence</code>
+                    <code>Continuation connectors ("and", "also", "moreover") signal the blank should align with the rest of the sentence</code>
+                  </div>
+
+                  <p class="topic-subhead">Practice Questions</p>
+                  <ol class="question-list">
+                    <li>
+                      <details class="question-item">
+                        <summary>Complete: "The manager was known for his __________ approach; he always listened carefully before making decisions." (a) Impulsive (b) Thoughtful (c) Careless (d) Hasty</summary>
+                        <p class="answer"><strong>Answer:</strong> (b) Thoughtful — it matches "listened carefully before deciding".</p>
+                      </details>
+                    </li>
+                    <li>
+                      <details class="question-item">
+                        <summary>Complete: "Although the weather was __________, the trekking group decided to continue their journey." (a) Pleasant (b) Harsh (c) Sunny (d) Calm</summary>
+                        <p class="answer"><strong>Answer:</strong> (b) Harsh — "Although" signals a contrast: the weather was bad, yet they continued.</p>
+                      </details>
+                    </li>
+                  </ol>
+                </div>
+              </details>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-column">
+          <h4>About PlacementHub</h4>
+          <p>PlacementHub is your complete placement preparation platform. We help students master DSA, aptitude, and interview skills to land their dream jobs.</p>
+        </div>
+        <div class="footer-column">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="dsa.html">DSA</a></li>
+            <li><a href="quiz.html">Quiz</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="experience.html">Interview Experiences</a></li>
+            <li><a href="aptitude.html">Aptitude Practice</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#">Blog</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Contact</h4>
+          <div class="footer-contact">
+            <p><i class="fas fa-envelope"></i> contact@placementhub.com</p>
+            <p><i class="fas fa-phone"></i> +91 (555) 123-4567</p>
+            <p><i class="fas fa-map-marker-alt"></i> Bangalore, India</p>
+            <div class="footer-social">
+              <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+              <a href="#" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 PlacementHub. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+  <script src="js/aptitude.js"></script>
+</body>
+</html>

@@ -1,0 +1,203 @@
+/* ===========================
+   Auth Pages (Sign In / Sign Up)
+=========================== */
+
+.auth-section {
+  min-height: calc(100vh - 72px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: 48px 20px;
+  background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 50%, #EC4899 100%);
+}
+
+.auth-shape {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.18;
+  animation: authFloat 9s ease-in-out infinite;
+  pointer-events: none;
+}
+.auth-shape-1 {
+  width: 420px; height: 420px;
+  background: radial-gradient(circle, rgba(236,72,153,.6), transparent);
+  top: -120px; right: -100px;
+  animation-duration: 8s;
+}
+.auth-shape-2 {
+  width: 340px; height: 340px;
+  background: radial-gradient(circle, rgba(99,102,241,.6), transparent);
+  bottom: -100px; left: -100px;
+  animation-duration: 10s;
+  animation-delay: 1s;
+}
+.auth-shape-3 {
+  width: 220px; height: 220px;
+  background: radial-gradient(circle, rgba(139,92,246,.6), transparent);
+  top: 55%; right: 8%;
+  animation-duration: 12s;
+  animation-delay: 2s;
+}
+@keyframes authFloat {
+  0%, 100% { transform: translateY(0) translateX(0); }
+  33% { transform: translateY(-24px) translateX(-16px); }
+  66% { transform: translateY(24px) translateX(16px); }
+}
+
+.auth-wrapper {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 440px;
+  animation: authCardIn .6s ease backwards;
+}
+@keyframes authCardIn {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.auth-card {
+  background: linear-gradient(135deg, var(--surface) 0%, rgba(51,65,85,.5) 100%);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  box-shadow: 0 25px 60px rgba(15,23,42,.45);
+  backdrop-filter: blur(10px);
+  padding: 40px 36px;
+}
+
+.auth-logo {
+  text-align: center;
+  font-size: 26px;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  margin-bottom: 8px;
+}
+
+.auth-header { text-align: center; margin-bottom: 28px; }
+.auth-header h1 { font-size: 26px; margin-bottom: 8px; color: var(--text-primary); }
+.auth-header p { font-size: 14px; color: var(--text-secondary); margin-bottom: 0; }
+
+.auth-form .form-group { margin-bottom: 20px; }
+
+.password-field { position: relative; }
+.password-field .form-input { padding-right: 44px; }
+.password-toggle {
+  position: absolute;
+  right: 12px; top: 50%;
+  transform: translateY(-50%);
+  background: none; border: none;
+  color: var(--text-tertiary);
+  cursor: pointer;
+  font-size: 16px;
+  padding: 8px;
+  min-height: auto;
+  display: flex; align-items: center;
+}
+.password-toggle:hover { color: var(--primary); }
+
+.form-error {
+  font-size: 12px;
+  color: var(--danger);
+  margin-top: 6px;
+  display: none;
+}
+.form-group.has-error .form-input { border-color: var(--danger); box-shadow: 0 0 0 3px rgba(239,68,68,.15); }
+.form-group.has-error .form-error { display: block; }
+
+.auth-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 13px;
+  margin-bottom: 24px;
+}
+.auth-checkbox { display: flex; align-items: center; gap: 8px; color: var(--text-secondary); cursor: pointer; }
+.auth-checkbox input { width: 16px; height: 16px; accent-color: var(--primary); cursor: pointer; }
+.auth-forgot { color: var(--primary); font-weight: 500; }
+.auth-forgot:hover { color: var(--primary-dark); }
+
+.auth-terms { font-size: 13px; color: var(--text-secondary); margin-bottom: 24px; display: flex; align-items: flex-start; gap: 8px; }
+.auth-terms input { width: 16px; height: 16px; accent-color: var(--primary); cursor: pointer; margin-top: 2px; flex-shrink: 0; }
+.auth-terms a { color: var(--primary); font-weight: 500; }
+
+.auth-submit { width: 100%; margin-bottom: 8px; }
+
+.auth-status {
+  display: none;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  border-radius: var(--radius-sm);
+  padding: 10px 12px;
+  margin-bottom: 20px;
+}
+.auth-status.show { display: flex; }
+.auth-status.success { background: rgba(16,185,129,.12); color: var(--success); border: 1px solid rgba(16,185,129,.3); }
+.auth-status.error { background: rgba(239,68,68,.12); color: var(--danger); border: 1px solid rgba(239,68,68,.3); }
+
+.auth-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 24px 0;
+  color: var(--text-tertiary);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+}
+.auth-divider::before, .auth-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background-color: var(--border);
+}
+
+.auth-social { display: flex; gap: 12px; margin-bottom: 28px; }
+.btn-social {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+  border-radius: var(--radius-sm);
+  padding: 12px;
+  font-family: var(--font-family);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition);
+  min-height: 44px;
+}
+.btn-social:hover { border-color: var(--primary); background-color: rgba(99,102,241,.08); transform: translateY(-2px); }
+.btn-social i.fa-google { color: #EA4335; }
+.btn-social i.fa-github { color: var(--text-primary); }
+
+.auth-footer-text { text-align: center; font-size: 14px; color: var(--text-secondary); margin: 0; }
+.auth-footer-text a { color: var(--primary); font-weight: 600; }
+.auth-footer-text a:hover { color: var(--primary-dark); }
+
+.auth-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: rgba(255,255,255,.9);
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 10;
+}
+.auth-back:hover { color: white; }
+
+@media (max-width: 480px) {
+  .auth-section { padding: 32px 16px; }
+  .auth-card { padding: 32px 24px; }
+  .auth-header h1 { font-size: 22px; }
+  .auth-social { flex-direction: column; }
+}

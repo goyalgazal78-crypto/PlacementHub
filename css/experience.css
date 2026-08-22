@@ -1,0 +1,796 @@
+/* Experience Page */
+
+
+/* 1. Page Banner */
+
+.page-banner {
+  background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 50%, #EC4899 100%);
+  color: white;
+  padding: var(--spacing-3xl) 0 180px;
+  position: relative;
+  overflow: hidden;
+}
+
+.page-banner::before {
+  content: '';
+  position: absolute;
+  width: 360px;
+  height: 360px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.18), transparent 70%);
+  border-radius: 50%;
+  top: -160px;
+  right: -80px;
+}
+
+.page-banner .container {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+  text-align: center;
+}
+
+.page-banner-label {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: var(--spacing-sm);
+}
+
+.page-banner h1 {
+  color: white;
+  margin-bottom: var(--spacing-md);
+  animation: expFadeUp 0.6s ease;
+}
+
+.page-banner-text {
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 680px;
+  margin: 0 auto var(--spacing-xl);
+}
+
+.banner-stats {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-xl);
+  flex-wrap: wrap;
+}
+
+.banner-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 140px;
+}
+
+.banner-stat-number {
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.banner-stat-title {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+
+/* 2. Explorer Layout */
+
+.experience-explorer {
+  position: relative;
+}
+
+.company-input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+
+/* 3. Company Logo Grid */
+
+.company-grid {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(168px, 1fr));
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-xl);
+}
+
+.company-grid li {
+  display: flex;
+}
+
+.company-card {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-sm);
+  background: linear-gradient(135deg, var(--surface) 0%, rgba(51, 65, 85, 0.5) 100%);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-soft);
+  cursor: pointer;
+  text-align: center;
+  transition: all var(--transition);
+}
+
+.company-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--primary);
+  box-shadow: var(--shadow-hover);
+}
+
+.company-logo-plate {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 52px;
+  padding: 10px;
+  background-color: #FFFFFF;
+  border-radius: var(--radius-lg);
+  margin-bottom: 4px;
+}
+
+.company-logo-plate img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.company-name {
+  font-size: 14px;
+  line-height: 1.3;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.company-count {
+  font-size: 12px;
+  color: var(--text-tertiary);
+}
+
+
+/* 4. Active & Focus States */
+
+#c-google:checked                 ~ .company-grid label[for="c-google"],
+#c-microsoft:checked              ~ .company-grid label[for="c-microsoft"],
+#c-amazon:checked                 ~ .company-grid label[for="c-amazon"],
+#c-adobe:checked                  ~ .company-grid label[for="c-adobe"],
+#c-infosys:checked                ~ .company-grid label[for="c-infosys"],
+#c-tcs:checked                    ~ .company-grid label[for="c-tcs"],
+#c-accenture:checked              ~ .company-grid label[for="c-accenture"],
+#c-wipro:checked                  ~ .company-grid label[for="c-wipro"],
+#c-oracle:checked                 ~ .company-grid label[for="c-oracle"],
+#c-capgemini:checked              ~ .company-grid label[for="c-capgemini"],
+#c-goldman-sachs:checked          ~ .company-grid label[for="c-goldman-sachs"],
+#c-american-express:checked       ~ .company-grid label[for="c-american-express"],
+#c-jp-morgan:checked              ~ .company-grid label[for="c-jp-morgan"],
+#c-cisco:checked                  ~ .company-grid label[for="c-cisco"],
+#c-atlassian:checked              ~ .company-grid label[for="c-atlassian"],
+#c-flipkart:checked               ~ .company-grid label[for="c-flipkart"],
+#c-zomato:checked                 ~ .company-grid label[for="c-zomato"],
+#c-linkedin:checked               ~ .company-grid label[for="c-linkedin"],
+#c-paypal:checked                 ~ .company-grid label[for="c-paypal"],
+#c-blinkit:checked                ~ .company-grid label[for="c-blinkit"],
+#c-meesho:checked                 ~ .company-grid label[for="c-meesho"],
+#c-cognizant:checked              ~ .company-grid label[for="c-cognizant"] {
+  border-color: var(--primary);
+  box-shadow: var(--shadow-glow);
+  transform: translateY(-4px);
+}
+
+#c-google:checked                 ~ .company-grid label[for="c-google"] .company-name,
+#c-microsoft:checked              ~ .company-grid label[for="c-microsoft"] .company-name,
+#c-amazon:checked                 ~ .company-grid label[for="c-amazon"] .company-name,
+#c-adobe:checked                  ~ .company-grid label[for="c-adobe"] .company-name,
+#c-infosys:checked                ~ .company-grid label[for="c-infosys"] .company-name,
+#c-tcs:checked                    ~ .company-grid label[for="c-tcs"] .company-name,
+#c-accenture:checked              ~ .company-grid label[for="c-accenture"] .company-name,
+#c-wipro:checked                  ~ .company-grid label[for="c-wipro"] .company-name,
+#c-oracle:checked                 ~ .company-grid label[for="c-oracle"] .company-name,
+#c-capgemini:checked              ~ .company-grid label[for="c-capgemini"] .company-name,
+#c-goldman-sachs:checked          ~ .company-grid label[for="c-goldman-sachs"] .company-name,
+#c-american-express:checked       ~ .company-grid label[for="c-american-express"] .company-name,
+#c-jp-morgan:checked              ~ .company-grid label[for="c-jp-morgan"] .company-name,
+#c-cisco:checked                  ~ .company-grid label[for="c-cisco"] .company-name,
+#c-atlassian:checked              ~ .company-grid label[for="c-atlassian"] .company-name,
+#c-flipkart:checked               ~ .company-grid label[for="c-flipkart"] .company-name,
+#c-zomato:checked                 ~ .company-grid label[for="c-zomato"] .company-name,
+#c-linkedin:checked               ~ .company-grid label[for="c-linkedin"] .company-name,
+#c-paypal:checked                 ~ .company-grid label[for="c-paypal"] .company-name,
+#c-blinkit:checked                ~ .company-grid label[for="c-blinkit"] .company-name,
+#c-meesho:checked                 ~ .company-grid label[for="c-meesho"] .company-name,
+#c-cognizant:checked              ~ .company-grid label[for="c-cognizant"] .company-name {
+  color: var(--primary);
+}
+
+#c-google:focus-visible           ~ .company-grid label[for="c-google"],
+#c-microsoft:focus-visible        ~ .company-grid label[for="c-microsoft"],
+#c-amazon:focus-visible           ~ .company-grid label[for="c-amazon"],
+#c-adobe:focus-visible            ~ .company-grid label[for="c-adobe"],
+#c-infosys:focus-visible          ~ .company-grid label[for="c-infosys"],
+#c-tcs:focus-visible              ~ .company-grid label[for="c-tcs"],
+#c-accenture:focus-visible        ~ .company-grid label[for="c-accenture"],
+#c-wipro:focus-visible            ~ .company-grid label[for="c-wipro"],
+#c-oracle:focus-visible           ~ .company-grid label[for="c-oracle"],
+#c-capgemini:focus-visible        ~ .company-grid label[for="c-capgemini"],
+#c-goldman-sachs:focus-visible    ~ .company-grid label[for="c-goldman-sachs"],
+#c-american-express:focus-visible ~ .company-grid label[for="c-american-express"],
+#c-jp-morgan:focus-visible        ~ .company-grid label[for="c-jp-morgan"],
+#c-cisco:focus-visible            ~ .company-grid label[for="c-cisco"],
+#c-atlassian:focus-visible        ~ .company-grid label[for="c-atlassian"],
+#c-flipkart:focus-visible         ~ .company-grid label[for="c-flipkart"],
+#c-zomato:focus-visible           ~ .company-grid label[for="c-zomato"],
+#c-linkedin:focus-visible         ~ .company-grid label[for="c-linkedin"],
+#c-paypal:focus-visible           ~ .company-grid label[for="c-paypal"],
+#c-blinkit:focus-visible          ~ .company-grid label[for="c-blinkit"],
+#c-meesho:focus-visible           ~ .company-grid label[for="c-meesho"],
+#c-cognizant:focus-visible        ~ .company-grid label[for="c-cognizant"] {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+
+
+/* 5. Experience Panels */
+
+.company-panel {
+  display: none;
+  scroll-margin-top: 96px;
+}
+
+#c-google:checked                 ~ .company-panels #p-google,
+#c-microsoft:checked              ~ .company-panels #p-microsoft,
+#c-amazon:checked                 ~ .company-panels #p-amazon,
+#c-adobe:checked                  ~ .company-panels #p-adobe,
+#c-infosys:checked                ~ .company-panels #p-infosys,
+#c-tcs:checked                    ~ .company-panels #p-tcs,
+#c-accenture:checked              ~ .company-panels #p-accenture,
+#c-wipro:checked                  ~ .company-panels #p-wipro,
+#c-oracle:checked                 ~ .company-panels #p-oracle,
+#c-capgemini:checked              ~ .company-panels #p-capgemini,
+#c-goldman-sachs:checked          ~ .company-panels #p-goldman-sachs,
+#c-american-express:checked       ~ .company-panels #p-american-express,
+#c-jp-morgan:checked              ~ .company-panels #p-jp-morgan,
+#c-cisco:checked                  ~ .company-panels #p-cisco,
+#c-atlassian:checked              ~ .company-panels #p-atlassian,
+#c-flipkart:checked               ~ .company-panels #p-flipkart,
+#c-zomato:checked                 ~ .company-panels #p-zomato,
+#c-linkedin:checked               ~ .company-panels #p-linkedin,
+#c-paypal:checked                 ~ .company-panels #p-paypal,
+#c-blinkit:checked                ~ .company-panels #p-blinkit,
+#c-meesho:checked                 ~ .company-panels #p-meesho,
+#c-cognizant:checked              ~ .company-panels #p-cognizant {
+  display: block;
+  animation: expFadeUp 0.3s ease;
+}
+
+
+/* 6. Panel Header */
+
+.panel-header {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  align-items: center;
+  gap: var(--spacing-md);
+  padding: var(--spacing-md);
+  background: linear-gradient(135deg, var(--surface) 0%, rgba(51, 65, 85, 0.5) 100%);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--primary);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-soft);
+  margin-bottom: var(--spacing-md);
+}
+
+.panel-logo {
+  height: 64px;
+  margin-bottom: 0;
+}
+
+.panel-heading h3 {
+  margin: 0 0 4px;
+}
+
+.panel-heading p {
+  margin: 0;
+  font-size: 14px;
+}
+
+
+/* 6b. Submission Success Alert */
+
+.submission-alert[hidden] {
+  display: none;
+}
+
+.submission-alert {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm) var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
+  border: 1px solid var(--success);
+  border-left: 4px solid var(--success);
+  border-radius: var(--radius-lg);
+  background-color: rgba(16, 185, 129, 0.1);
+  color: var(--text-secondary);
+  font-size: 14px;
+  animation: expFadeUp 0.3s ease;
+}
+
+.submission-alert i {
+  font-size: 20px;
+  color: var(--success);
+}
+
+.submission-alert strong {
+  color: var(--text-primary);
+}
+
+
+/* 7. Experience Card */
+
+.experience-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.experience-card {
+  background: linear-gradient(135deg, var(--surface) 0%, rgba(51, 65, 85, 0.5) 100%);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-md);
+  box-shadow: var(--shadow-soft);
+  transition: all var(--transition);
+}
+
+.experience-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--primary);
+  box-shadow: var(--shadow-hover);
+}
+
+
+.experience-card.user-submitted {
+  border-left: 4px solid var(--accent);
+}
+
+.submission-flag {
+  padding: 6px 12px;
+  border-radius: 20px;
+  background-color: rgba(236, 72, 153, 0.12);
+  color: var(--accent-light);
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.remove-submission {
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background-color: transparent;
+  color: var(--text-tertiary);
+  font-size: 14px;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.remove-submission:hover {
+  border-color: var(--danger);
+  background-color: rgba(239, 68, 68, 0.1);
+  color: var(--danger);
+}
+
+.remove-submission:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.experience-tip {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-xs);
+  padding: 12px var(--spacing-sm);
+  margin: 0 0 var(--spacing-sm);
+  border-radius: var(--radius-lg);
+  background-color: rgba(245, 158, 11, 0.1);
+  border-left: 3px solid var(--warning);
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.experience-tip i {
+  color: var(--warning);
+  margin-top: 3px;
+}
+
+.experience-card-head {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-sm);
+}
+
+.student-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  color: white;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.student-info {
+  flex: 1;
+}
+
+.student-info h4 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.student-meta {
+  margin: 0;
+  font-size: 13px;
+  color: var(--text-tertiary);
+}
+
+.experience-summary {
+  margin: 0 0 var(--spacing-sm);
+  color: var(--text-secondary);
+}
+
+
+/* 8. Tags */
+
+.tag-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-xs);
+  margin-bottom: var(--spacing-sm);
+}
+
+.tag {
+  padding: 6px 12px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background-color: rgba(99, 102, 241, 0.08);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+
+/* 9. Round Breakdown  */
+
+.round-details {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background-color: rgba(99, 102, 241, 0.05);
+  margin-bottom: var(--spacing-sm);
+}
+
+.round-details summary {
+  padding: 12px var(--spacing-sm);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--primary);
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  transition: color var(--transition);
+}
+
+.round-details summary::-webkit-details-marker {
+  display: none;
+}
+
+.round-details summary::before {
+  content: '\f078'; /* Font Awesome chevron-down */
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+  font-size: 12px;
+  transition: transform var(--transition);
+}
+
+.round-details[open] summary::before {
+  transform: rotate(180deg);
+}
+
+.round-details summary:hover {
+  color: var(--primary-light);
+}
+
+.round-details summary:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: var(--radius-lg);
+}
+
+.round-list {
+  list-style: none;
+  counter-reset: round;
+  padding: 0 var(--spacing-sm) var(--spacing-sm);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.round-list li {
+  counter-increment: round;
+  position: relative;
+  padding-left: var(--spacing-lg);
+  border-left: 2px solid var(--border);
+  padding-bottom: 4px;
+}
+
+.round-list li::before {
+  content: counter(round);
+  position: absolute;
+  left: -13px;
+  top: 0;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: white;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.round-list strong {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 2px;
+}
+
+.round-list span {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+
+/* 10. YouTube Video Card */
+
+.video-card {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background-color: rgba(255, 0, 0, 0.06);
+  text-decoration: none;
+  transition: all var(--transition);
+}
+
+.video-card:hover {
+  border-color: #FF0000;
+  background-color: rgba(255, 0, 0, 0.12);
+  transform: translateX(4px);
+}
+
+.video-thumb {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 88px;
+  height: 56px;
+  flex-shrink: 0;
+  padding: var(--spacing-xs);
+  border-radius: var(--radius-sm);
+  background-color: #FFFFFF;
+  transition: transform var(--transition);
+}
+
+.video-thumb img {
+  width: 48px;
+  height: auto;
+  display: block;
+}
+
+.video-card:hover .video-thumb {
+  transform: scale(1.05);
+}
+
+.video-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.video-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.video-channel {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--text-tertiary);
+}
+
+.video-card:hover .video-channel {
+  color: #FF0000;
+}
+
+
+/* 11. Share Experience CTA */
+
+.share-card {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: var(--spacing-xl);
+  text-align: center;
+  background: linear-gradient(135deg, var(--surface) 0%, rgba(51, 65, 85, 0.5) 100%);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-soft);
+  transition: all var(--transition);
+}
+
+.share-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--primary);
+  box-shadow: var(--shadow-hover);
+}
+
+.share-icon {
+  display: block;
+  font-size: 32px;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: var(--spacing-sm);
+}
+
+.share-card p {
+  max-width: 520px;
+  margin: 0 auto var(--spacing-md);
+}
+
+
+/* 12. Animations */
+
+@keyframes expFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* 13. Responsive */
+
+@media (max-width: 992px) {
+  .panel-header {
+    grid-template-columns: 100px 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .page-banner {
+    padding: var(--spacing-2xl) 0;
+  }
+
+  .banner-stats {
+    gap: var(--spacing-md);
+  }
+
+  .banner-stat {
+    min-width: 100px;
+  }
+
+  .banner-stat-number {
+    font-size: 28px;
+  }
+
+  .panel-header {
+    grid-template-columns: 1fr;
+    text-align: center;
+    justify-items: center;
+  }
+
+  .panel-logo {
+    max-width: 160px;
+  }
+
+  .experience-card-head {
+    flex-wrap: wrap;
+  }
+
+  .video-thumb {
+    width: 72px;
+    height: 48px;
+  }
+
+  .video-thumb img {
+    width: 40px;
+  }
+
+  .share-card .btn {
+    width: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .banner-stats {
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-sm);
+  }
+
+  .share-card {
+    padding: var(--spacing-md);
+  }
+
+  .round-list li {
+    padding-left: var(--spacing-md);
+  }
+}
+
+
+/* 14. Mobile Navbar Menu */
+
+@media (max-width: 768px) {
+  .navbar.nav-open .navbar-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-md);
+    position: absolute;
+    top: 72px;
+    left: 0;
+    right: 0;
+    padding: var(--spacing-md) 0;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    box-shadow: var(--shadow-soft);
+    z-index: 999;
+  }
+
+  .navbar.nav-open .hamburger span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .navbar.nav-open .hamburger span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .navbar.nav-open .hamburger span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+}

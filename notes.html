@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Downloadable Notes - PlacementHub</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styleh.css">
+    <link rel="stylesheet" href="dsa.css">
+    <link rel="stylesheet" href="notes.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+  <nav class="navbar">
+    <a href="index.html" class="navbar-logo">PlacementHub</a>
+    <div class="navbar-center">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="dashboard.html" class="nav-link">Dashboard</a>
+      <a href="dsa.html" class="nav-link">DSA</a>
+      <a href="quiz.html" class="nav-link">Quiz</a>
+      <a href="aptitude.html" class="nav-link">Aptitude</a>
+      <a href="experience.html" class="nav-link">Experience</a>
+    </div>
+  <div class="navbar-right">
+    <div class="theme-toggle">
+      <div class="toggle-circle">🌙</div>
+    </div>
+  <a href="signin.html" class="btn btn-secondary btn-sm">Sign In</a>
+  <a href="signup.html" class="btn btn-primary btn-sm">Sign Up</a>
+</div>
+<div class="hamburger">
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+</nav>
+<main class="dsa-main">
+  <div class="dsa-container">
+    <aside class="dsa-sidebar">
+      <div class="sidebar-toggle">
+        <i class="fas fa-chevron-left"></i>
+      </div>
+    <nav class="sidebar-nav">
+      <a href="dsa.html" class="sidebar-link">
+        <i class="fas fa-code"></i>
+        <span>DSA Sheet</span>
+      </a>
+    <a href="notes.html" class="sidebar-link active">
+      <i class="fas fa-book"></i>
+      <span>Downloadable Notes</span>
+    </a>
+  <a href="progress.html" class="sidebar-link">
+    <i class="fas fa-chart-line"></i>
+    <span>Progress Tracker</span>
+  </a>
+<a href="saved.html" class="sidebar-link">
+  <i class="fas fa-bookmark"></i>
+  <span>Saved Problems</span>
+</a>
+</nav>
+</aside>
+<section class="dsa-content">
+  <header class="dsa-header">
+    <h1 class="dsa-title">
+      <span class="title-primary">Comprehensive DSA Notes -</span>
+      <span class="title-accent">Detailed Study Materials with PDF</span>
+    </h1>
+  <div class="header-description">
+    <ul class="description-list">
+      <li>Click on any card to expand and preview detailed notes</li>
+      <li>Click "Download PDF" to save notes for offline study and reference</li>
+      <li>Access your downloads anytime from "View My Downloads"</li>
+    </ul>
+</div>
+<div style="margin-top: var(--spacing-lg); display: flex; gap: var(--spacing-md);">
+  <button onclick="showDownloads()" style="padding: 10px 20px; background-color: rgba(99, 102, 241, 0.15); border: 1px solid var(--primary); border-radius: var(--radius-sm); color: var(--primary); font-weight: 600; cursor: pointer; transition: all var(--transition);">
+    <i class="fas fa-download"></i> View My Downloads (<span id="download-count">0</span>)
+  </button>
+</div>
+</header>
+<div class="section-title">
+  <i class="fas fa-list"></i> Days 1-5: Arrays & Strings
+</div>
+<div class="note-card" data-note-id="arrays">
+  <div class="note-header" onclick="toggleNote(this)">
+    <div class="note-info">
+      <div class="note-title">
+        <i class="fas fa-bookmark"></i> Array Fundamentals & Advanced Operations
+        <span class="difficulty-badge difficulty-easy">Easy</span>
+      </div>
+    <div class="note-meta">
+      <span><i class="fas fa-file-pdf"></i> PDF</span>
+      <span><i class="fas fa-book"></i> 15 pages</span>
+    </div>
+</div>
+<i class="toggle-icon fas fa-chevron-down"></i>
+</div>
+<div class="note-preview">
+  <div class="preview-content">
+    <div class="preview-section">
+      <div class="preview-title">1. Introduction to Arrays</div>
+      <p>An array is a collection of elements of the same data type stored in contiguous memory locations. Arrays are one of the most fundamental data structures in computer science and are used extensively in algorithm design and problem solving.</p>
+      <h4>1.1 Array Declaration and Initialization</h4>
+      <ul class="preview-list">
+        <li><strong>Static Array:</strong> Size is fixed at compile time - int arr[10];</li>
+        <li><strong>Dynamic Array:</strong> Size is determined at runtime - int* arr = new int[n];</li>
+        <li><strong>Initialization:</strong> int arr[5] = {1, 2, 3, 4, 5};</li>
+      </ul>
+    <div class="code-example">// Array Declaration<br>int arr[5];                    // Uninitialized<br>int arr[5] = {0};              // All elements = 0<br>int arr[] = {1,2,3,4,5};       // Auto size<br></div>
+  </div>
+<div class="preview-section">
+  <div class="preview-title">2. Array Time & Space Complexity</div>
+  <table style="width: 100%; border-collapse: collapse; margin: 12px 0;"><tr style="background-color: rgba(99, 102, 241, 0.1);"><th style="border: 1px solid var(--border); padding: 8px;">Operation</th><th style="border: 1px solid var(--border); padding: 8px;">Time</th><th style="border: 1px solid var(--border); padding: 8px;">Space</th></tr><tr><td style="border: 1px solid var(--border); padding: 8px;">Access (by index)</td><td style="border: 1px solid var(--border); padding: 8px;">O(1)</td><td style="border: 1px solid var(--border); padding: 8px;">O(1)</td></tr><tr><td style="border: 1px solid var(--border); padding: 8px;">Search (unsorted)</td><td style="border: 1px solid var(--border); padding: 8px;">O(n)</td><td style="border: 1px solid var(--border); padding: 8px;">O(1)</td></tr><tr><td style="border: 1px solid var(--border); padding: 8px;">Insert at beginning</td><td style="border: 1px solid var(--border); padding: 8px;">O(n)</td><td style="border: 1px solid var(--border); padding: 8px;">O(1)</td></tr><tr><td style="border: 1px solid var(--border); padding: 8px;">Insert at end</td><td style="border: 1px solid var(--border); padding: 8px;">O(1)</td><td style="border: 1px solid var(--border); padding: 8px;">O(1)</td></tr><tr><td style="border: 1px solid var(--border); padding: 8px;">Delete operation</td><td style="border: 1px solid var(--border); padding: 8px;">O(n)</td><td style="border: 1px solid var(--border); padding: 8px;">O(1)</td></tr></table>
+</div>
+<div class="preview-section">
+  <div class="preview-title">3. Key Algorithms</div>
+  <h4>3.1 Linear Search</h4>
+  <p>Linear search is the simplest searching algorithm. It compares the search element with each element in the array one by one.</p>
+  <div class="code-example">int linearSearch(int arr[], int n, int target) {<br>&nbsp;&nbsp;for (int i = 0; i < n; i++) {<br>&nbsp;&nbsp;&nbsp;&nbsp;if (arr[i] == target) return i;<br>&nbsp;&nbsp;}<br>&nbsp;&nbsp;return -1;  // Not found<br>}<br>// Time: O(n), Space: O(1)</div>
+  <h4>3.2 Binary Search</h4>
+  <p>Binary search works on sorted arrays. It divides the search space in half each time, resulting in logarithmic time complexity.</p>
+  <div class="code-example">int binarySearch(int arr[], int n, int target) {<br>&nbsp;&nbsp;int left = 0, right = n - 1;<br>&nbsp;&nbsp;while (left <= right) {<br>&nbsp;&nbsp;&nbsp;&nbsp;int mid = left + (right - left) / 2;<br>&nbsp;&nbsp;&nbsp;&nbsp;if (arr[mid] == target) return mid;<br>&nbsp;&nbsp;&nbsp;&nbsp;if (arr[mid] < target) left = mid + 1;<br>&nbsp;&nbsp;&nbsp;&nbsp;else right = mid - 1;<br>&nbsp;&nbsp;}<br>&nbsp;&nbsp;return -1;<br>}<br>// Time: O(log n), Space: O(1)</div>
+  <h4>3.3 Reverse Array</h4>
+  <p>Reversing an array can be done efficiently using the two-pointer technique without needing extra space.</p>
+  <div class="code-example">void reverseArray(int arr[], int n) {<br>&nbsp;&nbsp;int left = 0, right = n - 1;<br>&nbsp;&nbsp;while (left < right) {<br>&nbsp;&nbsp;&nbsp;&nbsp;int temp = arr[left];<br>&nbsp;&nbsp;&nbsp;&nbsp;arr[left] = arr[right];<br>&nbsp;&nbsp;&nbsp;&nbsp;arr[right] = temp;<br>&nbsp;&nbsp;&nbsp;&nbsp;left++; right--;<br>&nbsp;&nbsp;}<br>}<br>// Time: O(n), Space: O(1)</div>
+</div>
+<div class="preview-section">
+  <div class="preview-title">4. Common Interview Problems</div>
+  <h4>4.1 Two Sum Problem</h4>
+  <p>Find two numbers that add up to target. Use HashMap for O(n) solution.</p>
+  <div class="code-example">vector&lt;int&gt; twoSum(vector&lt;int&gt;& nums, int target) {<br>&nbsp;&nbsp;unordered_map&lt;int, int&gt; map;  // {value: index}<br>&nbsp;&nbsp;<br>&nbsp;&nbsp;for (int i = 0; i < nums.size(); i++) {<br>&nbsp;&nbsp;&nbsp;&nbsp;int complement = target - nums[i];<br>&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;if (map.find(complement) != map.end()) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return {map[complement], i};<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;map[nums[i]] = i;<br>&nbsp;&nbsp;}<br>&nbsp;&nbsp;return {};<br>}<br>// Time: O(n), Space: O(n)</div>
+  <h4>4.2 Max Subarray Sum (Kadane's Algorithm)</h4>
+  <p>Find maximum sum of contiguous subarray using dynamic programming.</p>
+  <div class="code-example">int maxSubArray(vector&lt;int&gt;& nums) {<br>&nbsp;&nbsp;int maxSum = nums[0];<br>&nbsp;&nbsp;int currentSum = nums[0];<br>&nbsp;&nbsp;<br>&nbsp;&nbsp;for (int i = 1; i < nums.size(); i++) {<br>&nbsp;&nbsp;&nbsp;&nbsp;currentSum = max(nums[i], currentSum + nums[i]);<br>&nbsp;&nbsp;&nbsp;&nbsp;maxSum = max(maxSum, currentSum);<br>&nbsp;&nbsp;}<br>&nbsp;&nbsp;return maxSum;<br>}<br>// Example: [-2,1,-3,4,-1,2,1,-5,4] → 6 (subarray [4,-1,2,1])<br>// Time: O(n), Space: O(1)</div>
+  <h4>4.3 Container with Most Water</h4>
+  <p>Two-pointer approach to find max area between two lines.</p>
+  <div class="code-example">int maxArea(vector&lt;int&gt;& height) {<br>&nbsp;&nbsp;int maxArea = 0;<br>&nbsp;&nbsp;int left = 0, right = height.size() - 1;<br>&nbsp;&nbsp;<br>&nbsp;&nbsp;while (left < right) {<br>&nbsp;&nbsp;&nbsp;&nbsp;int width = right - left;<br>&nbsp;&nbsp;&nbsp;&nbsp;int h = min(height[left], height[right]);<br>&nbsp;&nbsp;&nbsp;&nbsp;int area = width * h;<br>&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;maxArea = max(maxArea, area);<br>&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;// Move pointer pointing to smaller height<br>&nbsp;&nbsp;&nbsp;&nbsp;if (height[left] < height[right]) left++;<br>&nbsp;&nbsp;&nbsp;&nbsp;else right--;<br>&nbsp;&nbsp;}<br>&nbsp;&nbsp;return maxArea;<br>}<br>// Time: O(n), Space: O(1)</div>
+  <h4>4.4 Majority Element</h4>
+  <p>Find element appearing more than n/2 times using Boyer-Moore voting.</p>
+  <div class="code-example">int majorityElement(vector&lt;int&gt;& nums) {<br>&nbsp;&nbsp;int candidate = 0, count = 0;<br>&nbsp;&nbsp;<br>&nbsp;&nbsp;// Find candidate<br>&nbsp;&nbsp;for (int num : nums) {<br>&nbsp;&nbsp;&nbsp;&nbsp;if (count == 0) candidate = num;<br>&nbsp;&nbsp;&nbsp;&nbsp;count += (num == candidate) ? 1 : -1;<br>&nbsp;&nbsp;}<br>&nbsp;&nbsp;<br>&nbsp;&nbsp;return candidate;<br>}<br>// Time: O(n), Space: O(1)</div>
+  <h4>4.5 Best Time to Buy Stock</h4>
+  <p>Single pass to track minimum price and maximum profit.</p>
+  <div class="code-example">int maxProfit(vector&lt;int&gt;& prices) {<br>&nbsp;&nbsp;int minPrice = INT_MAX;<br>&nbsp;&nbsp;int maxProfit = 0;<br>&nbsp;&nbsp;<br>&nbsp;&nbsp;for (int price : prices) {<br>&nbsp;&nbsp;&nbsp;&nbsp;minPrice = min(minPrice, price);<br>&nbsp;&nbsp;&nbsp;&nbsp;maxProfit = max(maxProfit, price - minPrice);<br>&nbsp;&nbsp;}<br>&nbsp;&nbsp;return maxProfit;<br>}<br>// Example: [7,1,5,3,6,4] → 5 (buy at 1, sell at 6)<br>// Time: O(n), Space: O(1)</div>
+</div>
+</div>
+</div>
+<div class="note-actions">
+  <button class="btn-action btn-download" onclick="downloadPDF('arrays', 'Array Fundamentals')">
+    <i class="fas fa-download"></i> Download PDF
+  </button>
+</div>
+</div>
+<div class="note-card" data-note-id="strings">
+  <div class="note-header" onclick="toggleNote(this)">
+    <div class="note-info">
+      <div class="note-title">
+        <i class="fas fa-type"></i> String Manipulation & Pattern Matching
+        <span class="difficulty-badge difficulty-easy">Easy</span>
+      </div>
+    <div class="note-meta">
+      <span><i class="fas fa-file-pdf"></i> PDF</span>
+      <span><i class="fas fa-book"></i> 18 pages</span>
+    </div>
+</div>
+<i class="toggle-icon fas fa-chevron-down"></i>
+</div>
+<div class="note-preview">
+  <div class="preview-content">
+    <div class="preview-section">
+      <div class="preview-title">1. String Fundamentals</div>
+      <p>Strings are sequences of characters. In many languages like Java and Python, strings are immutable, meaning once created, they cannot be changed. Understanding string properties is crucial for solving string-related problems efficiently.</p>
+      <h4>1.1 String Properties</h4>
+      <ul class="preview-list">
+        <li><strong>Immutability:</strong> In Java/Python, strings cannot be modified after creation</li>
+        <li><strong>Character Encoding:</strong> ASCII (0-127), Extended ASCII (0-255), Unicode (0-1,114,111)</li>
+        <li><strong>String Comparison:</strong> Use equals() method, not == operator</li>
+        <li><strong>Substring:</strong> String.substring(start, end) extracts portion of string</li>
+      </ul>
+    <div class="code-example">// String Operations<br>String s = "Hello";<br>s.length()            // Returns 5<br>s.charAt(0)           // Returns 'H'<br>s.substring(1, 4)     // Returns "ell"<br>s.indexOf("l")        // Returns 2<br>s.toUpperCase()       // Returns "HELLO"</div>
+  </div>
+<div class="preview-section">
+  <div class="preview-title">2. String vs StringBuilder Performance</div>
+  <table style="width: 100%; border-collapse: collapse; margin: 12px 0;"><tr style="background-color: rgba(99, 102, 241, 0.1);"><th style="border: 1px solid var(--border); padding: 8px;">Aspect</th><th style="border: 1px solid var(--border); padding: 8px;">String</th><th style="border: 1px solid var(--border); padding: 8px;">StringBuilder</th></tr><tr><td style="border: 1px solid var(--border); padding: 8px;">Mutability</td><td style="border: 1px solid var(--border); padding: 8px;">Immutable</td><td style="border: 1px solid var(--border); padding: 8px;">Mutable</td></tr><tr><td style="border: 1px solid var(--border); padding: 8px;">Thread Safety</td><td style="border: 1px solid var(--border); padding: 8px;">Thread Safe</td><td style="border: 1px solid var(--border); padding: 8px;">Not Thread Safe</td></tr><tr><td style="border: 1px solid var(--border); padding: 8px;">Performance</td><td style="border: 1px solid var(--border); padding: 8px;">Slower for modifications</td><td style="border: 1px solid var(--border); padding: 8px;">Faster for modifications</td></tr><tr><td style="border: 1px solid var(--border); padding: 8px;">Use Case</td><td style="border: 1px solid var(--border); padding: 8px;">Read-only strings</td><td style="border: 1px solid var(--border); padding: 8px;">Frequent concatenation</td></tr></table>
+</div>
+<div class="preview-section">
+  <div class="preview-title">3. Essential Techniques</div>
+  <h4>3.1 Two-Pointer Approach</h4>
+  <p>Used to solve problems involving palindromes, reversal, and matching pairs in strings.</p>
+  <div class="code-example">bool isPalindrome(string s) {<br>&nbsp;&nbsp;int left = 0, right = s.length() - 1;<br>&nbsp;&nbsp;while (left < right) {<br>&nbsp;&nbsp;&nbsp;&nbsp;if (s[left] != s[right]) return false;<br>&nbsp;&nbsp;&nbsp;&nbsp;left++; right--;<br>&nbsp;&nbsp;}<br>&nbsp;&nbsp;return true;<br>}<br>// Time: O(n), Space: O(1)</div>
+  <h4>3.2 Sliding Window</h4>
+  <p>Efficient technique for finding substrings with specific properties (like longest substring without repeating characters).</p>
+  <div class="code-example">int lengthOfLongestSubstring(string s) {<br>&nbsp;&nbsp;unordered_map<char, int> map;<br>&nbsp;&nbsp;int left = 0, maxLen = 0;<br>&nbsp;&nbsp;for (int right = 0; right < s.length(); right++) {<br>&nbsp;&nbsp;&nbsp;&nbsp;if (map.find(s[right]) != map.end()) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;left = max(left, map[s[right]] + 1);<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;map[s[right]] = right;<br>&nbsp;&nbsp;&nbsp;&nbsp;maxLen = max(maxLen, right - left + 1);<br>&nbsp;&nbsp;}<br>&nbsp;&nbsp;return maxLen;<br>}<br>// Time: O(n), Space: O(min(m,n))</div>
+    <h4>3.3 Character Frequency Counting</h4>
+    <p>Common technique using HashMap or Array to count character occurrences for anagram checking, etc.</p>
+    <div class="code-example">bool isAnagram(string s, string t) {<br>&nbsp;&nbsp;if (s.length() != t.length()) return false;<br>&nbsp;&nbsp;int freq[26] = {0};<br>&nbsp;&nbsp;for (char c : s) freq[c - 'a']++;<br>&nbsp;&nbsp;for (char c : t) {<br>&nbsp;&nbsp;&nbsp;&nbsp;if (--freq[c - 'a'] < 0) return false;<br>&nbsp;&nbsp;}<br>&nbsp;&nbsp;return true;<br>}<br>// Time: O(n), Space: O(1) - fixed 26 letters</div>
+  </div>
+<div class="preview-section">
+  <div class="preview-title">4. Important Interview Problems</div>
+  <h4>4.1 Reverse String</h4>
+  <p>Reverse array of characters in-place using two pointers.</p>
+  <div class="code-example">void reverseString(vector&lt;char&gt;& s) {<br>&nbsp;&nbsp;int left = 0, right = s.size() - 1;<br>&nbsp;&nbsp;<br>&nbsp;&nbsp;while (left < right) {<br>&nbsp;&nbsp;&nbsp;&nbsp;swap(s[left], s[right]);<br>&nbsp;&nbsp;&nbsp;&nbsp;left++;<br>&nbsp;&nbsp;&nbsp;&nbsp;right--;<br>&nbsp;&nbsp;}<br>}<br>// Time: O(n), Space: O(1)</div>
+  <h4>4.2 Valid Palindrome</h4>
+  <p>Check if string is palindrome, ignoring spaces and special characters.</p>
+  <div class="code-example">bool isPalindrome(string s) {<br>&nbsp;&nbsp;int left = 0, right = s.length() - 1;<br>&nbsp;&nbsp;<br>&nbsp;&nbsp;while (left < right) {<br>&nbsp;&nbsp;&nbsp;&nbsp;while (left < right && !isalnum(s[left])) left++;<br>&nbsp;&nbsp;&nbsp;&nbsp;while (left < right && !isalnum(s[right])) right--;<br>&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;if (tolower(s[left]) != tolower(s[right]))<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return false;<br>&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;left++;<br>&nbsp;&nbsp;&nbsp;&nbsp;right--;<br>&nbsp;&nbsp;}<br>&nbsp;&nbsp;return true;<br>}<br>// Time: O(n), Space: O(1)</div>
+  <h4>4.3 Longest Substring Without Repeating</h4>
+  <p>Find longest substring with all unique characters using sliding window.</p>
+  <div class="code-example">int lengthOfLongestSubstring(string s) {<br>&nbsp;&nbsp;unordered_map&lt;char, int&gt; map;<br>&nbsp;&nbsp;int left = 0, maxLen = 0;<br>&nbsp;&nbsp;<br>&nbsp;&nbsp;for (int right = 0; right < s.length(); right++) {<br>&nbsp;&nbsp;&nbsp;&nbsp;if (map.find(s[right]) != map.end()) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;left = max(left, map[s[right]] + 1);<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;map[s[right]] = right;<br>&nbsp;&nbsp;&nbsp;&nbsp;maxLen = max(maxLen, right - left + 1);<br>&nbsp;&nbsp;}<br>&nbsp;&nbsp;return maxLen;<br>}<br>// Example: "abcabcbb" → 3 ("abc")<br>// Time: O(n), Space: O(min(m,n))</div>
+  <h4>4.4 Group Anagrams</h4>
+  <p>Group words that are anagrams of each other.</p>
+  <div class="code-example">vector&lt;vector&lt;string&gt;&gt; groupAnagrams(vector&lt;string&gt;& strs) {<br>&nbsp;&nbsp;unordered_map&lt;string, vector&lt;string&gt;&gt; map;<br>&nbsp;&nbsp;<br>&nbsp;&nbsp;for (string s : strs) {<br>&nbsp;&nbsp;&nbsp;&nbsp;string sorted_s = s;<br>&nbsp;&nbsp;&nbsp;&nbsp;sort(sorted_s.begin(), sorted_s.end());<br>&nbsp;&nbsp;&nbsp;&nbsp;map[sorted_s].push_back(s);<br>&nbsp;&nbsp;}<br>&nbsp;&nbsp;<br>&nbsp;&nbsp;vector&lt;vector&lt;string&gt;&gt; result;<br>&nbsp;&nbsp;for (auto& p : map) {<br>&nbsp;&nbsp;&nbsp;&nbsp;result.push_back(p.second);<br>&nbsp;&nbsp;}<br>&nbsp;&nbsp;return result;<br>}<br>// Time: O(n*k*log k), Space: O(n*k) [k=avg string length]</div>
+  <h4>4.5 Valid Anagram</h4>
+  <p>Check if two strings are anagrams using character frequency.</p>
+  <div class="code-example">bool isAnagram(string s, string t) {<br>&nbsp;&nbsp;if (s.length() != t.length()) return false;<br>&nbsp;&nbsp;int freq[26] = {0};<br>&nbsp;&nbsp;<br>&nbsp;&nbsp;for (char c : s) freq[c - 'a']++;<br>&nbsp;&nbsp;for (char c : t) {<br>&nbsp;&nbsp;&nbsp;&nbsp;if (--freq[c - 'a'] < 0) return false;<br>&nbsp;&nbsp;}<br>&nbsp;&nbsp;return true;<br>}<br>// Time: O(n), Space: O(1) - fixed 26 letters</div>
+</div>
+</div>
+</div>
+<div class="note-actions">
+  <button class="btn-action btn-preview" onclick="previewPDF('strings', 'String Manipulation')">
+    <i class="fas fa-eye"></i> Preview PDF
+  </button>
+<button class="btn-action btn-download" onclick="downloadPDF('strings', 'String Manipulation')">
+  <i class="fas fa-download"></i> Download PDF
+</button>
+</div>
+</div>
+<div class="section-title">
+  <i class="fas fa-link"></i> Days 6-10: Linked Lists
+</div>
+<div class="note-card" data-note-id="linkedlists">
+  <div class="note-header" onclick="toggleNote(this)">
+    <div class="note-info">
+      <div class="note-title">
+        <i class="fas fa-chain"></i> Linked List Fundamentals & Operations
+        <span class="difficulty-badge difficulty-medium">Medium</span>
+      </div>
+    <div class="note-meta">
+      <span><i class="fas fa-file-pdf"></i> PDF</span>
+      <span><i class="fas fa-book"></i> 20 pages</span>
+    </div>
+</div>
+<i class="toggle-icon fas fa-chevron-down"></i>
+</div>
+<div class="note-preview">
+  <div class="preview-content">
+    <div class="preview-section">
+      <div class="preview-title">1. Linked List Fundamentals</div>
+      <p>A linked list is a linear data structure where elements are stored in nodes. Each node contains data and a reference (link) to the next node. Unlike arrays, linked lists don't require contiguous memory and support dynamic resizing.</p>
+      <h4>1.1 Node Structure</h4>
+      <div class="code-example">struct Node {<br>&nbsp;&nbsp;int data;<br>&nbsp;&nbsp;Node* next;<br>&nbsp;&nbsp;<br>&nbsp;&nbsp;Node(int val) {<br>&nbsp;&nbsp;&nbsp;&nbsp;data = val;<br>&nbsp;&nbsp;&nbsp;&nbsp;next = NULL;<br>&nbsp;&nbsp;}<br>}</div>
+      <h4>1.2 Types of Linked Lists</h4>
+      <ul class="preview-list">
+        <li><strong>Singly Linked List:</strong> Each node points to the next node only</li>
+        <li><strong>Doubly Linked List:</strong> Each node points to both next and previous nodes</li>
+        <li><strong>Circular Linked List:</strong> Last node points back to the first node</li>
+      </ul>
+  </div>
+<div class="preview-section">
+  <div class="preview-title">2. Time & Space Complexity</div>
+  <table style="width: 100%; border-collapse: collapse; margin: 12px 0;"><tr style="background-color: rgba(99, 102, 241, 0.1);"><th style="border: 1px solid var(--border); padding: 8px;">Operation</th><th style="border: 1px solid var(--border); padding: 8px;">Time</th><th style="border: 1px solid var(--border); padding: 8px;">Space</th></tr><tr><td style="border: 1px solid var(--border); padding: 8px;">Access element at position i</td><td style="border: 1px solid var(--border); padding: 8px;">O(n)</td><td style="border: 1px solid var(--border); padding: 8px;">O(1)</td></tr><tr><td style="border: 1px solid var(--border); padding: 8px;">Insert at beginning</td><td style="border: 1px solid var(--border); padding: 8px;">O(1)</td><td style="border: 1px solid var(--border); padding: 8px;">O(1)</td></tr><tr><td style="border: 1px solid var(--border); padding: 8px;">Delete from beginning</td><td style="border: 1px solid var(--border); padding: 8px;">O(1)</td><td style="border: 1px solid var(--border); padding: 8px;">O(1)</td></tr><tr><td style="border: 1px solid var(--border); padding: 8px;">Insert/Delete at position i</td><td style="border: 1px solid var(--border); padding: 8px;">O(n)</td><td style="border: 1px solid var(--border); padding: 8px;">O(1)</td></tr></table>
+</div>
+<div class="preview-section">
+  <div class="preview-title">3. Essential Operations</div>
+  <h4>3.1 Reverse Linked List (Iterative)</h4>
+  <p>Reverse the entire linked list by changing the direction of all pointers.</p>
+  <div class="code-example">Node* reverseList(Node* head) {<br>&nbsp;&nbsp;Node* prev = NULL, *curr = head;<br>&nbsp;&nbsp;while (curr) {<br>&nbsp;&nbsp;&nbsp;&nbsp;Node* temp = curr->next;  // Save next<br>&nbsp;&nbsp;&nbsp;&nbsp;curr->next = prev;         // Reverse link<br>&nbsp;&nbsp;&nbsp;&nbsp;prev = curr;               // Move prev<br>&nbsp;&nbsp;&nbsp;&nbsp;curr = temp;               // Move curr<br>&nbsp;&nbsp;}<br>&nbsp;&nbsp;return prev;  // New head<br>}<br>// Time: O(n), Space: O(1)</div>
+  <h4>3.2 Detect Cycle (Floyd's Algorithm)</h4>
+  <p>Use slow and fast pointers to detect if a cycle exists in the linked list.</p>
+  <div class="code-example">bool hasCycle(Node* head) {<br>&nbsp;&nbsp;if (!head || !head->next) return false;<br>&nbsp;&nbsp;Node* slow = head, *fast = head->next;<br>&nbsp;&nbsp;while (fast && fast->next) {<br>&nbsp;&nbsp;&nbsp;&nbsp;if (slow == fast) return true;  // Cycle found<br>&nbsp;&nbsp;&nbsp;&nbsp;slow = slow->next;               // Move by 1<br>&nbsp;&nbsp;&nbsp;&nbsp;fast = fast->next->next;         // Move by 2<br>&nbsp;&nbsp;}<br>&nbsp;&nbsp;return false;<br>}<br>// Time: O(n), Space: O(1)</div>
+  <h4>3.3 Find Middle Element</h4>
+  <p>Use slow and fast pointers to find the middle element in one pass.</p>
+  <div class="code-example">Node* findMiddle(Node* head) {<br>&nbsp;&nbsp;Node* slow = head, *fast = head;<br>&nbsp;&nbsp;while (fast && fast->next) {<br>&nbsp;&nbsp;&nbsp;&nbsp;slow = slow->next;       // Move by 1<br>&nbsp;&nbsp;&nbsp;&nbsp;fast = fast->next->next; // Move by 2<br>&nbsp;&nbsp;}<br>&nbsp;&nbsp;return slow;  // Middle element<br>}<br>// Time: O(n), Space: O(1)</div>
+</div>
+<div class="preview-section">
+  <div class="preview-title">4. Advanced Problems</div>
+  <h4>4.1 Merge Two Sorted Linked Lists</h4>
+  <p>Combine two sorted lists maintaining order.</p>
+  <div class="code-example">ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {<br>&nbsp;&nbsp;ListNode dummy(0);<br>&nbsp;&nbsp;ListNode* curr = &dummy;<br>&nbsp;&nbsp;<br>&nbsp;&nbsp;while (l1 && l2) {<br>&nbsp;&nbsp;&nbsp;&nbsp;if (l1->val < l2->val) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;curr->next = l1;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;l1 = l1->next;<br>&nbsp;&nbsp;&nbsp;&nbsp;} else {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;curr->next = l2;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;l2 = l2->next;<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;curr = curr->next;<br>&nbsp;&nbsp;}<br>&nbsp;&nbsp;<br>&nbsp;&nbsp;curr->next = l1 ? l1 : l2;<br>&nbsp;&nbsp;return dummy.next;<br>}<br>// Time: O(m+n), Space: O(1)</div>
+  <h4>4.2 Palindrome Linked List</h4>
+  <p>Check if linked list is a palindrome using slow/fast pointers.</p>
+  <div class="code-example">bool isPalindrome(ListNode* head) {<br>&nbsp;&nbsp;if (!head || !head->next) return true;<br>&nbsp;&nbsp;<br>&nbsp;&nbsp;// Find middle<br>&nbsp;&nbsp;ListNode* slow = head, *fast = head;<br>&nbsp;&nbsp;while (fast && fast->next) {<br>&nbsp;&nbsp;&nbsp;&nbsp;slow = slow->next;<br>&nbsp;&nbsp;&nbsp;&nbsp;fast = fast->next->next;<br>&nbsp;&nbsp;}<br>&nbsp;&nbsp;<br>&nbsp;&nbsp;// Reverse second half<br>&nbsp;&nbsp;ListNode* prev = NULL, *curr = slow;<br>&nbsp;&nbsp;while (curr) {<br>&nbsp;&nbsp;&nbsp;&nbsp;ListNode* temp = curr->next;<br>&nbsp;&nbsp;&nbsp;&nbsp;curr->next = prev;<br>&nbsp;&nbsp;&nbsp;&nbsp;prev = curr;<br>&nbsp;&nbsp;&nbsp;&nbsp;curr = temp;<br>&nbsp;&nbsp;}<br>&nbsp;&nbsp;<br>&nbsp;&nbsp;// Compare<br>&nbsp;&nbsp;while (prev) {<br>&nbsp;&nbsp;&nbsp;&nbsp;if (head->val != prev->val) return false;<br>&nbsp;&nbsp;&nbsp;&nbsp;head = head->next;<br>&nbsp;&nbsp;&nbsp;&nbsp;prev = prev->next;<br>&nbsp;&nbsp;}<br>&nbsp;&nbsp;return true;<br>}<br>// Time: O(n), Space: O(1)</div>
+  <h4>4.3 Remove Nth Node From End</h4>
+  <p>Remove the nth node from the end of list using two pointers.</p>
+  <div class="code-example">ListNode* removeNthFromEnd(ListNode* head, int n) {<br>&nbsp;&nbsp;ListNode dummy(0);<br>&nbsp;&nbsp;dummy.next = head;<br>&nbsp;&nbsp;ListNode* first = &dummy, *second = &dummy;<br>&nbsp;&nbsp;<br>&nbsp;&nbsp;// Move first pointer n+1 steps ahead<br>&nbsp;&nbsp;for (int i = 0; i <= n; i++) {<br>&nbsp;&nbsp;&nbsp;&nbsp;first = first->next;<br>&nbsp;&nbsp;}<br>&nbsp;&nbsp;<br>&nbsp;&nbsp;// Move both until first reaches end<br>&nbsp;&nbsp;while (first) {<br>&nbsp;&nbsp;&nbsp;&nbsp;first = first->next;<br>&nbsp;&nbsp;&nbsp;&nbsp;second = second->next;<br>&nbsp;&nbsp;}<br>&nbsp;&nbsp;<br>&nbsp;&nbsp;second->next = second->next->next;<br>&nbsp;&nbsp;return dummy.next;<br>}<br>// Time: O(n), Space: O(1)</div>
+  <h4>4.4 LRU Cache Implementation</h4>
+  <p>Implement using doubly linked list and HashMap for O(1) access and update.</p>
+  <div class="code-example">class LRUCache {<br>private:<br>&nbsp;&nbsp;unordered_map&lt;int, list&lt;pair&lt;int,int&gt;&gt;::iterator&gt; map;<br>&nbsp;&nbsp;list&lt;pair&lt;int,int&gt;&gt; dq;  // {key: value}<br>&nbsp;&nbsp;int capacity;<br>public:<br>&nbsp;&nbsp;LRUCache(int cap) : capacity(cap) {}<br>&nbsp;&nbsp;<br>&nbsp;&nbsp;int get(int key) {<br>&nbsp;&nbsp;&nbsp;&nbsp;if (map.find(key) == map.end()) return -1;<br>&nbsp;&nbsp;&nbsp;&nbsp;dq.splice(dq.begin(), dq, map[key]);<br>&nbsp;&nbsp;&nbsp;&nbsp;return map[key]->second;<br>&nbsp;&nbsp;}<br>&nbsp;&nbsp;<br>&nbsp;&nbsp;void put(int key, int value) {<br>&nbsp;&nbsp;&nbsp;&nbsp;if (map.find(key) != map.end()) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;map[key]->second = value;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dq.splice(dq.begin(), dq, map[key]);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return;<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;if (map.size() == capacity) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;map.erase(dq.back().first);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dq.pop_back();<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;dq.push_front({key, value});<br>&nbsp;&nbsp;&nbsp;&nbsp;map[key] = dq.begin();<br>&nbsp;&nbsp;}<br>};<br>// Time: O(1) for both get and put</div>
+</div>
+</div>
+</div>
+<div class="note-actions">
+  <button class="btn-action btn-preview" onclick="previewPDF('linkedlists', 'Linked Lists')">
+    <i class="fas fa-eye"></i> Preview PDF
+  </button>
+<button class="btn-action btn-download" onclick="downloadPDF('linkedlists', 'Linked Lists')">
+  <i class="fas fa-download"></i> Download PDF
+</button>
+</div>
+</div>
+<div class="section-title">
+  <i class="fas fa-layer-group"></i> Days 11-15: Stack & Queue
+</div>
+<div class="note-card" data-note-id="stack">
+  <div class="note-header" onclick="toggleNote(this)">
+    <div class="note-info">
+      <div class="note-title">
+        <i class="fas fa-square"></i> Stack Data Structure & Applications
+        <span class="difficulty-badge difficulty-medium">Medium</span>
+      </div>
+    <div class="note-meta">
+      <span><i class="fas fa-file-pdf"></i> PDF</span>
+      <span><i class="fas fa-book"></i> 16 pages</span>
+    </div>
+</div>
+<i class="toggle-icon fas fa-chevron-down"></i>
+</div>
+<div class="note-preview">
+  <div class="preview-content">
+    <div class="preview-section">
+      <div class="preview-title">1. Stack Fundamentals</div>
+      <p>A stack is a linear data structure that follows the LIFO (Last In First Out) principle. The last element added is the first one to be removed. Stacks are widely used in function calls, expression evaluation, and backtracking algorithms.</p>
+      <h4>1.1 Core Operations</h4>
+      <ul class="preview-list">
+        <li><strong>Push:</strong> Add an element to the top - O(1)</li>
+        <li><strong>Pop:</strong> Remove and return top element - O(1)</li>
+        <li><strong>Peek/Top:</strong> View top element without removing - O(1)</li>
+        <li><strong>isEmpty:</strong> Check if stack is empty - O(1)</li>
+        <li><strong>Size:</strong> Get number of elements - O(1)</li>
+      </ul>
+    <div class="code-example">template<typename T><br>class Stack {<br>private:<br>&nbsp;&nbsp;vector<T> data;<br>public:<br>&nbsp;&nbsp;void push(T val) { data.push_back(val); }<br>&nbsp;&nbsp;void pop() { if (!data.empty()) data.pop_back(); }<br>&nbsp;&nbsp;T top() { return data.back(); }<br>&nbsp;&nbsp;bool isEmpty() { return data.empty(); }<br>}</div>
+      </div>
+    <div class="preview-section">
+      <div class="preview-title">2. Applications of Stack</div>
+      <ul class="preview-list">
+        <li><strong>Function Call Stack:</strong> OS uses stack to manage function calls and returns</li>
+        <li><strong>Expression Evaluation:</strong> Convert infix to postfix, evaluate postfix expressions</li>
+        <li><strong>Backtracking:</strong> DFS, Maze solving, N-Queens problem</li>
+        <li><strong>Undo/Redo Functionality:</strong> Common in text editors</li>
+        <li><strong>Browser History:</strong> Back button uses stack</li>
+      </ul>
+  </div>
+<div class="preview-section">
+  <div class="preview-title">3. Important Problems</div>
+  <h4>3.1 Valid Parentheses</h4>
+  <p>Check if parentheses, brackets, and braces are balanced and properly nested.</p>
+  <div class="code-example">bool isValid(string s) {<br>&nbsp;&nbsp;stack<char> st;<br>&nbsp;&nbsp;map<char,char> match = {{')', '('}, {']', '['}, {'}', '{'}};<br>&nbsp;&nbsp;<br>&nbsp;&nbsp;for (char c : s) {<br>&nbsp;&nbsp;&nbsp;&nbsp;if (c == '(' || c == '[' || c == '{') {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;st.push(c);<br>&nbsp;&nbsp;&nbsp;&nbsp;} else {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (st.empty() || st.top() != match[c])<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return false;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;st.pop();<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;}<br>&nbsp;&nbsp;return st.empty();<br>}<br>// Time: O(n), Space: O(n)</div>
+      <h4>3.2 Next Greater Element (NGE)</h4>
+      <p>For each element, find the nearest element to its right that is greater than it.</p>
+      <div class="code-example">vector<int> nextGreater(vector<int>& arr) {<br>&nbsp;&nbsp;int n = arr.size();<br>&nbsp;&nbsp;vector<int> result(n, -1);<br>&nbsp;&nbsp;stack<int> st;  // Store indices<br>&nbsp;&nbsp;<br>&nbsp;&nbsp;for (int i = n - 1; i >= 0; i--) {<br>&nbsp;&nbsp;&nbsp;&nbsp;while (!st.empty() && arr[st.top()] <= arr[i]) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;st.pop();<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;if (!st.empty()) result[i] = arr[st.top()];<br>&nbsp;&nbsp;&nbsp;&nbsp;st.push(i);<br>&nbsp;&nbsp;}<br>&nbsp;&nbsp;return result;<br>}<br>// Time: O(n), Space: O(n)</div>
+              <h4>3.3 Min Stack</h4>
+              <p>Implement a stack that supports push, pop, top, and retrieving minimum in O(1) time.</p>
+              <div class="code-example">class MinStack {<br>private:<br>&nbsp;&nbsp;stack<int> st, minSt;<br>public:<br>&nbsp;&nbsp;void push(int x) {<br>&nbsp;&nbsp;&nbsp;&nbsp;st.push(x);<br>&nbsp;&nbsp;&nbsp;&nbsp;if (minSt.empty() || x <= minSt.top())<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;minSt.push(x);<br>&nbsp;&nbsp;}<br>&nbsp;&nbsp;void pop() {<br>&nbsp;&nbsp;&nbsp;&nbsp;if (st.top() == minSt.top()) minSt.pop();<br>&nbsp;&nbsp;&nbsp;&nbsp;st.pop();<br>&nbsp;&nbsp;}<br>&nbsp;&nbsp;int getMin() { return minSt.top(); }<br>}</div>
+              </div>
+            <div class="preview-section">
+              <div class="preview-title">4. Key Interview Questions</div>
+              <h4>4.1 Valid Parentheses</h4>
+              <p>Check if parentheses are balanced and properly nested.</p>
+              <div class="code-example">bool isValid(string s) {<br>&nbsp;&nbsp;stack&lt;char&gt; st;<br>&nbsp;&nbsp;map&lt;char, char&gt; match = {{')', '('}, {']', '['}, {'}', '{'}};<br>&nbsp;&nbsp;<br>&nbsp;&nbsp;for (char c : s) {<br>&nbsp;&nbsp;&nbsp;&nbsp;if (c == '(' || c == '[' || c == '{') {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;st.push(c);<br>&nbsp;&nbsp;&nbsp;&nbsp;} else {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (st.empty() || st.top() != match[c])<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return false;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;st.pop();<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;}<br>&nbsp;&nbsp;return st.empty();<br>}<br>// Time: O(n), Space: O(n)</div>
+              <h4>4.2 Next Greater Element</h4>
+              <p>For each element, find nearest greater element to its right.</p>
+              <div class="code-example">vector&lt;int&gt; nextGreaterElement(vector&lt;int&gt;& nums) {<br>&nbsp;&nbsp;int n = nums.size();<br>&nbsp;&nbsp;vector&lt;int&gt; result(n, -1);<br>&nbsp;&nbsp;stack&lt;int&gt; st;  // Store indices<br>&nbsp;&nbsp;<br>&nbsp;&nbsp;for (int i = n - 1; i >= 0; i--) {<br>&nbsp;&nbsp;&nbsp;&nbsp;while (!st.empty() && nums[st.top()] <= nums[i]) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;st.pop();<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;if (!st.empty()) result[i] = nums[st.top()];<br>&nbsp;&nbsp;&nbsp;&nbsp;st.push(i);<br>&nbsp;&nbsp;}<br>&nbsp;&nbsp;return result;<br>}<br>// Example: [1,2] → [-1,−1], [1,2,1] → [2,-1,-1]<br>// Time: O(n), Space: O(n)</div>
+              <h4>4.3 Trapping Rain Water</h4>
+              <p>Calculate total water trapped between elevation bars.</p>
+              <div class="code-example">int trap(vector&lt;int&gt;& height) {<br>&nbsp;&nbsp;if (height.empty()) return 0;<br>&nbsp;&nbsp;<br>&nbsp;&nbsp;vector&lt;int&gt; leftMax(height.size());<br>&nbsp;&nbsp;vector&lt;int&gt; rightMax(height.size());<br>&nbsp;&nbsp;<br>&nbsp;&nbsp;leftMax[0] = height[0];<br>&nbsp;&nbsp;for (int i = 1; i < height.size(); i++) {<br>&nbsp;&nbsp;&nbsp;&nbsp;leftMax[i] = max(leftMax[i-1], height[i]);<br>&nbsp;&nbsp;}<br>&nbsp;&nbsp;<br>&nbsp;&nbsp;rightMax[height.size()-1] = height[height.size()-1];<br>&nbsp;&nbsp;for (int i = height.size()-2; i >= 0; i--) {<br>&nbsp;&nbsp;&nbsp;&nbsp;rightMax[i] = max(rightMax[i+1], height[i]);<br>&nbsp;&nbsp;}<br>&nbsp;&nbsp;<br>&nbsp;&nbsp;int water = 0;<br>&nbsp;&nbsp;for (int i = 0; i < height.size(); i++) {<br>&nbsp;&nbsp;&nbsp;&nbsp;int minHeight = min(leftMax[i], rightMax[i]);<br>&nbsp;&nbsp;&nbsp;&nbsp;water += minHeight - height[i];<br>&nbsp;&nbsp;}<br>&nbsp;&nbsp;return water;<br>}<br>// Time: O(n), Space: O(n)</div>
+              <h4>4.4 Min Stack</h4>
+              <p>Implement stack supporting push, pop, top, and getMin in O(1).</p>
+              <div class="code-example">class MinStack {<br>private:<br>&nbsp;&nbsp;stack&lt;int&gt; st, minSt;<br>public:<br>&nbsp;&nbsp;void push(int x) {<br>&nbsp;&nbsp;&nbsp;&nbsp;st.push(x);<br>&nbsp;&nbsp;&nbsp;&nbsp;if (minSt.empty() || x <= minSt.top())<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;minSt.push(x);<br>&nbsp;&nbsp;}<br>&nbsp;&nbsp;void pop() {<br>&nbsp;&nbsp;&nbsp;&nbsp;if (st.top() == minSt.top()) minSt.pop();<br>&nbsp;&nbsp;&nbsp;&nbsp;st.pop();<br>&nbsp;&nbsp;}<br>&nbsp;&nbsp;int top() { return st.top(); }<br>&nbsp;&nbsp;int getMin() { return minSt.top(); }<br>};<br>// All operations: O(1) time and space</div>
+            </div>
+        </div>
+    </div>
+  <div class="note-actions">
+    <button class="btn-action btn-preview" onclick="previewPDF('stack', 'Stack')">
+      <i class="fas fa-eye"></i> Preview PDF
+    </button>
+  <button class="btn-action btn-download" onclick="downloadPDF('stack', 'Stack')">
+    <i class="fas fa-download"></i> Download PDF
+  </button>
+</div>
+</div>
+<div class="note-card" data-note-id="queue">
+  <div class="note-header" onclick="toggleNote(this)">
+    <div class="note-info">
+      <div class="note-title">
+        <i class="fas fa-tasks"></i> Queue & Deque Data Structures
+        <span class="difficulty-badge difficulty-medium">Medium</span>
+      </div>
+    <div class="note-meta">
+      <span><i class="fas fa-file-pdf"></i> PDF</span>
+      <span><i class="fas fa-book"></i> 14 pages</span>
+    </div>
+</div>
+<i class="toggle-icon fas fa-chevron-down"></i>
+</div>
+<div class="note-preview">
+  <div class="preview-content">
+    <div class="preview-section">
+      <div class="preview-title">1. Queue Fundamentals</div>
+      <p>A queue is a linear data structure that follows the FIFO (First In First Out) principle. The first element added is the first one to be removed. Queues are used in BFS, job scheduling, and resource allocation.</p>
+      <h4>1.1 Core Operations</h4>
+      <ul class="preview-list">
+        <li><strong>Enqueue:</strong> Add element to rear - O(1)</li>
+        <li><strong>Dequeue:</strong> Remove from front - O(1)</li>
+        <li><strong>Peek/Front:</strong> View front element - O(1)</li>
+        <li><strong>isEmpty:</strong> Check if queue is empty - O(1)</li>
+        <li><strong>Size:</strong> Get number of elements - O(1)</li>
+      </ul>
+    <div class="code-example">class Queue {<br>private:<br>&nbsp;&nbsp;vector<int> data;<br>&nbsp;&nbsp;int front = 0;<br>public:<br>&nbsp;&nbsp;void enqueue(int x) { data.push_back(x); }<br>&nbsp;&nbsp;int dequeue() { return data[front++]; }<br>&nbsp;&nbsp;int peek() { return data[front]; }<br>&nbsp;&nbsp;bool isEmpty() { return front == data.size(); }<br>}</div>
+    </div>
+  <div class="preview-section">
+    <div class="preview-title">2. Types of Queues</div>
+    <h4>2.1 Simple Queue</h4>
+    <p>Elements are added at rear and removed from front. FIFO principle.</p>
+    <h4>2.2 Circular Queue</h4>
+    <p>Circular arrangement saves space. When rear reaches end, it wraps around to beginning if space is available.</p>
+    <h4>2.3 Deque (Double-Ended Queue)</h4>
+    <p>Elements can be added or removed from both ends. Combines properties of stack and queue.</p>
+    <div class="code-example">deque<int> dq;<br>dq.push_front(1);    // Add to front<br>dq.push_back(2);     // Add to back<br>dq.pop_front();      // Remove from front<br>dq.pop_back();       // Remove from back<br>dq.front();          // Access front<br>dq.back();           // Access back</div>
+      <h4>2.4 Priority Queue</h4>
+      <p>Elements are processed based on priority rather than order of arrival. Usually implemented using heap.</p>
+    </div>
+  <div class="preview-section">
+    <div class="preview-title">3. Key Applications</div>
+    <ul class="preview-list">
+      <li><strong>BFS (Breadth-First Search):</strong> Traverse graph level by level</li>
+      <li><strong>Level Order Tree Traversal:</strong> Visit all nodes at same depth</li>
+      <li><strong>Job Scheduling:</strong> CPU scheduling, process queues</li>
+      <li><strong>Sliding Window Maximum:</strong> Using deque for efficient window tracking</li>
+      <li><strong>LRU Cache:</strong> Deque + HashMap for least recently used items</li>
+    </ul>
+</div>
+<div class="preview-section">
+  <div class="preview-title">4. Important Interview Problems</div>
+  <h4>4.1 Implement Queue using Stacks</h4>
+  <p>Create queue operations using two stacks.</p>
+  <div class="code-example">class MyQueue {<br>private:<br>&nbsp;&nbsp;stack&lt;int&gt; s1, s2;<br>public:<br>&nbsp;&nbsp;void push(int x) {<br>&nbsp;&nbsp;&nbsp;&nbsp;s1.push(x);<br>&nbsp;&nbsp;}<br>&nbsp;&nbsp;int pop() {<br>&nbsp;&nbsp;&nbsp;&nbsp;if (s2.empty()) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;while (!s1.empty()) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;s2.push(s1.top());<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;s1.pop();<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;int val = s2.top();<br>&nbsp;&nbsp;&nbsp;&nbsp;s2.pop();<br>&nbsp;&nbsp;&nbsp;&nbsp;return val;<br>&nbsp;&nbsp;}<br>};<br>// Push: O(1), Pop: O(1) amortized</div>
+  <h4>4.2 Sliding Window Maximum</h4>
+  <p>Find maximum in every sliding window using deque.</p>
+  <div class="code-example">vector&lt;int&gt; maxSlidingWindow(vector&lt;int&gt;& nums, int k) {<br>&nbsp;&nbsp;deque&lt;int&gt; dq;  // Store indices<br>&nbsp;&nbsp;vector&lt;int&gt; result;<br>&nbsp;&nbsp;<br>&nbsp;&nbsp;for (int i = 0; i < nums.size(); i++) {<br>&nbsp;&nbsp;&nbsp;&nbsp;// Remove elements outside window<br>&nbsp;&nbsp;&nbsp;&nbsp;if (!dq.empty() && dq.front() < i - k + 1) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dq.pop_front();<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;// Remove smaller elements<br>&nbsp;&nbsp;&nbsp;&nbsp;while (!dq.empty() && nums[dq.back()] < nums[i]) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dq.pop_back();<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;dq.push_back(i);<br>&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;if (i >= k - 1) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;result.push_back(nums[dq.front()]);<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;}<br>&nbsp;&nbsp;return result;<br>}<br>// Time: O(n), Space: O(k)</div>
+  <h4>4.3 Rotten Oranges</h4>
+  <p>Find minimum time to rot all fresh oranges using BFS.</p>
+  <div class="code-example">int orangesRotting(vector&lt;vector&lt;int&gt;&gt;& grid) {<br>&nbsp;&nbsp;queue&lt;pair&lt;int,int&gt;&gt; q;<br>&nbsp;&nbsp;int fresh = 0, time = 0;<br>&nbsp;&nbsp;int dirs[4][2] = {{0,1}, {0,-1}, {1,0}, {-1,0}};<br>&nbsp;&nbsp;<br>&nbsp;&nbsp;for (int i = 0; i < grid.size(); i++) {<br>&nbsp;&nbsp;&nbsp;&nbsp;for (int j = 0; j < grid[0].size(); j++) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (grid[i][j] == 2) q.push({i, j});<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else if (grid[i][j] == 1) fresh++;<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;}<br>&nbsp;&nbsp;<br>&nbsp;&nbsp;while (!q.empty() && fresh) {<br>&nbsp;&nbsp;&nbsp;&nbsp;int size = q.size();<br>&nbsp;&nbsp;&nbsp;&nbsp;for (int i = 0; i < size; i++) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;auto [x, y] = q.front();<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;q.pop();<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for (auto& d : dirs) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int nx = x + d[0], ny = y + d[1];<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (nx >= 0 && ny >= 0 && nx < grid.size() &&<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ny < grid[0].size() && grid[nx][ny] == 1) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grid[nx][ny] = 2;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;q.push({nx, ny});<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fresh--;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;time++;<br>&nbsp;&nbsp;}<br>&nbsp;&nbsp;<br>&nbsp;&nbsp;return fresh == 0 ? time : -1;<br>}<br>// Time: O(m*n), Space: O(m*n)</div>
+</div>
+</div>
+</div>
+<div class="note-actions">
+  <button class="btn-action btn-preview" onclick="previewPDF('queue', 'Queue')">
+    <i class="fas fa-eye"></i> Preview PDF
+  </button>
+<button class="btn-action btn-download" onclick="downloadPDF('queue', 'Queue')">
+  <i class="fas fa-download"></i> Download PDF
+</button>
+</div>
+</div>
+<div class="section-title" style="margin-top: var(--spacing-3xl);">
+  <i class="fas fa-tree"></i> Days 16-20: Binary Trees & BST
+</div>
+<div class="note-card" data-note-id="binarytrees">
+  <div class="note-header" onclick="toggleNote(this)">
+    <div class="note-info">
+      <div class="note-title">
+        <i class="fas fa-tree"></i> Binary Trees & Binary Search Trees
+        <span class="difficulty-badge difficulty-medium">Medium</span>
+      </div>
+    <div class="note-meta">
+      <span><i class="fas fa-file-pdf"></i> PDF</span>
+      <span><i class="fas fa-book"></i> 25 pages</span>
+    </div>
+</div>
+<i class="toggle-icon fas fa-chevron-down"></i>
+</div>
+<div class="note-preview">
+  <div class="preview-content">
+    <div class="preview-section">
+      <div class="preview-title">1. Tree Fundamentals</div>
+      <p>A tree is a non-linear hierarchical data structure where each element is called a node. The topmost node is the root, and nodes directly connected are parent and child nodes. Trees are essential for many applications including file systems, databases, and expression parsing.</p>
+      <h4>1.1 Tree Terminology</h4>
+      <ul class="preview-list">
+        <li><strong>Root:</strong> Top node with no parent</li>
+        <li><strong>Parent-Child:</strong> Relationship between connected nodes</li>
+        <li><strong>Leaf Node:</strong> Node with no children</li>
+        <li><strong>Height:</strong> Maximum distance from root to leaf</li>
+        <li><strong>Depth:</strong> Distance of node from root</li>
+        <li><strong>Subtree:</strong> A tree formed by a node and its descendants</li>
+      </ul>
+    <div class="code-example">struct TreeNode {<br>&nbsp;&nbsp;int val;<br>&nbsp;&nbsp;TreeNode* left;<br>&nbsp;&nbsp;TreeNode* right;<br>&nbsp;&nbsp;<br>&nbsp;&nbsp;TreeNode(int x) : val(x), left(NULL), right(NULL) {}<br>}</div>
+  </div>
+<div class="preview-section">
+  <div class="preview-title">2. Tree Traversals</div>
+  <h4>2.1 Depth-First Traversals (DFS)</h4>
+  <ul class="preview-list">
+    <li><strong>Inorder (L-N-R):</strong> Left subtree → Node → Right subtree (gives sorted order in BST)</li>
+    <li><strong>Preorder (N-L-R):</strong> Node → Left subtree → Right subtree (copy tree, create expression tree)</li>
+    <li><strong>Postorder (L-R-N):</strong> Left subtree → Right subtree → Node (delete tree, evaluate postfix)</li>
+  </ul>
+<div class="code-example">// Inorder Traversal<br>void inorder(TreeNode* root) {<br>&nbsp;&nbsp;if (!root) return;<br>&nbsp;&nbsp;inorder(root->left);<br>&nbsp;&nbsp;cout << root->val << " ";<br>&nbsp;&nbsp;inorder(root->right);<br>}<br>// Time: O(n), Space: O(h)</div>
+<h4>2.2 Breadth-First Traversal (BFS)</h4>
+<p>Level-order traversal using queue. Visits nodes level by level from top to bottom.</p>
+<div class="code-example">vector<vector<int>> levelOrder(TreeNode* root) {<br>&nbsp;&nbsp;vector<vector<int>> result;<br>&nbsp;&nbsp;if (!root) return result;<br>&nbsp;&nbsp;<br>&nbsp;&nbsp;queue<TreeNode*> q;<br>&nbsp;&nbsp;q.push(root);<br>&nbsp;&nbsp;<br>&nbsp;&nbsp;while (!q.empty()) {<br>&nbsp;&nbsp;&nbsp;&nbsp;int size = q.size();<br>&nbsp;&nbsp;&nbsp;&nbsp;vector<int> level;<br>&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;for (int i = 0; i < size; i++) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TreeNode* node = q.front();<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;q.pop();<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;level.push_back(node->val);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (node->left) q.push(node->left);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (node->right) q.push(node->right);<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;result.push_back(level);<br>&nbsp;&nbsp;}<br>&nbsp;&nbsp;return result;<br>}</div>
+      </div>
+    <div class="preview-section">
+      <div class="preview-title">3. Binary Search Tree (BST)</div>
+      <p>A BST is a binary tree where for each node, all values in left subtree are smaller and all values in right subtree are larger. This property enables efficient searching, insertion, and deletion.</p>
+      <h4>3.1 BST Operations</h4>
+      <ul class="preview-list">
+        <li><strong>Search:</strong> Compare with current node, go left if smaller, right if larger - O(log n) average, O(n) worst</li>
+        <li><strong>Insert:</strong> Find correct position using BST property - O(log n) average, O(n) worst</li>
+        <li><strong>Delete:</strong> Handle 3 cases: no children, one child, two children - O(log n) average</li>
+      </ul>
+    <div class="code-example">// BST Search<br>TreeNode* search(TreeNode* root, int val) {<br>&nbsp;&nbsp;if (!root) return NULL;<br>&nbsp;&nbsp;if (root->val == val) return root;<br>&nbsp;&nbsp;if (val < root->val) return search(root->left, val);<br>&nbsp;&nbsp;return search(root->right, val);<br>}<br>// Time: O(log n) avg, O(n) worst</div>
+  </div>
+<div class="preview-section">
+  <div class="preview-title">4. Common Interview Problems</div>
+  <h4>4.1 Maximum Depth of Binary Tree</h4>
+  <div class="code-example">int maxDepth(TreeNode* root) {<br>&nbsp;&nbsp;if (!root) return 0;<br>&nbsp;&nbsp;return 1 + max(maxDepth(root->left), maxDepth(root->right));<br>}<br>// Time: O(n), Space: O(h)</div>
+  <h4>4.2 Balanced Binary Tree</h4>
+  <p>Check if left and right subtrees differ by at most 1 in height.</p>
+  <div class="code-example">bool isBalanced(TreeNode* root) {<br>&nbsp;&nbsp;return getHeight(root) != -1;<br>}<br><br>int getHeight(TreeNode* root) {<br>&nbsp;&nbsp;if (!root) return 0;<br>&nbsp;&nbsp;<br>&nbsp;&nbsp;int left = getHeight(root->left);<br>&nbsp;&nbsp;if (left == -1) return -1;<br>&nbsp;&nbsp;<br>&nbsp;&nbsp;int right = getHeight(root->right);<br>&nbsp;&nbsp;if (right == -1) return -1;<br>&nbsp;&nbsp;<br>&nbsp;&nbsp;if (abs(left - right) > 1) return -1;<br>&nbsp;&nbsp;return 1 + max(left, right);<br>}<br>// Time: O(n), Space: O(h)</div>
+  <h4>4.3 Path Sum</h4>
+  <p>Check if root-to-leaf path exists with given sum.</p>
+  <div class="code-example">bool hasPathSum(TreeNode* root, int sum) {<br>&nbsp;&nbsp;if (!root) return false;<br>&nbsp;&nbsp;if (!root->left && !root->right && root->val == sum) return true;<br>&nbsp;&nbsp;<br>&nbsp;&nbsp;return hasPathSum(root->left, sum - root->val) ||<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;hasPathSum(root->right, sum - root->val);<br>}<br>// Time: O(n), Space: O(h)</div>
+  <h4>4.4 Lowest Common Ancestor (LCA)</h4>
+  <p>Find lowest common ancestor of two nodes in BST.</p>
+  <div class="code-example">TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {<br>&nbsp;&nbsp;if (!root) return NULL;<br>&nbsp;&nbsp;<br>&nbsp;&nbsp;// Both p and q are in left subtree<br>&nbsp;&nbsp;if (p->val < root->val && q->val < root->val)<br>&nbsp;&nbsp;&nbsp;&nbsp;return lowestCommonAncestor(root->left, p, q);<br>&nbsp;&nbsp;<br>&nbsp;&nbsp;// Both p and q are in right subtree<br>&nbsp;&nbsp;if (p->val > root->val && q->val > root->val)<br>&nbsp;&nbsp;&nbsp;&nbsp;return lowestCommonAncestor(root->right, p, q);<br>&nbsp;&nbsp;<br>&nbsp;&nbsp;// One on left, one on right (or one is root)<br>&nbsp;&nbsp;return root;<br>}<br>// Time: O(log n) avg, O(n) worst; Space: O(h)</div>
+  <h4>4.5 Binary Tree Maximum Path Sum</h4>
+  <p>Find maximum path sum between any two nodes.</p>
+  <div class="code-example">int maxPathSum(TreeNode* root) {<br>&nbsp;&nbsp;int maxSum = INT_MIN;<br>&nbsp;&nbsp;maxPathHelper(root, maxSum);<br>&nbsp;&nbsp;return maxSum;<br>}<br><br>int maxPathHelper(TreeNode* root, int& maxSum) {<br>&nbsp;&nbsp;if (!root) return 0;<br>&nbsp;&nbsp;<br>&nbsp;&nbsp;int left = max(0, maxPathHelper(root->left, maxSum));<br>&nbsp;&nbsp;int right = max(0, maxPathHelper(root->right, maxSum));<br>&nbsp;&nbsp;<br>&nbsp;&nbsp;maxSum = max(maxSum, left + right + root->val);<br>&nbsp;&nbsp;return root->val + max(left, right);<br>}<br>// Time: O(n), Space: O(h)</div>
+</div>
+</div>
+</div>
+<div class="note-actions">
+  <button class="btn-action btn-preview" onclick="previewPDF('binarytrees', 'Binary Trees')">
+    <i class="fas fa-eye"></i> Preview PDF
+  </button>
+<button class="btn-action btn-download" onclick="downloadPDF('binarytrees', 'Binary Trees')">
+  <i class="fas fa-download"></i> Download PDF
+</button>
+</div>
+</div>
+<div class="section-title" style="margin-top: var(--spacing-3xl);">
+  <i class="fas fa-share-nodes"></i> Days 21-25: Graphs & Algorithms
+</div>
+<div class="note-card" data-note-id="graphs">
+  <div class="note-header" onclick="toggleNote(this)">
+    <div class="note-info">
+      <div class="note-title">
+        <i class="fas fa-share-nodes"></i> Graph Theory & Traversal Algorithms
+        <span class="difficulty-badge difficulty-hard">Hard</span>
+      </div>
+    <div class="note-meta">
+      <span><i class="fas fa-file-pdf"></i> PDF</span>
+      <span><i class="fas fa-book"></i> 28 pages</span>
+    </div>
+</div>
+<i class="toggle-icon fas fa-chevron-down"></i>
+</div>
+<div class="note-preview">
+  <div class="preview-content">
+    <div class="preview-section">
+      <div class="preview-title">1. Graph Fundamentals</div>
+      <p>A graph is a non-linear data structure consisting of vertices (nodes) and edges (connections). Graphs can be directed or undirected, weighted or unweighted, and are used to represent relationships in social networks, maps, web pages, and more.</p>
+      <h4>1.1 Graph Representations</h4>
+      <ul class="preview-list">
+        <li><strong>Adjacency Matrix:</strong> 2D array where matrix[i][j] = 1 if edge exists. Space: O(V²), Access: O(1)</li>
+        <li><strong>Adjacency List:</strong> Array of lists containing neighbors. Space: O(V+E), Access: O(degree)</li>
+      </ul>
+    <div class="code-example">// Graph using Adjacency List<br>class Graph {<br>private:<br>&nbsp;&nbsp;map<int, vector<int>> adj;<br>public:<br>&nbsp;&nbsp;void addEdge(int u, int v) {<br>&nbsp;&nbsp;&nbsp;&nbsp;adj[u].push_back(v);<br>&nbsp;&nbsp;&nbsp;&nbsp;adj[v].push_back(u);  // For undirected<br>&nbsp;&nbsp;}<br>}</div>
+    </div>
+  <div class="preview-section">
+    <div class="preview-title">2. Graph Traversal Algorithms</div>
+    <h4>2.1 Depth-First Search (DFS)</h4>
+    <p>Traverses deeply into the graph before backtracking. Uses stack (implicit or explicit). Applications: cycle detection, topological sort, connected components.</p>
+    <div class="code-example">void dfs(int node, vector<vector<int>>& adj, vector<bool>& visited) {<br>&nbsp;&nbsp;visited[node] = true;<br>&nbsp;&nbsp;cout << node << " ";<br>&nbsp;&nbsp;<br>&nbsp;&nbsp;for (int neighbor : adj[node]) {<br>&nbsp;&nbsp;&nbsp;&nbsp;if (!visited[neighbor]) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dfs(neighbor, adj, visited);<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;}<br>}<br>// Time: O(V+E), Space: O(V)</div>
+        <h4>2.2 Breadth-First Search (BFS)</h4>
+        <p>Traverses level by level using queue. Applications: shortest path, word ladder, knight's move, level-order tree traversal.</p>
+        <div class="code-example">void bfs(int start, vector<vector<int>>& adj) {<br>&nbsp;&nbsp;vector<bool> visited(adj.size(), false);<br>&nbsp;&nbsp;queue<int> q;<br>&nbsp;&nbsp;q.push(start);<br>&nbsp;&nbsp;visited[start] = true;<br>&nbsp;&nbsp;<br>&nbsp;&nbsp;while (!q.empty()) {<br>&nbsp;&nbsp;&nbsp;&nbsp;int node = q.front();<br>&nbsp;&nbsp;&nbsp;&nbsp;q.pop();<br>&nbsp;&nbsp;&nbsp;&nbsp;cout << node << " ";<br>&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;for (int neighbor : adj[node]) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (!visited[neighbor]) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;visited[neighbor] = true;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;q.push(neighbor);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;}<br>}<br>// Time: O(V+E), Space: O(V)</div>
+            </div>
+          <div class="preview-section">
+            <div class="preview-title">3. Advanced Graph Algorithms</div>
+            <h4>3.1 Dijkstra's Algorithm (Shortest Path)</h4>
+            <p>Finds shortest path from source to all vertices in weighted graph with non-negative weights. Uses greedy approach with priority queue.</p>
+            <h4>3.2 Topological Sorting</h4>
+            <p>Linear ordering of vertices in a directed acyclic graph (DAG) where every edge goes from earlier to later vertex. Used in task scheduling, course prerequisites.</p>
+            <h4>3.3 Cycle Detection</h4>
+            <ul class="preview-list">
+              <li><strong>Undirected Graph:</strong> Use DFS, detect if visited node is parent</li>
+              <li><strong>Directed Graph:</strong> Use DFS with colors (white, gray, black) or in-degree approach</li>
+            </ul>
+        </div>
+      <div class="preview-section">
+        <div class="preview-title">4. Important Graph Problems</div>
+        <h4>4.1 Number of Islands</h4>
+        <p>Count number of connected components using DFS.</p>
+        <div class="code-example">int numIslands(vector&lt;vector&lt;char&gt;&gt;& grid) {<br>&nbsp;&nbsp;if (grid.empty()) return 0;<br>&nbsp;&nbsp;int count = 0;<br>&nbsp;&nbsp;int m = grid.size(), n = grid[0].size();<br>&nbsp;&nbsp;<br>&nbsp;&nbsp;for (int i = 0; i < m; i++) {<br>&nbsp;&nbsp;&nbsp;&nbsp;for (int j = 0; j < n; j++) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (grid[i][j] == '1') {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dfs(grid, i, j);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;count++;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;}<br>&nbsp;&nbsp;return count;<br>}<br><br>void dfs(vector&lt;vector&lt;char&gt;&gt;& grid, int i, int j) {<br>&nbsp;&nbsp;if (i < 0 || i >= grid.size() || j < 0 || j >= grid[0].size()<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|| grid[i][j] != '1') return;<br>&nbsp;&nbsp;grid[i][j] = '0';<br>&nbsp;&nbsp;dfs(grid, i+1, j);<br>&nbsp;&nbsp;dfs(grid, i-1, j);<br>&nbsp;&nbsp;dfs(grid, i, j+1);<br>&nbsp;&nbsp;dfs(grid, i, j-1);<br>}<br>// Time: O(m*n), Space: O(m*n)</div>
+        <h4>4.2 Course Schedule (Topological Sort)</h4>
+        <p>Check if all courses can be completed given prerequisites.</p>
+        <div class="code-example">bool canFinish(int n, vector&lt;vector&lt;int&gt;&gt;& edges) {<br>&nbsp;&nbsp;vector&lt;vector&lt;int&gt;&gt; adj(n);<br>&nbsp;&nbsp;vector&lt;int&gt; indegree(n, 0);<br>&nbsp;&nbsp;<br>&nbsp;&nbsp;for (auto& edge : edges) {<br>&nbsp;&nbsp;&nbsp;&nbsp;adj[edge[1]].push_back(edge[0]);<br>&nbsp;&nbsp;&nbsp;&nbsp;indegree[edge[0]]++;<br>&nbsp;&nbsp;}<br>&nbsp;&nbsp;<br>&nbsp;&nbsp;queue&lt;int&gt; q;<br>&nbsp;&nbsp;for (int i = 0; i < n; i++) {<br>&nbsp;&nbsp;&nbsp;&nbsp;if (indegree[i] == 0) q.push(i);<br>&nbsp;&nbsp;}<br>&nbsp;&nbsp;<br>&nbsp;&nbsp;int count = 0;<br>&nbsp;&nbsp;while (!q.empty()) {<br>&nbsp;&nbsp;&nbsp;&nbsp;int u = q.front();<br>&nbsp;&nbsp;&nbsp;&nbsp;q.pop();<br>&nbsp;&nbsp;&nbsp;&nbsp;count++;<br>&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;for (int v : adj[u]) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (--indegree[v] == 0) q.push(v);<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;}<br>&nbsp;&nbsp;return count == n;<br>}<br>// Time: O(V+E), Space: O(V+E)</div>
+        <h4>4.3 Clone Graph</h4>
+        <p>Deep copy a graph with DFS and HashMap.</p>
+        <div class="code-example">Node* cloneGraph(Node* node) {<br>&nbsp;&nbsp;if (!node) return NULL;<br>&nbsp;&nbsp;unordered_map&lt;Node*, Node*&gt; map;<br>&nbsp;&nbsp;return dfs(node, map);<br>}<br><br>Node* dfs(Node* node, unordered_map&lt;Node*, Node*&gt;& map) {<br>&nbsp;&nbsp;if (map.find(node) != map.end()) return map[node];<br>&nbsp;&nbsp;<br>&nbsp;&nbsp;Node* clone = new Node(node->val);<br>&nbsp;&nbsp;map[node] = clone;<br>&nbsp;&nbsp;<br>&nbsp;&nbsp;for (Node* neighbor : node->neighbors) {<br>&nbsp;&nbsp;&nbsp;&nbsp;clone->neighbors.push_back(dfs(neighbor, map));<br>&nbsp;&nbsp;}<br>&nbsp;&nbsp;return clone;<br>}<br>// Time: O(V+E), Space: O(V)</div>
+        <h4>4.4 Word Ladder (BFS Shortest Path)</h4>
+        <p>Find shortest path between two words with one letter change.</p>
+        <div class="code-example">int ladderLength(string begin, string end, vector&lt;string&gt;& words) {<br>&nbsp;&nbsp;unordered_set&lt;string&gt; dict(words.begin(), words.end());<br>&nbsp;&nbsp;queue&lt;pair&lt;string, int&gt;&gt; q;<br>&nbsp;&nbsp;q.push({begin, 1});<br>&nbsp;&nbsp;<br>&nbsp;&nbsp;while (!q.empty()) {<br>&nbsp;&nbsp;&nbsp;&nbsp;auto [word, level] = q.front();<br>&nbsp;&nbsp;&nbsp;&nbsp;q.pop();<br>&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;if (word == end) return level;<br>&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;for (int i = 0; i < word.size(); i++) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for (char c = 'a'; c <= 'z'; c++) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;string next = word;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;next[i] = c;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (dict.count(next)) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dict.erase(next);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;q.push({next, level + 1});<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;}<br>&nbsp;&nbsp;return 0;<br>}<br>// Time: O(n*l*26), Space: O(n) [n=words, l=length]</div>
+      </div>
+  </div>
+</div>
+<div class="note-actions">
+  <button class="btn-action btn-preview" onclick="previewPDF('graphs', 'Graphs')">
+    <i class="fas fa-eye"></i> Preview PDF
+  </button>
+<button class="btn-action btn-download" onclick="downloadPDF('graphs', 'Graphs')">
+  <i class="fas fa-download"></i> Download PDF
+</button>
+</div>
+</div>
+<div class="section-title" style="margin-top: var(--spacing-3xl);">
+  <i class="fas fa-squares"></i> Days 26-30: Dynamic Programming
+</div>
+<div class="note-card" data-note-id="dynamicprogramming">
+  <div class="note-header" onclick="toggleNote(this)">
+    <div class="note-info">
+      <div class="note-title">
+        <i class="fas fa-squares"></i> Dynamic Programming Mastery
+        <span class="difficulty-badge difficulty-hard">Hard</span>
+      </div>
+    <div class="note-meta">
+      <span><i class="fas fa-file-pdf"></i> PDF</span>
+      <span><i class="fas fa-book"></i> 32 pages</span>
+    </div>
+</div>
+<i class="toggle-icon fas fa-chevron-down"></i>
+</div>
+<div class="note-preview">
+  <div class="preview-content">
+    <div class="preview-section">
+      <div class="preview-title">1. Dynamic Programming Fundamentals</div>
+      <p>Dynamic Programming (DP) is an optimization technique for solving problems that have overlapping subproblems and optimal substructure. Instead of solving the same subproblems repeatedly, we store (memoize) their solutions.</p>
+      <h4>1.1 Two Key Properties of DP Problems</h4>
+      <ul class="preview-list">
+        <li><strong>Overlapping Subproblems:</strong> Problem can be broken down into subproblems which are reused several times</li>
+        <li><strong>Optimal Substructure:</strong> Optimal solution contains optimal solutions to subproblems</li>
+      </ul>
+    <h4>1.2 DP Approaches</h4>
+    <ul class="preview-list">
+      <li><strong>Memoization (Top-Down):</strong> Recursive approach with caching results</li>
+      <li><strong>Tabulation (Bottom-Up):</strong> Iterative approach building solutions from base cases</li>
+    </ul>
+  <div class="code-example">// Fibonacci - Memoization Approach<br>map<int, long long> memo;<br><br>long long fib(int n) {<br>&nbsp;&nbsp;if (n <= 1) return n;<br>&nbsp;&nbsp;if (memo.find(n) != memo.end()) return memo[n];<br>&nbsp;&nbsp;return memo[n] = fib(n-1) + fib(n-2);<br>}<br>// Time: O(n), Space: O(n)</div>
+    <div class="code-example">// Fibonacci - Tabulation Approach<br>long long fib(int n) {<br>&nbsp;&nbsp;if (n <= 1) return n;<br>&nbsp;&nbsp;vector<long long> dp(n+1);<br>&nbsp;&nbsp;dp[0] = 0, dp[1] = 1;<br>&nbsp;&nbsp;<br>&nbsp;&nbsp;for (int i = 2; i <= n; i++) {<br>&nbsp;&nbsp;&nbsp;&nbsp;dp[i] = dp[i-1] + dp[i-2];<br>&nbsp;&nbsp;}<br>&nbsp;&nbsp;return dp[n];<br>}<br>// Time: O(n), Space: O(n)</div>
+    </div>
+  <div class="preview-section">
+    <div class="preview-title">2. Types of DP Problems</div>
+    <h4>2.1 1D Dynamic Programming</h4>
+    <ul class="preview-list">
+      <li><strong>Climbing Stairs:</strong> dp[i] = dp[i-1] + dp[i-2]</li>
+      <li><strong>House Robber:</strong> dp[i] = max(dp[i-1], arr[i] + dp[i-2])</li>
+      <li><strong>Coin Change:</strong> Minimum coins to make amount</li>
+    </ul>
+  <div class="code-example">// House Robber<br>int rob(vector<int>& nums) {<br>&nbsp;&nbsp;if (nums.empty()) return 0;<br>&nbsp;&nbsp;if (nums.size() == 1) return nums[0];<br>&nbsp;&nbsp;<br>&nbsp;&nbsp;int prev1 = 0, prev2 = 0;<br>&nbsp;&nbsp;<br>&nbsp;&nbsp;for (int num : nums) {<br>&nbsp;&nbsp;&nbsp;&nbsp;int curr = max(num + prev2, prev1);<br>&nbsp;&nbsp;&nbsp;&nbsp;prev2 = prev1;<br>&nbsp;&nbsp;&nbsp;&nbsp;prev1 = curr;<br>&nbsp;&nbsp;}<br>&nbsp;&nbsp;return prev1;<br>}<br>// Time: O(n), Space: O(1)</div>
+    <h4>2.2 2D Dynamic Programming</h4>
+    <ul class="preview-list">
+      <li><strong>Longest Common Subsequence (LCS):</strong> dp[i][j] = length of LCS of first i and j chars</li>
+      <li><strong>Edit Distance (Levenshtein):</strong> Minimum operations to transform string</li>
+      <li><strong>Unique Paths:</strong> Count ways to reach bottom-right in grid</li>
+      <li><strong>Knapsack Problem:</strong> Maximum value with weight constraint</li>
+    </ul>
+  <div class="code-example">// Longest Common Subsequence<br>int lcs(string a, string b) {<br>&nbsp;&nbsp;int m = a.size(), n = b.size();<br>&nbsp;&nbsp;vector<vector<int>> dp(m+1, vector<int>(n+1, 0));<br>&nbsp;&nbsp;<br>&nbsp;&nbsp;for (int i = 1; i <= m; i++) {<br>&nbsp;&nbsp;&nbsp;&nbsp;for (int j = 1; j <= n; j++) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (a[i-1] == b[j-1]) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dp[i][j] = dp[i-1][j-1] + 1;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} else {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dp[i][j] = max(dp[i-1][j], dp[i][j-1]);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;}<br>&nbsp;&nbsp;return dp[m][n];<br>}<br>// Time: O(m*n), Space: O(m*n)</div>
+    </div>
+  <div class="preview-section">
+    <div class="preview-title">3. Advanced DP Techniques</div>
+    <h4>3.1 State Compression</h4>
+    <p>Using bitmask DP when states have limited values (typically < 20 values per dimension).</p>
+    <h4>3.2 Matrix Chain Multiplication</h4>
+    <p>Optimize parenthesization order to minimize scalar multiplications.</p>
+    <h4>3.3 Digit DP</h4>
+    <p>Count numbers in range [0, n] with specific properties by considering digits.</p>
+    <h4>3.4 DP on Trees</h4>
+    <p>Solve tree problems using DP, combining results from subtrees to solve parent.</p>
+  </div>
+<div class="preview-section">
+  <div class="preview-title">4. Top DP Interview Problems</div>
+  <h4>4.1 Climbing Stairs</h4>
+  <p>Climb n stairs with 1 or 2 steps at a time. Count ways.</p>
+  <div class="code-example">int climbStairs(int n) {<br>&nbsp;&nbsp;if (n <= 2) return n;<br>&nbsp;&nbsp;int prev2 = 1, prev1 = 2;<br>&nbsp;&nbsp;<br>&nbsp;&nbsp;for (int i = 3; i <= n; i++) {<br>&nbsp;&nbsp;&nbsp;&nbsp;int curr = prev1 + prev2;<br>&nbsp;&nbsp;&nbsp;&nbsp;prev2 = prev1;<br>&nbsp;&nbsp;&nbsp;&nbsp;prev1 = curr;<br>&nbsp;&nbsp;}<br>&nbsp;&nbsp;return prev1;<br>}<br>// Time: O(n), Space: O(1) [DP: dp[i] = dp[i-1] + dp[i-2]]</div>
+  <h4>4.2 House Robber</h4>
+  <p>Rob houses to maximize money without robbing adjacent houses.</p>
+  <div class="code-example">int rob(vector&lt;int&gt;& nums) {<br>&nbsp;&nbsp;if (nums.empty()) return 0;<br>&nbsp;&nbsp;int prev2 = 0, prev1 = 0;<br>&nbsp;&nbsp;<br>&nbsp;&nbsp;for (int num : nums) {<br>&nbsp;&nbsp;&nbsp;&nbsp;int curr = max(num + prev2, prev1);<br>&nbsp;&nbsp;&nbsp;&nbsp;prev2 = prev1;<br>&nbsp;&nbsp;&nbsp;&nbsp;prev1 = curr;<br>&nbsp;&nbsp;}<br>&nbsp;&nbsp;return prev1;<br>}<br>// Time: O(n), Space: O(1)</div>
+  <h4>4.3 Longest Increasing Subsequence (LIS)</h4>
+  <p>Find length of longest strictly increasing subsequence.</p>
+  <div class="code-example">int lengthOfLIS(vector&lt;int&gt;& nums) {<br>&nbsp;&nbsp;vector&lt;int&gt; dp;<br>&nbsp;&nbsp;<br>&nbsp;&nbsp;for (int num : nums) {<br>&nbsp;&nbsp;&nbsp;&nbsp;auto it = lower_bound(dp.begin(), dp.end(), num);<br>&nbsp;&nbsp;&nbsp;&nbsp;if (it == dp.end()) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dp.push_back(num);<br>&nbsp;&nbsp;&nbsp;&nbsp;} else {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*it = num;<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;}<br>&nbsp;&nbsp;return dp.size();<br>}<br>// Time: O(n log n), Space: O(n)</div>
+  <h4>4.4 Edit Distance (Levenshtein)</h4>
+  <p>Minimum operations (insert, delete, replace) to transform s1 to s2.</p>
+  <div class="code-example">int editDistance(string s1, string s2) {<br>&nbsp;&nbsp;int m = s1.size(), n = s2.size();<br>&nbsp;&nbsp;vector&lt;vector&lt;int&gt;&gt; dp(m+1, vector&lt;int&gt;(n+1));<br>&nbsp;&nbsp;<br>&nbsp;&nbsp;for (int i = 0; i <= m; i++) dp[i][0] = i;<br>&nbsp;&nbsp;for (int j = 0; j <= n; j++) dp[0][j] = j;<br>&nbsp;&nbsp;<br>&nbsp;&nbsp;for (int i = 1; i <= m; i++) {<br>&nbsp;&nbsp;&nbsp;&nbsp;for (int j = 1; j <= n; j++) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (s1[i-1] == s2[j-1]) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dp[i][j] = dp[i-1][j-1];<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} else {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dp[i][j] = 1 + min({dp[i-1][j], dp[i][j-1],<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dp[i-1][j-1]});<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;}<br>&nbsp;&nbsp;return dp[m][n];<br>}<br>// Time: O(m*n), Space: O(m*n)</div>
+  <h4>4.5 0/1 Knapsack Problem</h4>
+  <p>Maximum value with weight constraint.</p>
+  <div class="code-example">int knapsack(vector&lt;int&gt;& weights, vector&lt;int&gt;& values, int capacity) {<br>&nbsp;&nbsp;int n = weights.size();<br>&nbsp;&nbsp;vector&lt;int&gt; dp(capacity + 1, 0);<br>&nbsp;&nbsp;<br>&nbsp;&nbsp;for (int i = 0; i < n; i++) {<br>&nbsp;&nbsp;&nbsp;&nbsp;for (int w = capacity; w >= weights[i]; w--) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dp[w] = max(dp[w], dp[w - weights[i]] + values[i]);<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;}<br>&nbsp;&nbsp;return dp[capacity];<br>}<br>// Time: O(n*capacity), Space: O(capacity)</div>
+  <h4>4.6 Word Break</h4>
+  <p>Check if word can be segmented using words from dictionary.</p>
+  <div class="code-example">bool wordBreak(string s, vector&lt;string&gt;& words) {<br>&nbsp;&nbsp;unordered_set&lt;string&gt; dict(words.begin(), words.end());<br>&nbsp;&nbsp;vector&lt;bool&gt; dp(s.size() + 1, false);<br>&nbsp;&nbsp;dp[0] = true;<br>&nbsp;&nbsp;<br>&nbsp;&nbsp;for (int i = 1; i <= s.size(); i++) {<br>&nbsp;&nbsp;&nbsp;&nbsp;for (int j = 0; j < i; j++) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (dp[j] && dict.count(s.substr(j, i - j))) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dp[i] = true;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;}<br>&nbsp;&nbsp;return dp[s.size()];<br>}<br>// Time: O(n^2 * m), Space: O(n) [m=avg word length]</div>
+</div>
+<div class="preview-section">
+  <div class="preview-title">5. DP Problem Solving Strategy</div>
+  <ol class="preview-list">
+    <li>Identify the state: What variables define a unique subproblem?</li>
+    <li>Define recurrence: How do we compute state from subproblems?</li>
+    <li>Base cases: When do we stop recursing?</li>
+    <li>Implementation: Choose memoization or tabulation</li>
+    <li>Optimization: Can we reduce space complexity?</li>
+  </ol>
+</div>
+</div>
+</div>
+<div class="note-actions">
+  <button class="btn-action btn-preview" onclick="previewPDF('dynamicprogramming', 'Dynamic Programming')">
+    <i class="fas fa-eye"></i> Preview PDF
+  </button>
+<button class="btn-action btn-download" onclick="downloadPDF('dynamicprogramming', 'Dynamic Programming')">
+  <i class="fas fa-download"></i> Download PDF
+</button>
+</div>
+</div>
+</section>
+</div>
+</main>
+<div id="pdfModal" class="modal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2 id="pdfTitle">PDF Preview</h2>
+      <button class="close-modal" onclick="closePDFModal()">×</button>
+    </div>
+  <div class="modal-body" id="pdfContent" style="background: white; color: #000;">
+  </div>
+</div>
+</div>
+<div id="downloadsModal" class="modal">
+  <div class="modal-content" style="max-width: 700px;">
+    <div class="modal-header">
+      <h2>My Downloads</h2>
+      <button class="close-modal" onclick="closeDownloadsModal()">×</button>
+    </div>
+  <div class="modal-body" id="downloadsBody" style="max-height: 600px; overflow-y: auto;">
+  </div>
+</div>
+</div>
+<div id="fullscreenPDFModal" class="modal" style="z-index: 2000;">
+  <div style="position: relative; width: 100%; height: 100%; display: flex; flex-direction: column; background: #f5f5f5;">
+    <div style="background: #1a1a1a; color: white; padding: 16px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.3);">
+      <div>
+        <h2 id="fullscreenTitle" style="margin: 0; font-size: 20px;"></h2>
+      </div>
+    <div style="display: flex; gap: 12px; align-items: center;">
+      <button onclick="downloadCurrentPDF()" style="padding: 8px 16px; background-color: var(--primary); color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: 600;">
+        <i class="fas fa-download"></i> Download PDF
+      </button>
+    <button onclick="closeFullscreenPDF()" style="background: none; border: none; color: white; font-size: 28px; cursor: pointer; padding: 0;">×</button>
+  </div>
+</div>
+<div id="fullscreenContent" style="flex: 1; overflow-y: auto; padding: 40px; background: white; font-family: Arial, sans-serif;">
+</div>
+</div>
+</div>
+<footer class="footer">
+  <div class="footer-content">
+    <div class="footer-column">
+      <h4>About PlacementHub</h4>
+      <p>Your complete placement preparation platform for mastering DSA and landing your dream job.</p>
+    </div>
+  <div class="footer-column">
+    <h4>Quick Links</h4>
+    <ul>
+      <li><a href="dsa.html">DSA Problems</a></li>
+      <li><a href="progress.html">Progress Tracker</a></li>
+      <li><a href="saved.html">Saved Problems</a></li>
+    </ul>
+</div>
+<div class="footer-column">
+  <h4>Resources</h4>
+  <ul>
+    <li><a href="#">Study Notes</a></li>
+    <li><a href="#">Interview Tips</a></li>
+    <li><a href="#">Learning Guide</a></li>
+  </ul>
+</div>
+<div class="footer-column">
+  <h4>Get in Touch</h4>
+  <p><i class="fas fa-envelope"></i>
+    <a href="mailto:contact@placementhub.com">contact@placementhub.com</a></p>
+  <p><i class="fas fa-phone"></i>
+    <a href="tel:+919876543210">+91 987-654-3210</a></p>
+  <div class="footer-social">
+    <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+    <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+    <a href="#" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+    <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+  </div>
+</div>
+</div>
+<div class="footer-bottom">
+  <p>&copy; 2026 PlacementHub. All Rights Reserved. | Empowering Students to Succeed</p>
+</div>
+</footer>
+<script src="scripth.js"></script>
+<script src="notes.js"></script>
+</body>
+</html>

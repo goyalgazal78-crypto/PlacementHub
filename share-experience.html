@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Share Your Interview Experience - PlacementHub</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/experience.css">
+  <link rel="stylesheet" href="css/share-experience.css">
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="index.html" class="navbar-logo">PlacementHub</a>
+    <div class="navbar-center">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="dashboard.html" class="nav-link">Dashboard</a>
+      <a href="dsa.html" class="nav-link">DSA</a>
+      <a href="quiz.html" class="nav-link">Quiz</a>
+      <a href="aptitude.html" class="nav-link">Aptitude</a>
+      <a href="experience.html" class="nav-link active">Experience</a>
+    </div>
+    <div class="navbar-right">
+      <div class="theme-toggle">
+        <div class="toggle-circle">🌙</div>
+      </div>
+      <a href="signin.html" class="btn btn-secondary btn-sm">Sign In</a>
+      <a href="signup.html" class="btn btn-primary btn-sm">Sign Up</a>
+    </div>
+    <div class="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </nav>
+
+  <main>
+    <!-- Page Banner -->
+    <section class="page-banner">
+      <div class="container">
+        <p class="page-banner-label">Give Back</p>
+        <h1>Share Your Interview Experience</h1>
+        <p class="page-banner-text">
+          Your story could be the reason a junior cracks their dream company.
+          Tell us about the rounds, the questions, and what you wish you had known earlier.
+        </p>
+        <ol class="step-indicator">
+          <li>Company</li>
+          <li>Details</li>
+          <li>Rounds</li>
+          <li>Submit</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Share Form -->
+    <section class="section share-form-section">
+      <div class="container">
+        <p class="posting-strip">
+          <i class="fas fa-circle-user"></i>
+          Posting as <strong>Guest</strong> — <a href="signin.html">sign in</a> to get your experience verified.
+        </p>
+
+        <!-- data-custom-submit tells the shared handler in script.js
+             to leave this form alone. -->
+        <form class="share-form" id="share-form" data-custom-submit novalidate>
+
+          <!-- Company -->
+          <fieldset class="form-section">
+            <legend>Which company was this for?</legend>
+
+            <div class="experience-explorer company-picker">
+              <input class="company-input" type="radio" name="company" id="c-google" value="google">
+              <input class="company-input" type="radio" name="company" id="c-microsoft" value="microsoft">
+              <input class="company-input" type="radio" name="company" id="c-amazon" value="amazon">
+              <input class="company-input" type="radio" name="company" id="c-adobe" value="adobe">
+              <input class="company-input" type="radio" name="company" id="c-infosys" value="infosys">
+              <input class="company-input" type="radio" name="company" id="c-tcs" value="tcs">
+              <input class="company-input" type="radio" name="company" id="c-accenture" value="accenture">
+              <input class="company-input" type="radio" name="company" id="c-wipro" value="wipro">
+              <input class="company-input" type="radio" name="company" id="c-oracle" value="oracle">
+              <input class="company-input" type="radio" name="company" id="c-capgemini" value="capgemini">
+              <input class="company-input" type="radio" name="company" id="c-goldman-sachs" value="goldman-sachs">
+              <input class="company-input" type="radio" name="company" id="c-american-express" value="american-express">
+              <input class="company-input" type="radio" name="company" id="c-jp-morgan" value="jp-morgan">
+              <input class="company-input" type="radio" name="company" id="c-cisco" value="cisco">
+              <input class="company-input" type="radio" name="company" id="c-atlassian" value="atlassian">
+              <input class="company-input" type="radio" name="company" id="c-flipkart" value="flipkart">
+              <input class="company-input" type="radio" name="company" id="c-zomato" value="zomato">
+              <input class="company-input" type="radio" name="company" id="c-linkedin" value="linkedin">
+              <input class="company-input" type="radio" name="company" id="c-paypal" value="paypal">
+              <input class="company-input" type="radio" name="company" id="c-blinkit" value="blinkit">
+              <input class="company-input" type="radio" name="company" id="c-meesho" value="meesho">
+              <input class="company-input" type="radio" name="company" id="c-cognizant" value="cognizant">
+
+              <ul class="company-grid">
+                <li>
+                  <label class="company-card" for="c-google">
+                    <span class="company-logo-plate">
+                      <img src="images/companies/google.svg" alt="Google logo">
+                    </span>
+                    <span class="company-name">Google</span>
+                  </label>
+                </li>
+                <li>
+                  <label class="company-card" for="c-microsoft">
+                    <span class="company-logo-plate">
+                      <img src="images/companies/microsoft.svg" alt="Microsoft logo">
+                    </span>
+                    <span class="company-name">Microsoft</span>
+                  </label>
+                </li>
+                <li>
+                  <label class="company-card" for="c-amazon">
+                    <span class="company-logo-plate">
+                      <img src="images/companies/amazon.svg" alt="Amazon logo">
+                    </span>
+                    <span class="company-name">Amazon</span>
+                  </label>
+                </li>
+                <li>
+                  <label class="company-card" for="c-adobe">
+                    <span class="company-logo-plate">
+                      <img src="images/companies/adobe.svg" alt="Adobe logo">
+                    </span>
+                    <span class="company-name">Adobe</span>
+                  </label>
+                </li>
+                <li>
+                  <label class="company-card" for="c-infosys">
+                    <span class="company-logo-plate">
+                      <img src="images/companies/infosys.svg" alt="Infosys logo">
+                    </span>
+                    <span class="company-name">Infosys</span>
+                  </label>
+                </li>
+                <li>
+                  <label class="company-card" for="c-tcs">
+                    <span class="company-logo-plate">
+                      <img src="images/companies/tcs.svg" alt="Tata Consultancy Services logo">
+                    </span>
+                    <span class="company-name">TCS</span>
+                  </label>
+                </li>
+                <li>
+                  <label class="company-card" for="c-accenture">
+                    <span class="company-logo-plate">
+                      <img src="images/companies/accenture.svg" alt="Accenture logo">
+                    </span>
+                    <span class="company-name">Accenture</span>
+                  </label>
+                </li>
+                <li>
+                  <label class="company-card" for="c-wipro">
+                    <span class="company-logo-plate">
+                      <img src="images/companies/wipro.svg" alt="Wipro logo">
+                    </span>
+                    <span class="company-name">Wipro</span>
+                  </label>
+                </li>
+                <li>
+                  <label class="company-card" for="c-oracle">
+                    <span class="company-logo-plate">
+                      <img src="images/companies/oracle.svg" alt="Oracle logo">
+                    </span>
+                    <span class="company-name">Oracle</span>
+                  </label>
+                </li>
+                <li>
+                  <label class="company-card" for="c-capgemini">
+                    <span class="company-logo-plate">
+                      <img src="images/companies/capgemini.svg" alt="Capgemini logo">
+                    </span>
+                    <span class="company-name">Capgemini</span>
+                  </label>
+                </li>
+                <li>
+                  <label class="company-card" for="c-goldman-sachs">
+                    <span class="company-logo-plate">
+                      <img src="images/companies/goldman-sachs.svg" alt="Goldman Sachs logo">
+                    </span>
+                    <span class="company-name">Goldman Sachs</span>
+                  </label>
+                </li>
+                <li>
+                  <label class="company-card" for="c-american-express">
+                    <span class="company-logo-plate">
+                      <img src="images/companies/american-express.svg" alt="American Express logo">
+                    </span>
+                    <span class="company-name">American Express</span>
+                  </label>
+                </li>
+                <li>
+                  <label class="company-card" for="c-jp-morgan">
+                    <span class="company-logo-plate">
+                      <img src="images/companies/jp-morgan.svg" alt="J.P. Morgan logo">
+                    </span>
+                    <span class="company-name">J.P. Morgan</span>
+                  </label>
+                </li>
+                <li>
+                  <label class="company-card" for="c-cisco">
+                    <span class="company-logo-plate">
+                      <img src="images/companies/cisco.svg" alt="Cisco logo">
+                    </span>
+                    <span class="company-name">Cisco</span>
+                  </label>
+                </li>
+                <li>
+                  <label class="company-card" for="c-atlassian">
+                    <span class="company-logo-plate">
+                      <img src="images/companies/atlassian.svg" alt="Atlassian logo">
+                    </span>
+                    <span class="company-name">Atlassian</span>
+                  </label>
+                </li>
+                <li>
+                  <label class="company-card" for="c-flipkart">
+                    <span class="company-logo-plate">
+                      <img src="images/companies/flipkart.svg" alt="Flipkart logo">
+                    </span>
+                    <span class="company-name">Flipkart</span>
+                  </label>
+                </li>
+                <li>
+                  <label class="company-card" for="c-zomato">
+                    <span class="company-logo-plate">
+                      <img src="images/companies/zomato.svg" alt="Zomato logo">
+                    </span>
+                    <span class="company-name">Zomato</span>
+                  </label>
+                </li>
+                <li>
+                  <label class="company-card" for="c-linkedin">
+                    <span class="company-logo-plate">
+                      <img src="images/companies/linkedin.svg" alt="LinkedIn logo">
+                    </span>
+                    <span class="company-name">LinkedIn</span>
+                  </label>
+                </li>
+                <li>
+                  <label class="company-card" for="c-paypal">
+                    <span class="company-logo-plate">
+                      <img src="images/companies/paypal.svg" alt="PayPal logo">
+                    </span>
+                    <span class="company-name">PayPal</span>
+                  </label>
+                </li>
+                <li>
+                  <label class="company-card" for="c-blinkit">
+                    <span class="company-logo-plate">
+                      <img src="images/companies/blinkit.svg" alt="Blinkit logo">
+                    </span>
+                    <span class="company-name">Blinkit</span>
+                  </label>
+                </li>
+                <li>
+                  <label class="company-card" for="c-meesho">
+                    <span class="company-logo-plate">
+                      <img src="images/companies/meesho.svg" alt="Meesho logo">
+                    </span>
+                    <span class="company-name">Meesho</span>
+                  </label>
+                </li>
+                <li>
+                  <label class="company-card" for="c-cognizant">
+                    <span class="company-logo-plate">
+                      <img src="images/companies/cognizant.svg" alt="Cognizant logo">
+                    </span>
+                    <span class="company-name">Cognizant</span>
+                  </label>
+                </li>
+              </ul>
+            </div>
+
+            <p class="field-error" id="company-error" hidden>Please pick a company.</p>
+          </fieldset>
+
+          <!--  Role & Offer -->
+          <fieldset class="form-section">
+            <legend>Role &amp; offer details</legend>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="role">Role / Position <span class="req">*</span></label>
+                <input type="text" id="role" class="form-input" placeholder="e.g. Software Engineer" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="year">Interview year</label>
+                <select id="year" class="form-input">
+                  <option value="2026">2026</option>
+                  <option value="2025">2025</option>
+                  <option value="2024">2024</option>
+                  <option value="2023">2023</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="package">Package offered <span class="optional">(optional)</span></label>
+                <input type="text" id="package" class="form-input" placeholder="e.g. 12 LPA">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="mode">How did you apply?</label>
+                <select id="mode" class="form-input">
+                  <option value="On-campus">On-campus</option>
+                  <option value="Off-campus">Off-campus</option>
+                  <option value="Referral">Referral</option>
+                  <option value="Internship conversion">Internship conversion</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <span class="form-label">Job type</span>
+              <div class="choice-group">
+                <input type="radio" name="jobType" id="job-fulltime" value="Full-time" checked>
+                <label for="job-fulltime">Full-time</label>
+                <input type="radio" name="jobType" id="job-intern" value="Internship">
+                <label for="job-intern">Internship</label>
+              </div>
+            </div>
+          </fieldset>
+
+          <!-- About You -->
+          <fieldset class="form-section">
+            <legend>About you</legend>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="name">Your name <span class="req">*</span></label>
+                <input type="text" id="name" class="form-input" placeholder="e.g. Amit Sharma" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="branch">Branch <span class="req">*</span></label>
+                <input type="text" id="branch" class="form-input" placeholder="e.g. Computer Science" required>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="batch">Batch year</label>
+                <input type="text" id="batch" class="form-input" placeholder="e.g. 2026">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="email">Email <span class="optional">(optional, never shown)</span></label>
+                <input type="email" id="email" class="form-input" placeholder="you@college.edu">
+              </div>
+            </div>
+
+            <div class="checkbox-row">
+              <input type="checkbox" id="anonymous">
+              <label for="anonymous">
+                Post anonymously
+                <span class="checkbox-hint">Your name will be hidden and shown as “Anonymous Student”.</span>
+              </label>
+            </div>
+          </fieldset>
+
+          <!--  Rounds -->
+          <fieldset class="form-section">
+            <legend>Interview rounds</legend>
+            <p class="section-hint">
+              Describe each round in your own words — what was asked, how long it lasted, and how it went.
+              Leave any round blank if it does not apply.
+            </p>
+
+            <div class="round-input" data-round="1">
+              <span class="round-number">1</span>
+              <div class="round-fields">
+                <div class="form-group">
+                  <label class="form-label" for="round-title-1">Round 1 name <span class="req">*</span></label>
+                  <input type="text" id="round-title-1" class="form-input" placeholder="e.g. Online Assessment" required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="round-detail-1">What happened in this round? <span class="req">*</span></label>
+                  <textarea id="round-detail-1" class="form-textarea" placeholder="Two DSA problems in 90 minutes — a sliding window question and a graph shortest-path problem." required></textarea>
+                </div>
+              </div>
+            </div>
+
+            <div class="round-input" data-round="2">
+              <span class="round-number">2</span>
+              <div class="round-fields">
+                <div class="form-group">
+                  <label class="form-label" for="round-title-2">Round 2 name</label>
+                  <input type="text" id="round-title-2" class="form-input" placeholder="e.g. Technical Interview 1">
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="round-detail-2">What happened in this round?</label>
+                  <textarea id="round-detail-2" class="form-textarea" placeholder="Describe the questions asked."></textarea>
+                </div>
+              </div>
+            </div>
+
+            <div class="round-input" data-round="3">
+              <span class="round-number">3</span>
+              <div class="round-fields">
+                <div class="form-group">
+                  <label class="form-label" for="round-title-3">Round 3 name</label>
+                  <input type="text" id="round-title-3" class="form-input" placeholder="e.g. HR Round">
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="round-detail-3">What happened in this round?</label>
+                  <textarea id="round-detail-3" class="form-textarea" placeholder="Describe the questions asked."></textarea>
+                </div>
+              </div>
+            </div>
+
+            
+            <details class="more-rounds">
+              <summary>Add more rounds</summary>
+
+              <div class="round-input" data-round="4">
+                <span class="round-number">4</span>
+                <div class="round-fields">
+                  <div class="form-group">
+                    <label class="form-label" for="round-title-4">Round 4 name</label>
+                    <input type="text" id="round-title-4" class="form-input" placeholder="e.g. Managerial Round">
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="round-detail-4">What happened in this round?</label>
+                    <textarea id="round-detail-4" class="form-textarea" placeholder="Describe the questions asked."></textarea>
+                  </div>
+                </div>
+              </div>
+
+              <div class="round-input" data-round="5">
+                <span class="round-number">5</span>
+                <div class="round-fields">
+                  <div class="form-group">
+                    <label class="form-label" for="round-title-5">Round 5 name</label>
+                    <input type="text" id="round-title-5" class="form-input" placeholder="e.g. Bar Raiser">
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="round-detail-5">What happened in this round?</label>
+                    <textarea id="round-detail-5" class="form-textarea" placeholder="Describe the questions asked."></textarea>
+                  </div>
+                </div>
+              </div>
+            </details>
+          </fieldset>
+
+          <!-- Topics -->
+          <fieldset class="form-section">
+            <legend>Topics you were asked about</legend>
+            <p class="section-hint">Pick everything that came up. These become the tags on your experience card.</p>
+
+            <div class="chip-group">
+              <input type="checkbox" name="topics" id="t-arrays" value="Arrays">
+              <label for="t-arrays">Arrays</label>
+              <input type="checkbox" name="topics" id="t-strings" value="Strings">
+              <label for="t-strings">Strings</label>
+              <input type="checkbox" name="topics" id="t-linkedlists" value="Linked Lists">
+              <label for="t-linkedlists">Linked Lists</label>
+              <input type="checkbox" name="topics" id="t-trees" value="Trees">
+              <label for="t-trees">Trees</label>
+              <input type="checkbox" name="topics" id="t-graphs" value="Graphs">
+              <label for="t-graphs">Graphs</label>
+              <input type="checkbox" name="topics" id="t-dp" value="Dynamic Programming">
+              <label for="t-dp">Dynamic Programming</label>
+              <input type="checkbox" name="topics" id="t-oops" value="OOPs">
+              <label for="t-oops">OOPs</label>
+              <input type="checkbox" name="topics" id="t-dbms" value="DBMS">
+              <label for="t-dbms">DBMS</label>
+              <input type="checkbox" name="topics" id="t-os" value="Operating Systems">
+              <label for="t-os">Operating Systems</label>
+              <input type="checkbox" name="topics" id="t-networking" value="Networking">
+              <label for="t-networking">Networking</label>
+              <input type="checkbox" name="topics" id="t-design" value="System Design">
+              <label for="t-design">System Design</label>
+              <input type="checkbox" name="topics" id="t-aptitude" value="Aptitude">
+              <label for="t-aptitude">Aptitude</label>
+              <input type="checkbox" name="topics" id="t-puzzles" value="Puzzles">
+              <label for="t-puzzles">Puzzles</label>
+              <input type="checkbox" name="topics" id="t-hr" value="HR">
+              <label for="t-hr">HR</label>
+            </div>
+          </fieldset>
+
+          <!-- Video -->
+          <fieldset class="form-section">
+            <legend>Video walkthrough</legend>
+            <p class="section-hint">
+              Recorded your experience. Drop the link here.
+            </p>
+
+            <div class="video-input-row">
+              <span class="video-input-logo">
+                <img src="images/youtube.svg" alt="YouTube">
+              </span>
+              <div class="video-input-fields">
+                <div class="form-group">
+                  <label class="form-label" for="video-url">YouTube link <span class="optional">(optional)</span></label>
+                  <input type="url" id="video-url" class="form-input" placeholder="https://www.youtube.com/watch?v=...">
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="video-title">Video title <span class="optional">(optional)</span></label>
+                  <input type="text" id="video-title" class="form-input" placeholder="e.g. My Google interview — all 5 rounds">
+                </div>
+              </div>
+            </div>
+          </fieldset>
+
+          <!-- Summary -->
+          <fieldset class="form-section">
+            <legend>Your overall experience</legend>
+
+            <div class="form-group">
+              <label class="form-label" for="summary">Summary <span class="req">*</span></label>
+              <textarea id="summary" class="form-textarea summary-textarea" placeholder="How did the whole process feel? What surprised you? What would you do differently?" required minlength="80"></textarea>
+              <p class="field-hint">Write at least 80 characters — detail is what makes an experience useful.</p>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="tip">One tip for juniors <span class="optional">(optional)</span></label>
+              <textarea id="tip" class="form-textarea tip-textarea" placeholder="e.g. Do not skip system design — practise explaining trade-offs out loud."></textarea>
+            </div>
+
+            <div class="checkbox-row">
+              <input type="checkbox" id="consent" required>
+              <label for="consent">
+                I confirm this is my own experience <span class="req">*</span>
+                <span class="checkbox-hint">Do not share anything covered by an NDA or any confidential question paper.</span>
+              </label>
+            </div>
+            <p class="field-error" id="consent-error" hidden>Please confirm before submitting.</p>
+
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary btn-lg">Publish My Experience</button>
+              <a href="experience.html" class="btn btn-secondary">Cancel</a>
+            </div>
+          </fieldset>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-column">
+          <h4>About PlacementHub</h4>
+          <p>PlacementHub is your complete placement preparation platform. We help students master DSA, aptitude, and interview skills to land their dream jobs.</p>
+        </div>
+        <div class="footer-column">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="dsa.html">DSA</a></li>
+            <li><a href="quiz.html">Quiz</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="experience.html">Interview Experiences</a></li>
+            <li><a href="aptitude.html">Aptitude Practice</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#">Blog</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Contact</h4>
+          <div class="footer-contact">
+            <p><i class="fas fa-envelope"></i> contact@placementhub.com</p>
+            <p><i class="fas fa-phone"></i> +91 (555) 123-4567</p>
+            <p><i class="fas fa-map-marker-alt"></i> Bangalore, India</p>
+            <div class="footer-social">
+              <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+              <a href="#" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 PlacementHub. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/scripts.js"></script>
+  <script src="js/experience-store.js"></script>
+  <script src="js/share-experience.js"></script>
+</body>
+</html>

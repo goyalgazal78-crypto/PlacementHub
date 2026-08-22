@@ -1,0 +1,2282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interview Experiences - PlacementHub</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/experience.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="index.html" class="navbar-logo">PlacementHub</a>
+    <div class="navbar-center">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="dashboard.html" class="nav-link">Dashboard</a>
+      <a href="dsa.html" class="nav-link">DSA</a>
+      <a href="quiz.html" class="nav-link">Quiz</a>
+      <a href="aptitude.html" class="nav-link">Aptitude</a>
+      <a href="experience.html" class="nav-link active">Experience</a>
+    </div>
+    <div class="navbar-right">
+      <div class="theme-toggle">
+        <div class="toggle-circle">🌙</div>
+      </div>
+      <a href="signin.html" class="btn btn-secondary btn-sm">Sign In</a>
+      <a href="signup.html" class="btn btn-primary btn-sm">Sign Up</a>
+    </div>
+    <div class="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </nav>
+
+  <main>
+    <!-- Page Banner -->
+
+    <section class="page-banner">
+      <div class="container">
+        <p class="page-banner-label">Interview Experiences</p>
+        <h1>Learn From Students Who Already Made It</h1>
+        <p class="page-banner-text">
+          Real, company-wise interview experiences shared by seniors — every round, every question,
+          and hand-picked video walkthroughs to help you prepare with confidence.
+        </p>
+        <div class="banner-stats">
+          <div class="banner-stat">
+            <span class="banner-stat-number">250+</span>
+            <span class="banner-stat-title">Experiences Shared</span>
+          </div>
+          <div class="banner-stat">
+            <span class="banner-stat-number">22</span>
+            <span class="banner-stat-title">Top Companies</span>
+          </div>
+          <div class="banner-stat">
+            <span class="banner-stat-number">60+</span>
+            <span class="banner-stat-title">Video Walkthroughs</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Company-wise Experience Explorer -->
+    <section class="section experience-section">
+      <div class="container">
+        
+        <p class="submission-alert" id="submission-alert" hidden></p>
+
+        <div class="section-heading">
+          <p class="section-heading-label">Browse By Company</p>
+          <h2>Pick a Company to Read Its Experiences</h2>
+          <p>Select any company logo below to instantly open the interview experiences shared for it.</p>
+        </div>
+
+        <div class="experience-explorer">
+          <!-- Company selectors -->
+          <input class="company-input" type="radio" name="company" id="c-google" checked>
+          <input class="company-input" type="radio" name="company" id="c-microsoft">
+          <input class="company-input" type="radio" name="company" id="c-amazon">
+          <input class="company-input" type="radio" name="company" id="c-adobe">
+          <input class="company-input" type="radio" name="company" id="c-infosys">
+          <input class="company-input" type="radio" name="company" id="c-tcs">
+          <input class="company-input" type="radio" name="company" id="c-accenture">
+          <input class="company-input" type="radio" name="company" id="c-wipro">
+          <input class="company-input" type="radio" name="company" id="c-oracle">
+          <input class="company-input" type="radio" name="company" id="c-capgemini">
+          <input class="company-input" type="radio" name="company" id="c-goldman-sachs">
+          <input class="company-input" type="radio" name="company" id="c-american-express">
+          <input class="company-input" type="radio" name="company" id="c-jp-morgan">
+          <input class="company-input" type="radio" name="company" id="c-cisco">
+          <input class="company-input" type="radio" name="company" id="c-atlassian">
+          <input class="company-input" type="radio" name="company" id="c-flipkart">
+          <input class="company-input" type="radio" name="company" id="c-zomato">
+          <input class="company-input" type="radio" name="company" id="c-linkedin">
+          <input class="company-input" type="radio" name="company" id="c-paypal">
+          <input class="company-input" type="radio" name="company" id="c-blinkit">
+          <input class="company-input" type="radio" name="company" id="c-meesho">
+          <input class="company-input" type="radio" name="company" id="c-cognizant">
+
+          <!-- Company Logo Grid -->
+          <ul class="company-grid">
+            <li>
+              <label class="company-card" for="c-google">
+                <span class="company-logo-plate">
+                  <img src="images/companies/google.svg" alt="Google logo">
+                </span>
+                <span class="company-name">Google</span>
+                <span class="company-count">3 experiences</span>
+              </label>
+            </li>
+            <li>
+              <label class="company-card" for="c-microsoft">
+                <span class="company-logo-plate">
+                  <img src="images/companies/microsoft.svg" alt="Microsoft logo">
+                </span>
+                <span class="company-name">Microsoft</span>
+                <span class="company-count">2 experiences</span>
+              </label>
+            </li>
+            <li>
+              <label class="company-card" for="c-amazon">
+                <span class="company-logo-plate">
+                  <img src="images/companies/amazon.svg" alt="Amazon logo">
+                </span>
+                <span class="company-name">Amazon</span>
+                <span class="company-count">2 experiences</span>
+              </label>
+            </li>
+            <li>
+              <label class="company-card" for="c-adobe">
+                <span class="company-logo-plate">
+                  <img src="images/companies/adobe.svg" alt="Adobe logo">
+                </span>
+                <span class="company-name">Adobe</span>
+                <span class="company-count">2 experiences</span>
+              </label>
+            </li>
+            <li>
+              <label class="company-card" for="c-infosys">
+                <span class="company-logo-plate">
+                  <img src="images/companies/infosys.svg" alt="Infosys logo">
+                </span>
+                <span class="company-name">Infosys</span>
+                <span class="company-count">2 experiences</span>
+              </label>
+            </li>
+            <li>
+              <label class="company-card" for="c-tcs">
+                <span class="company-logo-plate">
+                  <img src="images/companies/tcs.svg" alt="Tata Consultancy Services logo">
+                </span>
+                <span class="company-name">TCS</span>
+                <span class="company-count">2 experiences</span>
+              </label>
+            </li>
+            <li>
+              <label class="company-card" for="c-accenture">
+                <span class="company-logo-plate">
+                  <img src="images/companies/accenture.svg" alt="Accenture logo">
+                </span>
+                <span class="company-name">Accenture</span>
+                <span class="company-count">2 experiences</span>
+              </label>
+            </li>
+            <li>
+              <label class="company-card" for="c-wipro">
+                <span class="company-logo-plate">
+                  <img src="images/companies/wipro.svg" alt="Wipro logo">
+                </span>
+                <span class="company-name">Wipro</span>
+                <span class="company-count">2 experiences</span>
+              </label>
+            </li>
+            <li>
+              <label class="company-card" for="c-oracle">
+                <span class="company-logo-plate">
+                  <img src="images/companies/oracle.svg" alt="Oracle logo">
+                </span>
+                <span class="company-name">Oracle</span>
+                <span class="company-count">1 experience</span>
+              </label>
+            </li>
+            <li>
+              <label class="company-card" for="c-capgemini">
+                <span class="company-logo-plate">
+                  <img src="images/companies/capgemini.svg" alt="Capgemini logo">
+                </span>
+                <span class="company-name">Capgemini</span>
+                <span class="company-count">1 experience</span>
+              </label>
+            </li>
+            <li>
+              <label class="company-card" for="c-goldman-sachs">
+                <span class="company-logo-plate">
+                  <img src="images/companies/goldman-sachs.svg" alt="Goldman Sachs logo">
+                </span>
+                <span class="company-name">Goldman Sachs</span>
+                <span class="company-count">1 experience</span>
+              </label>
+            </li>
+            <li>
+              <label class="company-card" for="c-american-express">
+                <span class="company-logo-plate">
+                  <img src="images/companies/american-express.svg" alt="American Express logo">
+                </span>
+                <span class="company-name">American Express</span>
+                <span class="company-count">1 experience</span>
+              </label>
+            </li>
+            <li>
+              <label class="company-card" for="c-jp-morgan">
+                <span class="company-logo-plate">
+                  <img src="images/companies/jp-morgan.svg" alt="J.P. Morgan logo">
+                </span>
+                <span class="company-name">J.P. Morgan</span>
+                <span class="company-count">1 experience</span>
+              </label>
+            </li>
+            <li>
+              <label class="company-card" for="c-cisco">
+                <span class="company-logo-plate">
+                  <img src="images/companies/cisco.svg" alt="Cisco logo">
+                </span>
+                <span class="company-name">Cisco</span>
+                <span class="company-count">1 experience</span>
+              </label>
+            </li>
+            <li>
+              <label class="company-card" for="c-atlassian">
+                <span class="company-logo-plate">
+                  <img src="images/companies/atlassian.svg" alt="Atlassian logo">
+                </span>
+                <span class="company-name">Atlassian</span>
+                <span class="company-count">1 experience</span>
+              </label>
+            </li>
+            <li>
+              <label class="company-card" for="c-flipkart">
+                <span class="company-logo-plate">
+                  <img src="images/companies/flipkart.svg" alt="Flipkart logo">
+                </span>
+                <span class="company-name">Flipkart</span>
+                <span class="company-count">1 experience</span>
+              </label>
+            </li>
+            <li>
+              <label class="company-card" for="c-zomato">
+                <span class="company-logo-plate">
+                  <img src="images/companies/zomato.svg" alt="Zomato logo">
+                </span>
+                <span class="company-name">Zomato</span>
+                <span class="company-count">1 experience</span>
+              </label>
+            </li>
+            <li>
+              <label class="company-card" for="c-linkedin">
+                <span class="company-logo-plate">
+                  <img src="images/companies/linkedin.svg" alt="LinkedIn logo">
+                </span>
+                <span class="company-name">LinkedIn</span>
+                <span class="company-count">1 experience</span>
+              </label>
+            </li>
+            <li>
+              <label class="company-card" for="c-paypal">
+                <span class="company-logo-plate">
+                  <img src="images/companies/paypal.svg" alt="PayPal logo">
+                </span>
+                <span class="company-name">PayPal</span>
+                <span class="company-count">1 experience</span>
+              </label>
+            </li>
+            <li>
+              <label class="company-card" for="c-blinkit">
+                <span class="company-logo-plate">
+                  <img src="images/companies/blinkit.svg" alt="Blinkit logo">
+                </span>
+                <span class="company-name">Blinkit</span>
+                <span class="company-count">1 experience</span>
+              </label>
+            </li>
+            <li>
+              <label class="company-card" for="c-meesho">
+                <span class="company-logo-plate">
+                  <img src="images/companies/meesho.svg" alt="Meesho logo">
+                </span>
+                <span class="company-name">Meesho</span>
+                <span class="company-count">1 experience</span>
+              </label>
+            </li>
+            <li>
+              <label class="company-card" for="c-cognizant">
+                <span class="company-logo-plate">
+                  <img src="images/companies/cognizant.svg" alt="Cognizant logo">
+                </span>
+                <span class="company-name">Cognizant</span>
+                <span class="company-count">1 experience</span>
+              </label>
+            </li>
+          </ul>
+
+          <!-- Experience Panels -->
+          <div class="company-panels">
+
+            <!-- GOOGLE -->
+            <article class="company-panel" id="p-google">
+              <header class="panel-header">
+                <span class="company-logo-plate panel-logo">
+                  <img src="images/companies/google.svg" alt="Google logo">
+                </span>
+                <div class="panel-heading">
+                  <h3>Google — Interview Experiences</h3>
+                  <p>Software Engineer &amp; SDE Intern roles · On-campus and off-campus drives</p>
+                </div>
+              </header>
+
+              <div class="experience-list">
+                <!-- Experience 1 -->
+                <div class="experience-card">
+                  <div class="experience-card-head">
+                    <span class="student-avatar">AS</span>
+                    <div class="student-info">
+                      <h4>Anu Sharma</h4>
+                      <p class="student-meta">Computer Science · Software Engineer</p>
+                    </div>
+                  </div>
+
+                  <p class="experience-summary">
+                    Applied off-campus using a professional referral from a Google employee. The process included a technical phone screen and two on-site coding interviews, focusing entirely on mastering data structures like graphs, trees, and dynamic programming</p>
+
+                  <ul class="tag-list">
+                    <li class="tag">Graphs</li>
+                    <li class="tag">Dynamic Programming</li>
+                    <li class="tag">Trees</li>
+                    <li class="tag">Searching and Sorting Algorithms</li>
+                  </ul>
+
+                  <details class="round-details">
+                    <summary>View round-by-round breakdown</summary>
+                    <ol class="round-list">
+                      <li>
+                        <strong>Online Assessment</strong>
+                        <span> A 30-minute recruiter-led session covering computer science fundamentals, data structures, and basic algorithms.Also discussed current Projects.</span>
+                      </li>
+                      <li>
+                        <strong>Technical Round 1</strong>
+                        <span>45-minute coding round.
+                        Focused on graph-related problems with a dynamic programming-based variation as a follow-up.</span>
+                      </li>
+                      <li>
+                        <strong>Technical Round 2</strong>
+                        <span>45-minute coding round.
+                        Focused on tree data structures, specifically implementing Depth-First Search (DFS), followed by a dynamic programming problem on a tree.</span>
+                      </li>
+                      
+                    </ol>
+                  </details>
+
+                  <a class="video-card" href="https://youtu.be/dRJe2yEDtLE?si=6Ve0a97vTQFL2HwD" target="_blank" rel="noopener">
+                    <span class="video-thumb"><img src="images/youtube.svg" alt="YouTube"></span>
+                    <span class="video-info">
+                      <span class="video-title">Google Software Engineer Intern Interview Experience — Full Walkthrough</span>
+                      <span class="video-channel"><i class="fas fa-circle-play"></i> Watch on YouTube</span>
+                    </span>
+                  </a>
+                </div>
+
+                <!-- Experience 2 -->
+                <div class="experience-card">
+                  <div class="experience-card-head">
+                    <span class="student-avatar">AV</span>
+                    <div class="student-info">
+                      <h4>Aparna Vasudevan</h4>
+                      <p class="student-meta">Computer Science · Data Scientist</p>
+                    </div>
+                  </div>
+
+                  <p class="experience-summary">
+                    Three-round interview process involving SQL, case studies, and behavioral assessments . She emphasizes the importance of thorough technical preparation, deep research into the specific team's work, and clear communication of one's own project experience.
+                  </p>
+
+                  <ul class="tag-list">
+                    <li class="tag">SQL Proficiency</li>
+                    <li class="tag">Python Basics</li>
+                    <li class="tag">Case Study Analysis</li>
+                  </ul>
+
+                  <details class="round-details">
+                    <summary>View round-by-round breakdown</summary>
+                    <ol class="round-list">
+                      <li>
+                        <strong>Round 1: Technical Coding</strong>
+                        <span>Focused primarily on SQL coding. The candidate was asked to solve three to four problems on a notepad and discuss their approach to finding the solutions.</span>
+                      </li>
+                      <li>
+                        <strong>Round 2: Trust and Safety Case Study </strong>
+                        <span>A deep-dive session (approx. 45 minutes) where the candidate brainstormed ideas with the panel on situational problems related to YouTube content, user safety, and browser security.</span>
+                      </li>
+                      <li>
+                        <strong>Round 3: Hiring Manager/Googliness Round</strong>
+                        <span>A behavioral interview evaluating leadership style, how the candidate handles specific workplace situations (e.g., credit for projects, team conflict), and overall cultural fit</span>
+                      </li>
+                    </ol>
+                  </details>
+
+                  <a class="video-card" href="https://youtu.be/zQYJJ2_aOrk?si=2iIHHDSqEbrPebYi" target="_blank" rel="noopener">
+                    <span class="video-thumb"><img src="images/youtube.svg" alt="YouTube"></span>
+                    <span class="video-info">
+                      <span class="video-title">Google Interview Experience | Data Scientist Role</span>
+                      <span class="video-channel"><i class="fas fa-circle-play"></i> Watch on YouTube</span>
+                    </span>
+                  </a>
+                </div>
+
+                <!-- Experience 3 -->
+                <div class="experience-card">
+                  <div class="experience-card-head">
+                    <span class="student-avatar">SK</span>
+                    <div class="student-info">
+                      <h4>Shivam Kumar</h4>
+                      <p class="student-meta">Computer Science · Software Engineer</p>
+                    </div>
+                  </div>
+
+                  <p class="experience-summary">
+                    Prioritize a balanced profile by mastering DSA and development projects to build a strong resume.Maintain consistency in preparation while ensuring your communication during interviews effectively conveys your thought process.
+                  </p>
+
+                  <ul class="tag-list">
+                    <li class="tag">Trees</li>
+                    <li class="tag">Dynamic Programming</li>
+                    <li class="tag">CS Fundamentals</li>
+                    <li class="tag">Recursion</li>
+                  </ul>
+
+                  <details class="round-details">
+                    <summary>View round-by-round breakdown</summary>
+                    <ol class="round-list">
+                      <li>
+                        <strong>Online Assessment</strong>
+                        <span>The assessment featured two coding problems, one based on Dynamic Programming and another involving Euler tours of trees.</span>
+                      </li>
+                      <li>
+                        <strong>Technical Round 1</strong>
+                        <span>This round focused on his Code for Good hackathon project.Technical questions included a basic recursion problem and a more complex challenge involving Priority Queues, Maps, and randomized sorting algorithms</span>
+                      </li>
+                      <li>
+                        <strong>Technical Round 2</strong>
+                        <span>This round included a problem based on backward Dynamic Programming.He was also tested on space optimization, specifically converting a Dynamic Programming approach from O(n) to O(1) space.The round concluded with theoretical questions regarding the internal working of hash tables.</span>
+                      </li>
+                    </ol>
+                  </details>
+
+                  <a class="video-card" href="https://youtu.be/iSfrVNowJ9Y?si=U8QrdmkSfqylVwV4" target="_blank" rel="noopener">
+                    <span class="video-thumb"><img src="images/youtube.svg" alt="YouTube"></span>
+                    <span class="video-info">
+                      <span class="video-title">From NIT Jamshedpur to Google: Full Placement Journey</span>
+                      <span class="video-channel"><i class="fas fa-circle-play"></i> Watch on YouTube</span>
+                    </span>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!--  MICROSOFT -->
+
+            <article class="company-panel" id="p-microsoft">
+              <header class="panel-header">
+                <span class="company-logo-plate panel-logo">
+                  <img src="images/companies/microsoft.svg" alt="Microsoft logo">
+                </span>
+                <div class="panel-heading">
+                  <h3>Microsoft — Interview Experiences</h3>
+                  <p>Software Engineer roles · Engage and campus hiring tracks</p>
+                </div>
+              </header>
+
+              <!-- Experience 1 -->
+
+              <div class="experience-list">
+                <div class="experience-card">
+                  <div class="experience-card-head">
+                    <span class="student-avatar">K</span>
+                    <div class="student-info">
+                      <h4>Kanika</h4>
+                      <p class="student-meta">Computer Science · Software Engineer</p>
+                    </div>
+                  </div>
+
+                  <p class="experience-summary">
+                    Microsoft's rounds felt conversational rather than interrogative. Every interviewer
+                    asked me to write production-quality code — naming, edge cases and input validation
+                    were all part of the evaluation, not just the algorithm.
+                  </p>
+
+                  <ul class="tag-list">
+                    <li class="tag">Arrays</li>
+                    <li class="tag">DBMS</li>
+                    <li class="tag">OOPs</li>
+                    <li class="tag">Operating System</li>
+                    
+                  </ul>
+
+                  <details class="round-details">
+                    <summary>View round-by-round breakdown</summary>
+                    <ol class="round-list">
+                      <li>
+                        <strong>Technical Round 1</strong>
+                        <span>Focused on a Data Structures and Algorithms (DSA) problem involving array and interval overlapping, followed by a discussion about her DRDO project and OOPs concepts.</span>
+                      </li>
+                      <li>
+                        <strong>Technical Round 2</strong>
+                        <span>Started with feedback on the previous round, followed by a deep dive into her resume, internship experience, a Kadane's Algorithm problem, and questions on OOPs and DBMS.</span>
+                      </li>
+                    </ol>
+                  </details>
+
+                  <a class="video-card" href="https://youtu.be/rKvfa91xBrs?si=q8kbH6XCRJ3qlHRr" target="_blank" rel="noopener">
+                    <span class="video-thumb"><img src="images/youtube.svg" alt="YouTube"></span>
+                    <span class="video-info">
+                      <span class="video-title">Microsoft OFF-Campus Interview Experience</span>
+                      <span class="video-channel"><i class="fas fa-circle-play"></i> Watch on YouTube</span>
+                    </span>
+                  </a>
+                </div>
+
+                <!-- Experience 2 -->
+
+                <div class="experience-card">
+                  <div class="experience-card-head">
+                    <span class="student-avatar">HV</span>
+                    <div class="student-info">
+                      <h4>Shreya Shree</h4>
+                      <p class="student-meta">Computer Science and Engineering · Software Engineer</p>
+                    </div>
+                  </div>
+
+                  <p class="experience-summary">
+                   Interviews involved deep discussions on her AI/ML projects, specifically focusing on NLP and text retention, followed by technical questions on stacks and implementing a hash map from scratch.
+                  </p>
+
+                  <ul class="tag-list">
+                    <li class="tag">Stack</li>
+                    <li class="tag">Hash Map</li>
+                    <li class="tag">Dynamic Programming</li>
+                    <li class="tag">Graph algorithms</li>
+                  </ul>
+
+                  <details class="round-details">
+                    <summary>View round-by-round breakdown</summary>
+                    <ol class="round-list">
+                      <li>
+                        <strong>Online Assessment</strong>
+                        <span>The assessment consisted of two technical questions: one on Dynamic Programming and another on Graph algorithms.</span>
+                      </li>
+                      <li>
+                        <strong>Technical Round 1</strong>
+                        <span>This was a combined managerial and technical round. The first 15–20 minutes were dedicated to a deep discussion about her AI/ML projects, specifically her work on NLP and text retention capacity. The round concluded with a technical problem focused on implementing a Stack.</span>
+                      </li>
+                      <li>
+                        <strong>Technical Round 2</strong>
+                        <span>This round involved further discussion on her project's architecture and future scope. The technical challenge required her to implement a Hash Map from scratch without using any built-in libraries, covering insertion, deletion, searching, and updating functions.</span>
+                      </li>
+                    </ol>
+                  </details>
+
+                  <a class="video-card" href="https://youtu.be/64N1nNk0WuQ?si=N6Rj_1fpZkRvDfwO" target="_blank" rel="noopener">
+                    <span class="video-thumb"><img src="images/youtube.svg" alt="YouTube"></span>
+                    <span class="video-info">
+                      <span class="video-title">Microsoft Internship Interview</span>
+                      <span class="video-channel"><i class="fas fa-circle-play"></i> Watch on YouTube</span>
+                    </span>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!--  AMAZON  -->
+            <article class="company-panel" id="p-amazon">
+              <header class="panel-header">
+                <span class="company-logo-plate panel-logo">
+                  <img src="images/companies/amazon.svg" alt="Amazon logo">
+                </span>
+                <div class="panel-heading">
+                  <h3>Amazon — Interview Experiences</h3>
+                  <p>SDE-1 and SDE Intern roles · Leadership Principles weigh heavily</p>
+                </div>
+              </header>
+
+              <!-- Experience 1 -->
+
+              <div class="experience-list">
+                <div class="experience-card">
+                  <div class="experience-card-head">
+                    <span class="student-avatar">AU</span>
+                    <div class="student-info">
+                      <h4>Anonymous User</h4>
+                      <p class="student-meta">Computer Science · SDE</p>
+                    </div>
+                  </div>
+
+                  <p class="experience-summary">
+                    Half of my preparation went into the 16 Leadership Principles and it paid off. Every
+                    single interviewer asked at least one behavioural question, and they expected the
+                    STAR format with concrete numbers attached to my answers.
+                  </p>
+
+                  <ul class="tag-list">
+                    <li class="tag">DP</li>
+                    <li class="tag">String</li>
+                    <li class="tag">Trees</li>
+                    <li class="tag">Graph</li>
+                  </ul>
+
+                  <details class="round-details">
+                    <summary>View round-by-round breakdown</summary>
+                    <ol class="round-list">
+                      <li>
+                        <strong>Online Assessment</strong>
+                        <span>Three questions: two medium-level (Dynamic Programming and Strings) and one hard-level (Graphs).</span>
+                      </li>
+                      <li>
+                        <strong>Technical Round 1</strong>
+                        <span>Focused on Data Structures and Algorithms (DSA).
+                        Included an LRU Cache problem and a Binary Search problem similar to aggressive cows.</span>
+                      </li>
+                      <li>
+                        <strong>Technical Round 2</strong>
+                        <span> Included a LeetCode hard problem on Binary Trees and a Graph BFS problem.</span>
+                      </li>
+                      <li>
+                        <strong>Round 3</strong>
+                        <span>Completely behavioral (Leadership Principles).</span>
+                      </li>
+                    </ol>
+                  </details>
+
+                  <a class="video-card" href="https://youtu.be/NSDhCSE4pwU?si=u4zKTUA-HR6ar2vr" target="_blank" rel="noopener">
+                    <span class="video-thumb"><img src="images/youtube.svg" alt="YouTube"></span>
+                    <span class="video-info">
+                      <span class="video-title">Amazon Interview Experience</span>
+                      <span class="video-channel"><i class="fas fa-circle-play"></i> Watch on YouTube</span>
+                    </span>
+                  </a>
+                </div>
+
+                <!-- Experience 2 -->
+
+                <div class="experience-card">
+                  <div class="experience-card-head">
+                    <span class="student-avatar">AS</span>
+                    <div class="student-info">
+                      <h4>Anu Sharma</h4>
+                      <p class="student-meta">Computer Science · SDE Intern</p>
+                    </div>
+                  </div>
+
+                  <p class="experience-summary">
+                    The online assessment is the real filter — only about forty students out of six hundred
+                    moved forward. Practising under a strict timer helped more than solving extra problems
+                    without one.
+                  </p>
+
+                  <ul class="tag-list">
+                    <li class="tag">Hashing</li>
+                    <li class="tag">Sliding Window</li>
+                    <li class="tag">Stacks</li>
+                  </ul>
+
+                  <details class="round-details">
+                    <summary>View round-by-round breakdown</summary>
+                    <ol class="round-list">
+                      <li>
+                        <strong>Online Assessment</strong>
+                        <span>Longest substring without repeating characters and a warehouse-inventory
+                        simulation problem.</span>
+                      </li>
+                      <li>
+                        <strong>Technical Round 1</strong>
+                        <span>Next greater element and the trapping rain water problem.</span>
+                      </li>
+                      <li>
+                        <strong>Technical Round 2</strong>
+                        <span>Resume walkthrough, two LP questions and one easy string problem.</span>
+                      </li>
+                    </ol>
+                  </details>
+
+                  <a class="video-card" href="https://youtu.be/Gai1iiiAQPc?si=-a2tNV9b-pmkOSht" target="_blank" rel="noopener">
+                    <span class="video-thumb"><img src="images/youtube.svg" alt="YouTube"></span>
+                    <span class="video-info">
+                      <span class="video-title">How to Clear the Amazon Online Assessment</span>
+                      <span class="video-channel"><i class="fas fa-circle-play"></i> Watch on YouTube</span>
+                    </span>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!--  ADOBE  -->
+            <article class="company-panel" id="p-adobe">
+              <header class="panel-header">
+                <span class="company-logo-plate panel-logo">
+                  <img src="images/companies/adobe.svg" alt="Adobe logo">
+                </span>
+                <div class="panel-heading">
+                  <h3>Adobe — Interview Experiences</h3>
+                  <p>Member of Technical Staff and intern roles · Strong CS-fundamentals focus</p>
+                </div>
+              </header>
+
+              <!-- Experience 1 -->
+
+              <div class="experience-list">
+                <div class="experience-card">
+                  <div class="experience-card-head">
+                    <span class="student-avatar">SP</span>
+                    <div class="student-info">
+                      <h4>Shraddha Pawar</h4>
+                      <p class="student-meta">Computer Science · Software Engineer</p>
+                    </div>
+                  </div>
+
+                  <p class="experience-summary">
+                    Adobe went deeper into core subjects - Operating systems, DBMS and object-oriented design each got a full segment, so
+                    revising theory alongside DSA was essential.
+                  </p>
+
+                  <ul class="tag-list">
+                    <li class="tag">DSA</li>
+                    <li class="tag">CS Fundamentals</li>
+                    <li class="tag">Aptitude</li>
+                    <li class="tag">Mathematics</li>
+                  </ul>
+
+                  <details class="round-details">
+                    <summary>View round-by-round breakdown</summary>
+                    <ol class="round-list">
+                      <li>
+                        <strong>Online Assessment</strong>
+                        <span>It included Data Structures and Algorithms (DSA), aptitude questions, mathematics, and core computer science subjects.</span>
+                      </li>
+                      <li>
+                        <strong>Technical Round 1</strong>
+                        <span>A problem focused on calculating time and space complexity for a given algorithm, which involved series involving geometric progression.
+                        A problem based on permutations and combinations.</span>
+                      </li>
+                    </ol>
+                  </details>
+
+                  <a class="video-card" href="https://youtu.be/2LzfzmMW9hM?si=NfTFvZthCYIW5gvd" target="_blank" rel="noopener">
+                    <span class="video-thumb"><img src="images/youtube.svg" alt="YouTube"></span>
+                    <span class="video-info">
+                      <span class="video-title">Adobe Interview Experience — Rounds &amp; Questions</span>
+                      <span class="video-channel"><i class="fas fa-circle-play"></i> Watch on YouTube</span>
+                    </span>
+                  </a>
+                </div>
+
+                <!-- Experience 2 -->
+
+                <div class="experience-card">
+                  <div class="experience-card-head">
+                    <span class="student-avatar">TG</span>
+                    <div class="student-info">
+                      <h4>Tanvi Gupta</h4>
+                      <p class="student-meta">Information Technology · Product Intern</p>
+                    </div>
+                  </div>
+
+                  <p class="experience-summary">
+                    I solved both coding questions but could not answer the follow-ups on space
+                    optimisation. The lesson I took away: always be ready to explain how you would reduce
+                    memory usage, not just runtime.
+                  </p>
+
+                  <ul class="tag-list">
+                    <li class="tag">Dynamic Programming</li>
+                    <li class="tag">Space Optimisation</li>
+                  </ul>
+
+                  <details class="round-details">
+                    <summary>View round-by-round breakdown</summary>
+                    <ol class="round-list">
+                      <li>
+                        <strong>Online Assessment</strong>
+                        <span>Aptitude section plus edit distance between two strings.</span>
+                      </li>
+                      <li>
+                        <strong>Technical Round 1</strong>
+                        <span>Longest common subsequence, then asked to convert the 2D table into a
+                        rolling one-dimensional array.</span>
+                      </li>
+                    </ol>
+                  </details>
+
+                  <a class="video-card" href="https://www.youtube.com/results?search_query=Dynamic+Programming+Space+Optimization+Interview" target="_blank" rel="noopener">
+                    <span class="video-thumb"><img src="images/youtube.svg" alt="YouTube"></span>
+                    <span class="video-info">
+                      <span class="video-title">DP Space Optimisation — The Follow-Up Everyone Misses</span>
+                      <span class="video-channel"><i class="fas fa-circle-play"></i> Watch on YouTube</span>
+                    </span>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!--  INFOSYS  -->
+
+            <article class="company-panel" id="p-infosys">
+              <header class="panel-header">
+                <span class="company-logo-plate panel-logo">
+                  <img src="images/companies/infosys.svg" alt="Infosys logo">
+                </span>
+                <div class="panel-heading">
+                  <h3>Infosys — Interview Experiences</h3>
+                  <p>System Engineer, Digital Specialist and Power Programmer tracks</p>
+                </div>
+              </header>
+
+              <!-- Experience 1 -->
+
+              <div class="experience-list">
+                <div class="experience-card">
+                  <div class="experience-card-head">
+                    <span class="student-avatar">RS</span>
+                    <div class="student-info">
+                      <h4>Rajeev Singh</h4>
+                      <p class="student-meta">Electronics and Communication · Specialist Programmer L1</p>
+                    </div>
+                  </div>
+
+                  <p class="experience-summary">
+                    The InfyTQ certification gave me a direct interview call. Communication carried real
+                    weight here — the interviewer cared as much about how clearly I explained my project
+                    as about the code itself.
+                  </p>
+
+                  <ul class="tag-list">
+                    <li class="tag">Aptitude</li>
+                    <li class="tag">Python</li>
+                    <li class="tag">SQL</li>
+                    <li class="tag">Communication</li>
+                  </ul>
+
+                  <details class="round-details">
+                    <summary>View round-by-round breakdown</summary>
+                    <ol class="round-list">
+                      <li>
+                        <strong>Online Test</strong>
+                        <span>A 3 hours test with four coding questions.</span>
+                      </li>
+                      <li>
+                        <strong>Technical + Managerial Interview</strong>
+                        <span>Primarily focused on DSA, OOPs, and fundamental programming concepts.</span>
+                      </li>
+                      
+                    </ol>
+                  </details>
+
+                  <a class="video-card" href="https://youtu.be/gcC15wKA8CM?si=2ZS5DgzHJG-mTJfX" target="_blank" rel="noopener">
+                    <span class="video-thumb"><img src="images/youtube.svg" alt="YouTube"></span>
+                    <span class="video-info">
+                      <span class="video-title">Infosys Interview Experience — Complete Guide</span>
+                      <span class="video-channel"><i class="fas fa-circle-play"></i> Watch on YouTube</span>
+                    </span>
+                  </a>
+                </div>
+
+                <!-- Experience 2 -->
+
+                <div class="experience-card">
+                  <div class="experience-card-head">
+                    <span class="student-avatar">VP</span>
+                    <div class="student-info">
+                      <h4>Vikram Patel</h4>
+                      <p class="student-meta">Mechanical Engineering · System Engineer</p>
+                    </div>
+                  </div>
+
+                  <p class="experience-summary">
+                    Infosys hires across branches, so my mechanical background was never a problem. They
+                    focused on aptitude, basic programming logic and whether I was genuinely interested in
+                    moving into IT.
+                  </p>
+
+                  <ul class="tag-list">
+                    <li class="tag">Logical Reasoning</li>
+                    <li class="tag">C Programming</li>
+                    <li class="tag">HR</li>
+                  </ul>
+
+                  <details class="round-details">
+                    <summary>View round-by-round breakdown</summary>
+                    <ol class="round-list">
+                      <li>
+                        <strong>Online Test</strong>
+                        <span>Aptitude and reasoning with a strict per-section time limit.</span>
+                      </li>
+                      <li>
+                        <strong>Technical Interview</strong>
+                        <span>Difference between arrays and linked lists, what a pointer is, and a
+                        program to reverse a number.</span>
+                      </li>
+                      <li>
+                        <strong>HR Interview</strong>
+                        <span>Why IT after mechanical, and questions about my strengths.</span>
+                      </li>
+                    </ol>
+                  </details>
+
+                  <a class="video-card" href="https://www.youtube.com/results?search_query=Infosys+System+Engineer+Interview+Questions+Non+CS" target="_blank" rel="noopener">
+                    <span class="video-thumb"><img src="images/youtube.svg" alt="YouTube"></span>
+                    <span class="video-info">
+                      <span class="video-title">Infosys Interview for Non-CS Branches — What to Expect</span>
+                      <span class="video-channel"><i class="fas fa-circle-play"></i> Watch on YouTube</span>
+                    </span>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!--  TCS  -->
+
+            <article class="company-panel" id="p-tcs">
+              <header class="panel-header">
+                <span class="company-logo-plate panel-logo">
+                  <img src="images/companies/tcs.svg" alt="Tata Consultancy Services logo">
+                </span>
+                <div class="panel-heading">
+                  <h3>TCS — Interview Experiences</h3>
+                  <p>Ninja, Digital and Prime tracks through the NQT examination</p>
+                </div>
+              </header>
+
+              <!-- Experience 1 -->
+
+              <div class="experience-list">
+                <div class="experience-card">
+                  <div class="experience-card-head">
+                    <span class="student-avatar">SM</span>
+                    <div class="student-info">
+                      <h4>Simran Mehta</h4>
+                      <p class="student-meta">Information Technology · TCS Digital</p>
+                    </div>
+                  </div>
+
+                  <p class="experience-summary">
+                    My NQT score decided which track I was offered, so treating that exam seriously was
+                    the single highest-return decision. The interview itself was a friendly forty-minute
+                    conversation across technical, managerial and HR panels in one sitting.
+                  </p>
+
+                  <ul class="tag-list">
+                    <li class="tag">NQT</li>
+                    <li class="tag">Java</li>
+                    <li class="tag">DBMS</li>
+                    <li class="tag">Managerial</li>
+                  </ul>
+
+                  <details class="round-details">
+                    <summary>View round-by-round breakdown</summary>
+                    <ol class="round-list">
+                      <li>
+                        <strong>TCS NQT</strong>
+                        <span>Numerical ability, verbal ability, reasoning and two coding questions in C
+                        or Java.</span>
+                      </li>
+                      <li>
+                        <strong>Technical Interview</strong>
+                        <span>OOPs concepts with examples, SQL queries with group-by, and a project
+                        discussion.</span>
+                      </li>
+                      <li>
+                        <strong>Managerial &amp; HR</strong>
+                        <span>A situational question about missing a deadline, plus service-agreement
+                        and location preferences.</span>
+                      </li>
+                    </ol>
+                  </details>
+
+                  <a class="video-card" href="https://www.youtube.com/results?search_query=TCS+Digital+Interview+Experience+NQT" target="_blank" rel="noopener">
+                    <span class="video-thumb"><img src="images/youtube.svg" alt="YouTube"></span>
+                    <span class="video-info">
+                      <span class="video-title">TCS NQT to TCS Digital — My Full Interview Experience</span>
+                      <span class="video-channel"><i class="fas fa-circle-play"></i> Watch on YouTube</span>
+                    </span>
+                  </a>
+                </div>
+
+                <!-- Experience 2 -->
+
+                <div class="experience-card">
+                  <div class="experience-card-head">
+                    <span class="student-avatar">AB</span>
+                    <div class="student-info">
+                      <h4>Arjun Bhatia</h4>
+                      <p class="student-meta">Civil Engineering · Batch 2025 · TCS Ninja</p>
+                    </div>
+                  </div>
+
+                  <p class="experience-summary">
+                    I started coding only six months before placements. Sticking to one language and
+                    practising two problems a day was enough to clear the NQT and answer everything asked
+                    in the technical round.
+                  </p>
+
+                  <ul class="tag-list">
+                    <li class="tag">C Programming</li>
+                    <li class="tag">Aptitude</li>
+                    <li class="tag">HR</li>
+                  </ul>
+
+                  <details class="round-details">
+                    <summary>View round-by-round breakdown</summary>
+                    <ol class="round-list">
+                      <li>
+                        <strong>TCS NQT</strong>
+                        <span>Cleared the cut-off in aptitude with one of two coding questions fully
+                        solved.</span>
+                      </li>
+                      <li>
+                        <strong>Technical Interview</strong>
+                        <span>Loops, arrays, a swap-without-temp-variable program and basic SQL.</span>
+                      </li>
+                      <li>
+                        <strong>HR Interview</strong>
+                        <span>Why the switch from civil to IT, and family background.</span>
+                      </li>
+                    </ol>
+                  </details>
+
+                  <a class="video-card" href="https://www.youtube.com/results?search_query=TCS+Ninja+Interview+Questions+Freshers" target="_blank" rel="noopener">
+                    <span class="video-thumb"><img src="images/youtube.svg" alt="YouTube"></span>
+                    <span class="video-info">
+                      <span class="video-title">TCS Ninja Interview Questions for Freshers</span>
+                      <span class="video-channel"><i class="fas fa-circle-play"></i> Watch on YouTube</span>
+                    </span>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!--  ACCENTURE  -->
+
+            <article class="company-panel" id="p-accenture">
+              <header class="panel-header">
+                <span class="company-logo-plate panel-logo">
+                  <img src="images/companies/accenture.svg" alt="Accenture logo">
+                </span>
+                <div class="panel-heading">
+                  <h3>Accenture — Interview Experiences</h3>
+                  <p>Associate Software Engineer and Advanced ASE roles</p>
+                </div>
+              </header>
+
+              <!-- Experience 1 -->
+
+              <div class="experience-list">
+                <div class="experience-card">
+                  <div class="experience-card-head">
+                    <span class="student-avatar">A</span>
+                    <div class="student-info">
+                      <h4>Aayush</h4>
+                      <p class="student-meta">Electrical Engineering · Advanced Engineering Application Analyst</p>
+                    </div>
+                  </div>
+
+                  <p class="experience-summary">
+                    The communication assessment surprised a lot of my batchmates — it is a recorded speaking test, not a written one. Practising short spoken answers beforehand made a visible difference to my score.
+                  </p>
+
+                  <ul class="tag-list">
+                    <li class="tag">Communication</li>
+                    <li class="tag">Reasoning</li>
+                    <li class="tag">Quant Aptitude</li>
+                  </ul>
+
+                  <details class="round-details">
+                    <summary>View round-by-round breakdown</summary>
+                    <ol class="round-list">
+                      <li>
+                        <strong>Online Assessment</strong>
+                        <span>Includes Quantitative Aptitude, Reasoning, and English Comprehension. Two DSA questions of easy-to-medium difficulty within a 40-minute timeframe.</span>
+                      </li>
+                      <li>
+                        <strong>Communication Round</strong>
+                        <span>This was a non-eliminatory round that followed the technical assessment.</span>
+                      </li>
+                      <li>
+                        <strong>Technical &amp; HR Interview</strong>
+                        <span>Questions on final year projects, internships, programming languages, and basic computer networks. Discussion on challenges faced, conflict resolution within a team, and internship experiences.</span>
+                      </li>
+                    </ol>
+                  </details>
+
+                  <a class="video-card" href="https://youtu.be/wqr8ergP2aw?si=UkQ1yl7P9OOsIWCD" target="_blank" rel="noopener">
+                    <span class="video-thumb"><img src="images/youtube.svg" alt="YouTube"></span>
+                    <span class="video-info">
+                      <span class="video-title">Accenture Interview Experience — Full Process</span>
+                      <span class="video-channel"><i class="fas fa-circle-play"></i> Watch on YouTube</span>
+                    </span>
+                  </a>
+                </div>
+
+                <!-- Experience 2 -->
+
+                <div class="experience-card">
+                  <div class="experience-card-head">
+                    <span class="student-avatar">DS</span>
+                    <div class="student-info">
+                      <h4>Devansh Saxena</h4>
+                      <p class="student-meta">Electrical Engineering· ASE</p>
+                    </div>
+                  </div>
+
+                  <p class="experience-summary">
+                    The whole process finished in a single day. Keep your project explanation to about two
+                    minutes — my interviewer stopped me the moment I started drifting into unnecessary
+                    detail.
+                  </p>
+
+                  <ul class="tag-list">
+                    <li class="tag">Pseudo Code</li>
+                    <li class="tag">Networking</li>
+                    <li class="tag">HR</li>
+                  </ul>
+
+                  <details class="round-details">
+                    <summary>View round-by-round breakdown</summary>
+                    <ol class="round-list">
+                      <li>
+                        <strong>Online Assessment</strong>
+                        <span>Cognitive and technical sections with no negative marking.</span>
+                      </li>
+                      <li>
+                        <strong>Technical Interview</strong>
+                        <span>OSI layers, what an IP address is, and basic SQL select queries.</span>
+                      </li>
+                      <li>
+                        <strong>HR Interview</strong>
+                        <span>Relocation, notice on the bond period and salary expectations.</span>
+                      </li>
+                    </ol>
+                  </details>
+
+                  <a class="video-card" href="https://www.youtube.com/results?search_query=Accenture+Technical+Interview+Questions+Answers" target="_blank" rel="noopener">
+                    <span class="video-thumb"><img src="images/youtube.svg" alt="YouTube"></span>
+                    <span class="video-info">
+                      <span class="video-title">Accenture Technical Interview Questions &amp; Answers</span>
+                      <span class="video-channel"><i class="fas fa-circle-play"></i> Watch on YouTube</span>
+                    </span>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!-- WIPRO -->
+
+            <article class="company-panel" id="p-wipro">
+              <header class="panel-header">
+                <span class="company-logo-plate panel-logo">
+                  <img src="images/companies/wipro.svg" alt="Wipro logo">
+                </span>
+                <div class="panel-heading">
+                  <h3>Wipro — Interview Experiences</h3>
+                  <p>Project Engineer and Turbo hiring through the Elite NTH test</p>
+                </div>
+              </header>
+
+              <!-- Experience 1 -->
+
+              <div class="experience-list">
+                <div class="experience-card">
+                  <div class="experience-card-head">
+                    <span class="student-avatar">IK</span>
+                    <div class="student-info">
+                      <h4>Ishita Kaur</h4>
+                      <p class="student-meta">Computer Science · Project Engineer</p>
+                    </div>
+                  </div>
+
+                  <p class="experience-summary">
+                    The written communication essay in the Elite NTH test is easy to underestimate. It is
+                    scored, so I spent one evening practising structured 200-word answers and that alone
+                    cleared the section.
+                  </p>
+
+                  <ul class="tag-list">
+                    <li class="tag">Elite NTH</li>
+                    <li class="tag">Essay Writing</li>
+                    <li class="tag">Python</li>
+                  </ul>
+
+                  <details class="round-details">
+                    <summary>View round-by-round breakdown</summary>
+                    <ol class="round-list">
+                      <li>
+                        <strong>Elite NTH Online Test</strong>
+                        <span>Aptitude, English, a written-communication essay and two coding questions.</span>
+                      </li>
+                      <li>
+                        <strong>Technical Interview</strong>
+                        <span>Python lists versus tuples, a palindrome program and a project
+                        walkthrough.</span>
+                      </li>
+                      <li>
+                        <strong>HR Interview</strong>
+                        <span>Introduce yourself, strengths and weaknesses, and bond details.</span>
+                      </li>
+                    </ol>
+                  </details>
+
+                  <a class="video-card" href="https://www.youtube.com/results?search_query=Wipro+Elite+NTH+Interview+Experience" target="_blank" rel="noopener">
+                    <span class="video-thumb"><img src="images/youtube.svg" alt="YouTube"></span>
+                    <span class="video-info">
+                      <span class="video-title">Wipro Elite NTH — Test and Interview Experience</span>
+                      <span class="video-channel"><i class="fas fa-circle-play"></i> Watch on YouTube</span>
+                    </span>
+                  </a>
+                </div>
+
+                <!-- Experience 2 -->
+
+                <div class="experience-card">
+                  <div class="experience-card-head">
+                    <span class="student-avatar">SG</span>
+                    <div class="student-info">
+                      <h4>Sahil Grover</h4>
+                      <p class="student-meta">Information Technology · Batch 2025 · Turbo Track</p>
+                    </div>
+                  </div>
+
+                  <p class="experience-summary">
+                    The Turbo track needs a higher coding score but pays significantly more, so it is worth
+                    attempting both coding questions properly instead of rushing through one.
+                  </p>
+
+                  <ul class="tag-list">
+                    <li class="tag">Coding</li>
+                    <li class="tag">DBMS</li>
+                    <li class="tag">HR</li>
+                  </ul>
+
+                  <details class="round-details">
+                    <summary>View round-by-round breakdown</summary>
+                    <ol class="round-list">
+                      <li>
+                        <strong>Elite NTH Online Test</strong>
+                        <span>Solved both coding questions, which qualified me for the Turbo track.</span>
+                      </li>
+                      <li>
+                        <strong>Technical Interview</strong>
+                        <span>Primary key versus foreign key, a star-pattern program and a discussion of
+                        my mini project.</span>
+                      </li>
+                      <li>
+                        <strong>HR Interview</strong>
+                        <span>Short and straightforward — mostly about availability and relocation.</span>
+                      </li>
+                    </ol>
+                  </details>
+
+                  <a class="video-card" href="https://www.youtube.com/results?search_query=Wipro+Turbo+Track+Interview+Questions" target="_blank" rel="noopener">
+                    <span class="video-thumb"><img src="images/youtube.svg" alt="YouTube"></span>
+                    <span class="video-info">
+                      <span class="video-title">Wipro Turbo Track — Coding Round and Interview</span>
+                      <span class="video-channel"><i class="fas fa-circle-play"></i> Watch on YouTube</span>
+                    </span>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!--  ORACLE -->
+
+            <article class="company-panel" id="p-oracle">
+              <header class="panel-header">
+                <span class="company-logo-plate panel-logo">
+                  <img src="images/companies/oracle.svg" alt="Oracle logo">
+                </span>
+                <div class="panel-heading">
+                  <h3>Oracle — Interview Experiences</h3>
+                  <p>Server Technology and Applications Engineer roles · Campus and off-campus drives</p>
+                </div>
+              </header>
+
+              <!-- Experience 1 -->
+
+              <div class="experience-list">
+                <div class="experience-card">
+                  <div class="experience-card-head">
+                    <span class="student-avatar">IG</span>
+                    <div class="student-info">
+                      <h4>Ishan Gupta</h4>
+                      <p class="student-meta">Electronics and Communication Engineering · SDE1</p>
+                    </div>
+                  </div>
+
+                  <p class="experience-summary">
+                    Oracle leaned harder on core computer science than on tricky algorithms. Database questions came up in every single round, so revising DBMS properly mattered as much as solving problems on paper.
+                  </p>
+
+                  <ul class="tag-list">
+                                <li class="tag">Java</li>
+                                <li class="tag">DBMS</li>
+                                <li class="tag">Trees</li>
+                                <li class="tag">Aptitude</li>
+                  </ul>
+
+                  <details class="round-details">
+                    <summary>View round-by-round breakdown</summary>
+                    <ol class="round-list">
+                                  <li>
+                                    <strong>Online Assessment</strong>
+                                    <span>Twelve Aptitude MCQs, twenty CS-fundamentals MCQs and two coding questions in ninety minutes.</span>
+                                  </li>
+                                  <li>
+                                    <strong>Technical Round 1 &amp; 2</strong>
+                                    <span>Both rounds focused on resume-based discussions, Java , OOPs concepts, DSA, and foundational Computer Science topics like DBMS and Computer Networks.</span>
+                                  </li>
+                                  <li>
+                                    <strong>HR Round</strong>
+                                    <span> A final interaction to discuss personal fit, career motivations, and behavioral aspects</span>
+                                  </li>
+                    </ol>
+                  </details>
+
+                  <a class="video-card" href="https://youtu.be/zk_8gJqrlxY?si=wzQbvXqDUGKZRUWl" target="_blank" rel="noopener">
+                    <span class="video-thumb"><img src="images/youtube.svg" alt="YouTube"></span>
+                    <span class="video-info">
+                      <span class="video-title">Oracle Software Engineer Interview — All Rounds</span>
+                      <span class="video-channel"><i class="fas fa-circle-play"></i> Watch on YouTube</span>
+                    </span>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!--  CAPGEMINI  -->
+
+            <article class="company-panel" id="p-capgemini">
+              <header class="panel-header">
+                <span class="company-logo-plate panel-logo">
+                  <img src="images/companies/capgemini.svg" alt="Capgemini logo">
+                </span>
+                <div class="panel-heading">
+                  <h3>Capgemini — Interview Experiences</h3>
+                  <p>Analyst and Senior Analyst roles · National Engineering Talent hiring</p>
+                </div>
+              </header>
+
+              <!-- Experience 1 -->
+
+              <div class="experience-list">
+                <div class="experience-card">
+                  <div class="experience-card-head">
+                    <span class="student-avatar">PI</span>
+                    <div class="student-info">
+                      <h4>Pooja Iyer</h4>
+                      <p class="student-meta">Information Technology · Analyst</p>
+                    </div>
+                  </div>
+
+                  <p class="experience-summary">
+                    The first round is a set of psychometric games rather than a normal aptitude paper, which threw most of my batch. There is no way to mug up for it — staying calm and reading each game brief carefully is the whole trick.
+                  </p>
+
+                  <ul class="tag-list">
+                                <li class="tag">Game-based Aptitude</li>
+                                <li class="tag">Pseudo Code</li>
+                                <li class="tag">Communication</li>
+                  </ul>
+
+                  <details class="round-details">
+                    <summary>View round-by-round breakdown</summary>
+                    <ol class="round-list">
+                                  <li>
+                                    <strong>Game-based Assessment</strong>
+                                    <span>Four short reasoning and memory games measuring speed and consistency rather than knowledge.</span>
+                                  </li>
+                                  <li>
+                                    <strong>Technical Interview</strong>
+                                    <span>Pseudo-code output questions, difference between an array and a list, and a walkthrough of my mini project.</span>
+                                  </li>
+                                  <li>
+                                    <strong>HR Interview</strong>
+                                    <span>Why Capgemini, willingness to work in shifts, and the service-agreement terms.</span>
+                                  </li>
+                    </ol>
+                  </details>
+
+                  <a class="video-card" href="https://www.youtube.com/results?search_query=Capgemini+Interview+Experience+Analyst+Freshers" target="_blank" rel="noopener">
+                    <span class="video-thumb"><img src="images/youtube.svg" alt="YouTube"></span>
+                    <span class="video-info">
+                      <span class="video-title">Capgemini Game-Based Round + Interview Explained</span>
+                      <span class="video-channel"><i class="fas fa-circle-play"></i> Watch on YouTube</span>
+                    </span>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!--  GOLDMAN SACHS  -->
+
+            <article class="company-panel" id="p-goldman-sachs">
+              <header class="panel-header">
+                <span class="company-logo-plate panel-logo">
+                  <img src="images/companies/goldman-sachs.svg" alt="Goldman Sachs logo">
+                </span>
+                <div class="panel-heading">
+                  <h3>Goldman Sachs — Interview Experiences</h3>
+                  <p>Technology Analyst roles · Engineering division campus hiring</p>
+                </div>
+              </header>
+
+              <!-- Experience 1 -->
+
+              <div class="experience-list">
+                <div class="experience-card">
+                  <div class="experience-card-head">
+                    <span class="student-avatar">PC</span>
+                    <div class="student-info">
+                      <h4>Prince Chawatia</h4>
+                      <p class="student-meta">Information and Communication Technology · SDE1</p>
+                    </div>
+                  </div>
+
+                  <p class="experience-summary">
+                    The Technical rounds heavily feature DSA, showcasing development projects gave me control over the interview flow and helped me highlight my practical skills. 
+                  </p>
+
+                  <ul class="tag-list">
+                                <li class="tag">Aptitude</li>
+                                <li class="tag">DSA</li>
+                                <li class="tag">Puzzles</li>
+                                <li class="tag">DBMS</li>
+                  </ul>
+
+                  <details class="round-details">
+                    <summary>View round-by-round breakdown</summary>
+                    <ol class="round-list">
+                                  <li>
+                                    <strong>Online Assessment</strong>
+                                    <span>Includes 3 coding questions and 10 MCQs.MCQs cover aptitude, logical reasoning, CS fundamentals and language-specific output questions (Java/Python). Coding questions range from easy to medium difficulty, covering strings, maps, and graphs.</span>
+                                  </li>
+                                  <li>
+                                    <strong>First Interview Round</strong>
+                                    <span>Resume-based discussion regarding previous internships and project.</span>
+                                  </li>
+                                  <li>
+                                    <strong>Second Interview Round</strong>
+                                    <span>Deeper dive into projects and technical depth. The interviewer asked about the choice of technology stack, specific DBMS concepts like SQL vs NoSQL , a quantitative aptitude puzzle.</span>
+                                  </li>
+                                  <li>
+                                    <strong>Third Interview Round</strong>
+                                    <span>Completely DSA oriented.A single coding problem focused on Tries.</span>
+                                  </li>
+                    </ol>
+                  </details>
+
+                  <a class="video-card" href="https://youtu.be/0xlAbN_kCys?si=v9iBUEB-ib82r0tJ" target="_blank" rel="noopener">
+                    <span class="video-thumb"><img src="images/youtube.svg" alt="YouTube"></span>
+                    <span class="video-info">
+                      <span class="video-title">Goldman Sachs Interview Experience SDE 1</span>
+                      <span class="video-channel"><i class="fas fa-circle-play"></i> Watch on YouTube</span>
+                    </span>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!--  AMERICAN EXPRESS  -->
+
+            <article class="company-panel" id="p-american-express">
+              <header class="panel-header">
+                <span class="company-logo-plate panel-logo">
+                  <img src="images/companies/american-express.svg" alt="American Express logo">
+                </span>
+                <div class="panel-heading">
+                  <h3>American Express — Interview Experiences</h3>
+                  <p>Engineering Analyst and Data Analyst roles · Campus hiring</p>
+                </div>
+              </header>
+
+              <!-- Experience 1 -->
+
+              <div class="experience-list">
+                <div class="experience-card">
+                  <div class="experience-card-head">
+                    <span class="student-avatar">M</span>
+                    <div class="student-info">
+                      <h4>Manvi</h4>
+                      <p class="student-meta">Electronics and Communication Engineering  · Technology Intern</p>
+                    </div>
+                  </div>
+
+                  <p class="experience-summary">
+                    My overall experience was a journey of balancing academic rigour, consistent DSA practice, and hands-on project development.
+                  </p>
+
+                  <ul class="tag-list">
+                                <li class="tag">DSA</li>
+                                <li class="tag">OOPs</li>
+                                <li class="tag">DBMS</li>
+                                <li class="tag">Behavioural</li>
+                  </ul>
+
+                  <details class="round-details">
+                    <summary>View round-by-round breakdown</summary>
+                    <ol class="round-list">
+                                  <li>
+                                    <strong>Online Assessment</strong>
+                                    <span>The process began with a 60 min online test that included three coding questions. Two were of medium difficulty, and the third was a hard-level problem (likely related to graphs).</span>
+                                  </li>
+                                  <li>
+                                    <strong>Technical Interview</strong>
+                                    <span>Questions on AI/ML concepts, Object-Oriented Programming (OOPs),  Database Management Systems (DBMS) fundamentals, specific project details, Two coding problems were presented to be solved on pen and paper, focusing on the approach and logic rather than syntax.</span>
+                                  </li>
+                                  <li>
+                                    <strong>HR Round</strong>
+                                    <span>Deep dives into projects and internships. Behavioral inquiries: Long-term career vision, handling criticism, and managing junior team members.</span>
+                                  </li>
+                    </ol>
+                  </details>
+
+                  <a class="video-card" href="https://youtu.be/IAuG0_sIf4Y?si=o_XOvRv7ZhlMz0TL" target="_blank" rel="noopener">
+                    <span class="video-thumb"><img src="images/youtube.svg" alt="YouTube"></span>
+                    <span class="video-info">
+                      <span class="video-title">American Express Interview</span>
+                      <span class="video-channel"><i class="fas fa-circle-play"></i> Watch on YouTube</span>
+                    </span>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!--  J.P. MORGAN  -->
+            <article class="company-panel" id="p-jp-morgan">
+              <header class="panel-header">
+                <span class="company-logo-plate panel-logo">
+                  <img src="images/companies/jp-morgan.svg" alt="J.P. Morgan logo">
+                </span>
+                <div class="panel-heading">
+                  <h3>J.P. Morgan — Interview Experiences</h3>
+                  <p>Software Engineer Program · Code for Good and campus pathways</p>
+                </div>
+              </header>
+
+              <!-- Experience 1 -->
+
+              <div class="experience-list">
+                <div class="experience-card">
+                  <div class="experience-card-head">
+                    <span class="student-avatar">RS</span>
+                    <div class="student-info">
+                      <h4>Ruchita Swami</h4>
+                      <p class="student-meta">Information Technology · Software Engineer</p>
+                    </div>
+                  </div>
+
+                  <p class="experience-summary">
+                    I came in through Code for Good, which is a 24-hour hackathon rather than a normal interview. How well you collaborate is watched as closely as what you build, so do not disappear into your own laptop.
+                  </p>
+
+                  <ul class="tag-list">
+                                <li class="tag">DSA</li>
+                                <li class="tag">Teamwork</li>
+                  </ul>
+
+                  <details class="round-details">
+                    <summary>View round-by-round breakdown</summary>
+                    <ol class="round-list">
+                                  <li>
+                                    <strong>DSA Round</strong>
+                                    <span>Candidates first sit for an online Data Structures and Algorithms (DSA) test. This round typically consists of two problems to be solved within 45 minutes.</span>
+                                  </li>
+                                  <li>
+                                    <strong>AI-Based Behavioral Round</strong>
+                                    <span>Selected candidates proceed to an AI-driven behavioral assessment. In this round, participants are presented with behavioral questions, and they must record their responses within a strict time limit.</span>
+                                  </li>
+                                  <li>
+                                    <strong>Code for Good Hackathon</strong>
+                                    <span>Twenty-four hours building a tool for a non-profit, with mentors observing how the team worked together.</span>
+                                  </li>
+                                  
+                    </ol>
+                  </details>
+
+                  <a class="video-card" href="https://youtu.be/Sr2ExBw3Opo?si=dXthrss6M7525c2Y" target="_blank" rel="noopener">
+                    <span class="video-thumb"><img src="images/youtube.svg" alt="YouTube"></span>
+                    <span class="video-info">
+                      <span class="video-title">J.P. Morgan Code for Good — Full Experience</span>
+                      <span class="video-channel"><i class="fas fa-circle-play"></i> Watch on YouTube</span>
+                    </span>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!--  CISCO  -->
+
+            <article class="company-panel" id="p-cisco">
+              <header class="panel-header">
+                <span class="company-logo-plate panel-logo">
+                  <img src="images/companies/cisco.svg" alt="Cisco logo">
+                </span>
+                <div class="panel-heading">
+                  <h3>Cisco — Interview Experiences</h3>
+                  <p>Software Engineer and Network Consulting Engineer roles</p>
+                </div>
+              </header>
+
+              <!-- Experience 1 -->
+
+              <div class="experience-list">
+                <div class="experience-card">
+                  <div class="experience-card-head">
+                    <span class="student-avatar">MP</span>
+                    <div class="student-info">
+                      <h4>Meera Pillai</h4>
+                      <p class="student-meta">Electronics &amp; Communication · Batch 2025 · Software Engineer</p>
+                    </div>
+                  </div>
+
+                  <p class="experience-summary">
+                    Being from ECE actually helped here — networking knowledge is genuinely valued rather than treated as a bonus. Half of my technical rounds were on protocols and the other half on data structures.
+                  </p>
+
+                  <ul class="tag-list">
+                                <li class="tag">Networking</li>
+                                <li class="tag">C++</li>
+                                <li class="tag">Operating Systems</li>
+                  </ul>
+
+                  <details class="round-details">
+                    <summary>View round-by-round breakdown</summary>
+                    <ol class="round-list">
+                                  <li>
+                                    <strong>Online Assessment</strong>
+                                    <span>Aptitude, networking MCQs and two coding problems in C or C++.</span>
+                                  </li>
+                                  <li>
+                                    <strong>Technical Round 1</strong>
+                                    <span>TCP versus UDP, what happens when you type a URL into a browser, and a linked-list problem.</span>
+                                  </li>
+                                  <li>
+                                    <strong>Technical Round 2 &amp; HR</strong>
+                                    <span>Process versus thread, a debugging scenario, and questions about my final-year project.</span>
+                                  </li>
+                    </ol>
+                  </details>
+
+                  <a class="video-card" href="https://www.youtube.com/results?search_query=Cisco+Interview+Experience+Software+Engineer+Freshers" target="_blank" rel="noopener">
+                    <span class="video-thumb"><img src="images/youtube.svg" alt="YouTube"></span>
+                    <span class="video-info">
+                      <span class="video-title">Cisco Interview Experience — Networking + DSA</span>
+                      <span class="video-channel"><i class="fas fa-circle-play"></i> Watch on YouTube</span>
+                    </span>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!--  ATLASSIAN  -->
+
+            <article class="company-panel" id="p-atlassian">
+              <header class="panel-header">
+                <span class="company-logo-plate panel-logo">
+                  <img src="images/companies/atlassian.svg" alt="Atlassian logo">
+                </span>
+                <div class="panel-heading">
+                  <h3>Atlassian — Interview Experiences</h3>
+                  <p>Software Engineer roles · Remote-first hiring process</p>
+                </div>
+              </header>
+
+              <!-- Experience 1 -->
+
+              <div class="experience-list">
+                <div class="experience-card">
+                  <div class="experience-card-head">
+                    <span class="student-avatar">KS</span>
+                    <div class="student-info">
+                      <h4>Kabir Sethi</h4>
+                      <p class="student-meta">Computer Science · Software Engineer</p>
+                    </div>
+                  </div>
+
+                  <p class="experience-summary">
+                    The values interview is a real round, not a formality — one of my friends cleared every technical stage and still did not get an offer. Prepare stories about how you work, not just how you code.
+                  </p>
+
+                  <ul class="tag-list">
+                                <li class="tag">System Design</li>
+                                <li class="tag">JavaScript</li>
+                                <li class="tag">Values Interview</li>
+                  </ul>
+
+                  <details class="round-details">
+                    <summary>View round-by-round breakdown</summary>
+                    <ol class="round-list">
+                                  <li>
+                                    <strong>Online Assessment</strong>
+                                    <span>Two coding problems on a shared editor with tests you are expected to make pass.</span>
+                                  </li>
+                                  <li>
+                                    <strong>Technical Interview</strong>
+                                    <span>Build a small feature end to end and extend it when the requirements changed mid-round.</span>
+                                  </li>
+                                  <li>
+                                    <strong>Values Interview</strong>
+                                    <span>Detailed behavioural questions mapped to their company values, each needing a concrete example.</span>
+                                  </li>
+                    </ol>
+                  </details>
+
+                  <a class="video-card" href="https://www.youtube.com/results?search_query=Atlassian+Interview+Experience+Software+Engineer" target="_blank" rel="noopener">
+                    <span class="video-thumb"><img src="images/youtube.svg" alt="YouTube"></span>
+                    <span class="video-info">
+                      <span class="video-title">Atlassian Interview — Technical and Values Rounds</span>
+                      <span class="video-channel"><i class="fas fa-circle-play"></i> Watch on YouTube</span>
+                    </span>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!-- FLIPKART -->
+
+            <article class="company-panel" id="p-flipkart">
+              <header class="panel-header">
+                <span class="company-logo-plate panel-logo">
+                  <img src="images/companies/flipkart.svg" alt="Flipkart logo">
+                </span>
+                <div class="panel-heading">
+                  <h3>Flipkart — Interview Experiences</h3>
+                  <p>SDE-1 roles · Runway programme and campus hiring</p>
+                </div>
+              </header>
+
+              <!-- Experience 1 -->
+
+              <div class="experience-list">
+                <div class="experience-card">
+                  <div class="experience-card-head">
+                    <span class="student-avatar">AU</span>
+                    <div class="student-info">
+                      <h4>Anonymous User</h4>
+                      <p class="student-meta">Computer Science · SDE-1</p>
+                    </div>
+                  </div>
+
+                  <p class="experience-summary">
+                    Participating in programs like Flipkart Grid allowed me to build projects and gain visibility, which I considers a more effective way to land opportunities than relying solely on campus recruitment.
+                  </p>
+
+                  <ul class="tag-list">
+                                <li class="tag">DSA</li>
+                                <li class="tag">CS Fundamentals</li>
+                  </ul>
+
+                  <details class="round-details">
+                    <summary>View round-by-round breakdown</summary>
+                    <ol class="round-list">
+                                  <li>
+                                    <strong>Online Assessment</strong>
+                                    <span>A 90-minute round consisting of three questions focused primarily on Dynamic Programming (DP) and Graphs.</span>
+                                  </li>
+                                  <li>
+                                    <strong>Coding Round</strong>
+                                    <span>An additional, more difficult round (90 minutes) focusing specifically on Trees and Graphs.</span>
+                                  </li>
+                                  <li>
+                                    <strong>Final Case Study Round (On-site Hackathon)</strong>
+                                    <span>Finalists are given a problem statement to solve in teams of four over the course of one week. The project is then presented to judges at the Flipkart headquarters.</span>
+                                  </li>
+                                  <li>
+                                    <strong>Technical Interview Round</strong>
+                                    <span>Covers resume, projects, DSA, and Computer Science Fundamentals like OOPs, DBMS, and threads.</span>
+                                  </li>
+                                  <li>
+                                    <strong>HR + Technical Round</strong>
+                                    <span>A mix of behavioral questions - team management, pressure handling and advanced DSA problems such as priority queues and heap implementations.</span>
+                                  </li>
+
+                    </ol>
+                  </details>
+
+                  <a class="video-card" href="https://youtu.be/tkZmtsNPdHc?si=gewGOtSlCIaj0vCG" target="_blank" rel="noopener">
+                    <span class="video-thumb"><img src="images/youtube.svg" alt="YouTube"></span>
+                    <span class="video-info">
+                      <span class="video-title">FLIPKART OFF-Campus Interview Experience | Complete Hiring Process of FLIPKART</span>
+                      <span class="video-channel"><i class="fas fa-circle-play"></i> Watch on YouTube</span>
+                    </span>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!--  ZOMATO  -->
+            <article class="company-panel" id="p-zomato">
+              <header class="panel-header">
+                <span class="company-logo-plate panel-logo">
+                  <img src="images/companies/zomato.svg" alt="Zomato logo">
+                </span>
+                <div class="panel-heading">
+                  <h3>Zomato — Interview Experiences</h3>
+                  <p>SDE and Product Engineer roles · Campus and off-campus hiring</p>
+                </div>
+              </header>
+
+              <div class="experience-list">
+                <div class="experience-card">
+                  <div class="experience-card-head">
+                    <span class="student-avatar">P</span>
+                    <div class="student-info">
+                      <h4>Pawan</h4>
+                      <p class="student-meta">Computer Science · SDE-1</p>
+                    </div>
+                  </div>
+
+                  <!-- Experience 1 -->
+
+                  <p class="experience-summary">
+                    The interviewer focused heavily on my microservices-based food delivery project deployed on Kubernetes.
+                  </p>
+
+                  <ul class="tag-list">
+                                <li class="tag">DSA</li>
+                                <li class="tag">CS Fundamentals</li>
+                  </ul>
+
+                  <details class="round-details">
+                    <summary>View round-by-round breakdown</summary>
+                    <ol class="round-list">
+                                  <li>
+                                    <strong>Online Assessment</strong>
+                                    <span>A 90-minute coding test featuring three challenging problems.Two questions were based on dynamic programming, and one involved binary search combined with tree-based DFS.</span>
+                                  </li>
+                                  <li>
+                                    <strong>Technical Round 1</strong>
+                                    <span>This round focused heavily on the candidate's project. The interviewer asked about the High-Level Design (HLD), the architecture of the microservices used, database schemas, and the rationale behind service segregation </span>
+                                  </li>
+                                  <li>
+                                    <strong>Technical Round 2</strong>
+                                    <span>This round centered on CS fundamentals, including OS and DBMS.</span>
+                                  </li>
+                                  <li>
+                                    <strong>HR Round</strong>
+                                    <span>The final round focusing on behavioral and cultural fit.</span>
+                                  </li>
+
+                    </ol>
+                  </details>
+
+                  <a class="video-card" href="https://youtu.be/tkJdbRDtktk?si=_gtDBudlmVpKTUIp" target="_blank" rel="noopener">
+                    <span class="video-thumb"><img src="images/youtube.svg" alt="YouTube"></span>
+                    <span class="video-info">
+                      <span class="video-title">Zomato SDE-1 Interview Experience</span>
+                      <span class="video-channel"><i class="fas fa-circle-play"></i> Watch on YouTube</span>
+                    </span>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!--  LINKEDIN  -->
+
+            <article class="company-panel" id="p-linkedin">
+              <header class="panel-header">
+                <span class="company-logo-plate panel-logo">
+                  <img src="images/companies/linkedin.svg" alt="LinkedIn logo">
+                </span>
+                <div class="panel-heading">
+                  <h3>LinkedIn — Interview Experiences</h3>
+                  <p>Software Engineer and SWE Intern roles · Campus hiring</p>
+                </div>
+              </header>
+        
+              <!-- Experience 1 -->
+
+              <div class="experience-list">
+                <div class="experience-card">
+                  <div class="experience-card-head">
+                    <span class="student-avatar">M</span>
+                    <div class="student-info">
+                      <h4>Monisha</h4>
+                      <p class="student-meta">Computer Science · SWE Intern</p>
+                    </div>
+                  </div>
+
+                  <p class="experience-summary">
+                     Even if you know an optimized solution, it is beneficial to practice the transition from brute force to optimized to truly understand the problem-solving logic.
+                  </p>
+
+                  <ul class="tag-list">
+                                <li class="tag">Dynamic Programming</li>
+                                <li class="tag">Trees</li>
+                                <li class="tag">Binary Search</li>
+                  </ul>
+
+                  <details class="round-details">
+                    <summary>View round-by-round breakdown</summary>
+                    <ol class="round-list">
+                                  <li>
+                                    <strong>Online Assessment</strong>
+                                    <span>Three coding questions ranging from easy to hard difficulty. Specific topics included binary search and array manipulation.</span>
+                                  </li>
+                                  <li>
+                                    <strong>Technical Round 1</strong>
+                                    <span>The focus was on Data Structures and Algorithms (DSA).The interviewer asked two questions, specifically covering trees and 1D dynamic programming.</span>
+                                  </li>
+                                  <li>
+                                    <strong>HR Interview</strong>
+                                    <span>The discussion centered on the resume, project contributions, and motivation behind the work.</span>
+                                  </li>
+                    </ol>
+                  </details>
+
+                  <a class="video-card" href="https://youtu.be/-1L4x15kURs?si=X7vAxoXoInuHSBPX" target="_blank" rel="noopener">
+                    <span class="video-thumb"><img src="images/youtube.svg" alt="YouTube"></span>
+                    <span class="video-info">
+                      <span class="video-title">LINKEDIN Interview Experience | Complete Hiring Process of LINKEDIN Software Engineer</span>
+                      <span class="video-channel"><i class="fas fa-circle-play"></i> Watch on YouTube</span>
+                    </span>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!--  PAYPAL  -->
+
+            <article class="company-panel" id="p-paypal">
+              <header class="panel-header">
+                <span class="company-logo-plate panel-logo">
+                  <img src="images/companies/paypal.svg" alt="PayPal logo">
+                </span>
+                <div class="panel-heading">
+                  <h3>PayPal — Interview Experiences</h3>
+                  <p>Software Engineer 1 roles · Campus hiring</p>
+                </div>
+              </header>
+
+              <!-- Experience 1 -->
+
+              <div class="experience-list">
+                <div class="experience-card">
+                  <div class="experience-card-head">
+                    <span class="student-avatar">T</span>
+                    <div class="student-info">
+                      <h4>Tarun</h4>
+                      <p class="student-meta">Computer Science · Software Engineer 1</p>
+                    </div>
+                  </div>
+
+                  <p class="experience-summary">
+                    A very balanced process — nothing exotic, but they expect you to be solid across data structures and basic web concepts. Explaining my thought process out loud clearly mattered in both rounds.
+                  </p>
+
+                  <ul class="tag-list">
+                                <li class="tag">Hashing</li>
+                                <li class="tag">Graph</li>
+                                <li class="tag">Stack</li>
+                                <li class="tag">Linked List</li>
+                  </ul>
+
+                  <details class="round-details">
+                    <summary>View round-by-round breakdown</summary>
+                    <ol class="round-list">
+                                  <li>
+                                    <strong>Online Assessment</strong>
+                                    <span>This round consisted of two Data Structures and Algorithms questions, focusing on topics like hashing (rolling hash) and graph + dynamic programming.</span>
+                                  </li>
+                                  <li>
+                                    <strong>Technical Round 1</strong>
+                                    <span>This round was strictly DSA-oriented.
+                                    The interviewer asked four questions covering stacks, hashing, Disjoint Set Union (DSU) and linked lists.</span>
+                                  </li>
+                                  <li>
+                                    <strong>Technical Round 2</strong>
+                                    <span>This session began with a discussion on projects and Java OOPS concepts.The interviewer also touched upon technical skills like React hooks.The technical portion included a dynamic programming problem on HackerRank (brute force followed by memoization) and an SQL query focusing on groups and aggregation.</span>
+                                  </li>
+                                  <li>
+                                    <strong>Technical Round &amp; HR</strong>
+                                    <span>This final round combined HR questions with technical concepts.The HR portion covered typical behavioral questions regarding strengths, weaknesses, and handling tight deadlines.The technical portion revisited OOPS and explored Java-specific topics like synchronization and concurrency</span>
+                                  </li>
+                    </ol>
+                  </details>
+
+                  <a class="video-card" href="https://youtu.be/ODOW5gFCTjM?si=73O6vOOVQiZAc9sX" target="_blank" rel="noopener">
+                    <span class="video-thumb"><img src="images/youtube.svg" alt="YouTube"></span>
+                    <span class="video-info">
+                      <span class="video-title">PayPal SE-1 Interview Experience</span>
+                      <span class="video-channel"><i class="fas fa-circle-play"></i> Watch on YouTube</span>
+                    </span>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!--  BLINKIT  -->
+
+            <article class="company-panel" id="p-blinkit">
+              <header class="panel-header">
+                <span class="company-logo-plate panel-logo">
+                  <img src="images/companies/blinkit.svg" alt="Blinkit logo">
+                </span>
+                <div class="panel-heading">
+                  <h3>Blinkit — Interview Experiences</h3>
+                  <p>SDE roles · Quick-commerce engineering teams</p>
+                </div>
+              </header>
+
+              <!-- Experience 1 -->
+
+              <div class="experience-list">
+                <div class="experience-card">
+                  <div class="experience-card-head">
+                    <span class="student-avatar">D</span>
+                    <div class="student-info">
+                      <h4>Deepika</h4>
+                      <p class="student-meta">Computer Science in AI· Software Engineer</p>
+                    </div>
+                  </div>
+
+                  <p class="experience-summary">
+                    The interviews focused on real-world problem-solving rather than just theoretical questions. Having basic knowledge of system design (Low-Level Design) helped during interviews.
+                  </p>
+
+                  <ul class="tag-list">
+                                <li class="tag">Graph</li>
+                                <li class="tag">DP</li>
+                                <li class="tag">Hash Map</li>
+                  </ul>
+
+                  <details class="round-details">
+                    <summary>View round-by-round breakdown</summary>
+                    <ol class="round-list">
+                                  <li>
+                                    <strong>Online Assessment</strong>
+                                    <span>Included three Data Structures and Algorithms (DSA) questions (topics included Graphs, DP, and HashMaps) and multiple-choice questions focused on Computer Science fundamentals.</span>
+                                  </li>
+                                  <li>
+                                    <strong>First Technical Interview</strong>
+                                    <span>A mix of DSA and CS fundamentals. The interviewer asked a problem regarding arranging document word frequencies and then discussed a project from the resume , focusing on applying theoretical knowledge to real-world LLD (Low-Level Design) problems.</span>
+                                  </li>
+                                  <li>
+                                    <strong>Second Technical Interview</strong>
+                                    <span>More DSA-heavy. The candidate was asked to solve the standard "Merge K Sorted Arrays" problem. The interviewer evaluated the thought process, complexity analysis, and ability to handle variations, even when the candidate initially struggled with the implementation.</span>
+                                  </li>
+                                  <li>
+                                    <strong>HR Round</strong>
+                                    <span>A casual conversation to assess the candidate's personality and authenticity. Questions included reflecting on past decisions and what the candidate would change if they could restart their college journey.</span>
+                                  </li>
+                    </ol>
+                  </details>
+
+                  <a class="video-card" href="https://youtu.be/Tc_MJZ8XYYc?si=kzaRFlKeaeuR9ski" target="_blank" rel="noopener">
+                    <span class="video-thumb"><img src="images/youtube.svg" alt="YouTube"></span>
+                    <span class="video-info">
+                      <span class="video-title">Blinkit SDE Interview Experience</span>
+                      <span class="video-channel"><i class="fas fa-circle-play"></i> Watch on YouTube</span>
+                    </span>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!--  MEESHO  -->
+
+            <article class="company-panel" id="p-meesho">
+              <header class="panel-header">
+                <span class="company-logo-plate panel-logo">
+                  <img src="images/companies/meesho.svg" alt="Meesho logo">
+                </span>
+                <div class="panel-heading">
+                  <h3>Meesho — Interview Experiences</h3>
+                  <p>SDE-1 roles · Campus and off-campus hiring</p>
+                </div>
+              </header>
+
+              <!-- Experience 1 -->
+
+              <div class="experience-list">
+                <div class="experience-card">
+                  <div class="experience-card-head">
+                    <span class="student-avatar">P</span>
+                    <div class="student-info">
+                      <h4>Priyanka</h4>
+                      <p class="student-meta">Computer Science · SDE-1</p>
+                    </div>
+                  </div>
+
+                  <p class="experience-summary">
+                    Successfully cracked this role after navigating through a multi-stage process, including an online assessment, an idea submission phase, an MVP (prototype) creation round, and a final on-site interview round at the Meesho headquarters
+                  </p>
+
+                  <ul class="tag-list">
+                                <li class="tag">DSA</li>
+                                <li class="tag">DBMS</li>
+                                <li class="tag">Operating System</li>
+                  </ul>
+
+                  <details class="round-details">
+                    <summary>View round-by-round breakdown</summary>
+                    <ol class="round-list">
+                                  <li>
+                                    <strong>Online Assessment</strong>
+                                    <span>This round included 15 MCQ questions (covering Operating Systems, DBMS, Security, and Aptitude) and two coding challenges (focusing on Object-Oriented Programming/System Design and Trees).</span>
+                                  </li>
+                                  <li>
+                                    <strong>Idea Submission</strong>
+                                    <span>Participants formed teams (up to three members) and submitted a project idea to solve a specific problem.</span>
+                                  </li>
+                                  <li>
+                                    <strong>MVP (Minimum Viable Product) Phase</strong>
+                                    <span>Teams developed a prototype based on their submitted idea.</span>
+                                  </li>
+                                  <li>
+                                    <strong>Finale Round</strong>
+                                    <span>Out of 36,000 applicants, 40 finalists were invited to   Meesho headquarters for the final evaluation:
+                                      -Technical Round: Candidates worked on a Binary Search problem on paper and discussed their approach with interviewers.
+                                      -HR/Final Interview Round: Despite being labeled as an HR round, it included in-depth discussions on Operating Systems, DBMS, DSA (specifically Stacks and Recursion), and general behavior questions.
+                                    </span>
+                                  </li>
+                    </ol>
+                  </details>
+
+                  <a class="video-card" href="https://youtu.be/5S0z61DLz6M?si=1rRw_4RxjMmfVS3d" target="_blank" rel="noopener">
+                    <span class="video-thumb"><img src="images/youtube.svg" alt="YouTube"></span>
+                    <span class="video-info">
+                      <span class="video-title">MEESHO Interview Experience SDE1</span>
+                      <span class="video-channel"><i class="fas fa-circle-play"></i> Watch on YouTube</span>
+                    </span>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!--  COGNIZANT  -->
+
+            <article class="company-panel" id="p-cognizant">
+              <header class="panel-header">
+                <span class="company-logo-plate panel-logo">
+                  <img src="images/companies/cognizant.svg" alt="Cognizant logo">
+                </span>
+                <div class="panel-heading">
+                  <h3>Cognizant — Interview Experiences</h3>
+                  <p>GenC, GenC Next and GenC Elevate tracks</p>
+                </div>
+              </header>
+
+              <!-- Experience 1 -->
+
+              <div class="experience-list">
+                <div class="experience-card">
+                  <div class="experience-card-head">
+                    <span class="student-avatar">AR</span>
+                    <div class="student-info">
+                      <h4>Ananya Reddy</h4>
+                      <p class="student-meta">Electronics &amp; Communication · GenC Next</p>
+                    </div>
+                  </div>
+
+                  <p class="experience-summary">
+                    Which track you land depends almost entirely on your assessment score, so treating that single test seriously changed my package outcome. The interview afterwards was short and friendly.
+                  </p>
+
+                  <ul class="tag-list">
+                                <li class="tag">Aptitude</li>
+                                <li class="tag">Java</li>
+                                <li class="tag">Communication</li>
+                  </ul>
+
+                  <details class="round-details">
+                    <summary>View round-by-round breakdown</summary>
+                    <ol class="round-list">
+                                  <li>
+                                    <strong>Online Assessment</strong>
+                                    <span>Aptitude, verbal ability, and two coding questions that decide the GenC track offered.</span>
+                                  </li>
+                                  <li>
+                                    <strong>Technical Interview</strong>
+                                    <span>OOPs concepts with real examples, a pattern-printing program and basic SQL queries.</span>
+                                  </li>
+                                  <li>
+                                    <strong>HR Interview</strong>
+                                    <span>Relocation, the service agreement and why I chose IT over core electronics.</span>
+                                  </li>
+                    </ol>
+                  </details>
+
+                  <a class="video-card" href="https://www.youtube.com/results?search_query=Cognizant+GenC+Next+Interview+Experience" target="_blank" rel="noopener">
+                    <span class="video-thumb"><img src="images/youtube.svg" alt="YouTube"></span>
+                    <span class="video-info">
+                      <span class="video-title">Cognizant GenC Next — Assessment and Interview</span>
+                      <span class="video-channel"><i class="fas fa-circle-play"></i> Watch on YouTube</span>
+                    </span>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Share Your Experience CTA -->
+
+    <section class="section share-section">
+      <div class="container">
+        <div class="share-card">
+          <i class="fas fa-share-nodes share-icon"></i>
+          <h3>Placed Recently? Share Your Experience</h3>
+          <p>
+            Your interview story could be the reason a junior cracks their dream company.
+            Share the rounds, the questions and anything you wish you had known earlier.
+          </p>
+          <a href="share-experience.html" class="btn btn-primary">Share Your Experience</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-column">
+          <h4>About PlacementHub</h4>
+          <p>PlacementHub is your complete placement preparation platform. We help students master DSA, aptitude, and interview skills to land their dream jobs.</p>
+        </div>
+        <div class="footer-column">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="dsa.html">DSA</a></li>
+            <li><a href="quiz.html">Quiz</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="experience.html">Interview Experiences</a></li>
+            <li><a href="aptitude.html">Aptitude Practice</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#">Blog</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Contact</h4>
+          <div class="footer-contact">
+            <p><i class="fas fa-envelope"></i> contact@placementhub.com</p>
+            <p><i class="fas fa-phone"></i> +91 (555) 123-4567</p>
+            <p><i class="fas fa-map-marker-alt"></i> Bangalore, India</p>
+            <div class="footer-social">
+              <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+              <a href="#" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 PlacementHub. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/scripts.js"></script>
+  <script src="js/experience-store.js"></script>
+  <script src="js/experience.js"></script>
+</body>
+</html>

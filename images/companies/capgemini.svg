@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 56" role="img" aria-label="Capgemini">
+  <title>Capgemini</title>
+  <text x="104" y="34" text-anchor="middle" fill="#0070AD" font-family="Poppins, 'Segoe UI', Arial, sans-serif" font-size="26" font-weight="600">Capgemini</text>
+  <path d="M40 44 Q100 54 164 42" stroke="#12ABDB" stroke-width="3" fill="none" stroke-linecap="round"/>
+</svg>

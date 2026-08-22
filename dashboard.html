@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - PlacementHub</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="index.html" class="navbar-logo">PlacementHub</a>
+    <div class="navbar-center">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="dashboard.html" class="nav-link active">Dashboard</a>
+      <a href="dsa.html" class="nav-link">DSA</a>
+      <a href="quiz.html" class="nav-link">Quiz</a>
+      <a href="aptitude.html" class="nav-link">Aptitude</a>
+      <a href="experience.html" class="nav-link">Experience</a>
+    </div>
+    <div class="navbar-right">
+      <div class="theme-toggle">
+        <div class="toggle-circle">🌙</div>
+      </div>
+      <a href="signin.html" class="btn btn-secondary btn-sm">Sign In</a>
+      <a href="signup.html" class="btn btn-primary btn-sm">Sign Up</a>
+    </div>
+    <div class="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </nav>
+
+  <main>
+    <div class="container">
+
+      <!-- Welcome Banner -->
+      <section class="section" style="padding-bottom: 0;">
+        <div class="welcome-banner">
+          <div class="welcome-text">
+            <p class="eyebrow">Welcome back</p>
+            <h1>Hey Aman, let's keep the streak going! 🚀</h1>
+            <p>You've solved 8 problems this week. Stay consistent — placement season waits for no one.</p>
+          </div>
+          <div class="progress-ring" style="--percent: 64;">
+            <div class="progress-ring-inner">
+              <span class="percent">64%</span>
+              <span class="label">Overall Progress</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Stats -->
+        <div class="quick-stats-grid">
+          <div class="quick-stat-card">
+            <div class="quick-stat-icon blue"><i class="fas fa-code"></i></div>
+            <div class="quick-stat-info">
+              <div class="value">128 / 500</div>
+              <div class="label">Problems Solved</div>
+            </div>
+          </div>
+          <div class="quick-stat-card">
+            <div class="quick-stat-icon pink"><i class="fas fa-calculator"></i></div>
+            <div class="quick-stat-info">
+              <div class="value">78%</div>
+              <div class="label">Avg. Aptitude Score</div>
+            </div>
+          </div>
+          <div class="quick-stat-card">
+            <div class="quick-stat-icon green"><i class="fas fa-file-pdf"></i></div>
+            <div class="quick-stat-info">
+              <div class="value">Under Review</div>
+              <div class="label">Resume Status</div>
+            </div>
+          </div>
+          <div class="quick-stat-card">
+            <div class="quick-stat-icon amber"><i class="fas fa-fire"></i></div>
+            <div class="quick-stat-info">
+              <div class="value">12 Days</div>
+              <div class="label">Current Streak</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- DSA Progress + Resume -->
+      <section class="section">
+        <div class="dashboard-grid-2">
+
+          <!-- DSA Progress -->
+          <div class="card">
+            <div class="dash-section-title">
+              <div>
+                <h2>DSA Progress</h2>
+                <p>Topic-wise breakdown of problems solved</p>
+              </div>
+              <a href="dsa.html" class="badge badge-primary">View All</a>
+            </div>
+            <div class="progress-list">
+              <div class="progress-item difficulty-easy">
+                <div class="progress-item-top">
+                  <span class="topic-name">Arrays &amp; Strings</span>
+                  <span class="topic-count">34 / 60</span>
+                </div>
+                <div class="progress-track"><div class="progress-fill-bar" style="width: 57%;"></div></div>
+              </div>
+              <div class="progress-item difficulty-easy">
+                <div class="progress-item-top">
+                  <span class="topic-name">Linked List</span>
+                  <span class="topic-count">18 / 30</span>
+                </div>
+                <div class="progress-track"><div class="progress-fill-bar" style="width: 60%;"></div></div>
+              </div>
+              <div class="progress-item difficulty-medium">
+                <div class="progress-item-top">
+                  <span class="topic-name">Trees &amp; Graphs</span>
+                  <span class="topic-count">22 / 70</span>
+                </div>
+                <div class="progress-track"><div class="progress-fill-bar" style="width: 31%;"></div></div>
+              </div>
+              <div class="progress-item difficulty-medium">
+                <div class="progress-item-top">
+                  <span class="topic-name">Sorting &amp; Searching</span>
+                  <span class="topic-count">28 / 40</span>
+                </div>
+                <div class="progress-track"><div class="progress-fill-bar" style="width: 70%;"></div></div>
+              </div>
+              <div class="progress-item difficulty-hard">
+                <div class="progress-item-top">
+                  <span class="topic-name">Dynamic Programming</span>
+                  <span class="topic-count">14 / 60</span>
+                </div>
+                <div class="progress-track"><div class="progress-fill-bar" style="width: 23%;"></div></div>
+              </div>
+              <div class="progress-item difficulty-hard">
+                <div class="progress-item-top">
+                  <span class="topic-name">Graph Algorithms</span>
+                  <span class="topic-count">12 / 50</span>
+                </div>
+                <div class="progress-track"><div class="progress-fill-bar" style="width: 24%;"></div></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Resume Card -->
+          <div class="card resume-card">
+            <h3>Resume</h3>
+            <div class="resume-file-row">
+              <div class="resume-file-icon"><i class="fas fa-file-pdf"></i></div>
+              <div class="resume-file-info">
+                <div class="file-name" id="resumeFileName">Aman_Resume_2026.pdf</div>
+                <div class="file-meta" id="resumeFileMeta">Uploaded on 2 Aug 2026 · 412 KB</div>
+              </div>
+              <span class="badge badge-warning">Under Review</span>
+            </div>
+            <div class="resume-actions">
+              <button class="btn btn-secondary btn-sm" id="replaceResumeBtn">
+                <i class="fas fa-arrow-up-from-bracket"></i> Replace
+              </button>
+              <button class="btn btn-primary btn-sm">
+                <i class="fas fa-download"></i> Download
+              </button>
+            </div>
+            <input type="file" id="resumeInput" accept=".pdf,.doc,.docx" style="display:none;">
+            <p class="resume-tip">PDF or DOCX, up to 5MB. Reviewers usually respond within 2-3 days.</p>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Aptitude Progress -->
+      <section class="section" style="padding-top: 0;">
+        <div class="card">
+          <div class="dash-section-title">
+            <div>
+              <h2>Aptitude Progress</h2>
+              <p>Your performance across aptitude categories</p>
+            </div>
+            <a href="aptitude.html" class="badge badge-primary">Practice More</a>
+          </div>
+          <div class="aptitude-grid">
+            <div class="aptitude-card">
+              <div class="apt-score">82%</div>
+              <div class="apt-label">Quantitative</div>
+              <div class="apt-meta">Last attempt: 3 days ago</div>
+              <div class="progress-track"><div class="progress-fill-bar" style="width: 82%;"></div></div>
+            </div>
+            <div class="aptitude-card">
+              <div class="apt-score">75%</div>
+              <div class="apt-label">Logical Reasoning</div>
+              <div class="apt-meta">Last attempt: 5 days ago</div>
+              <div class="progress-track"><div class="progress-fill-bar" style="width: 75%;"></div></div>
+            </div>
+            <div class="aptitude-card">
+              <div class="apt-score">68%</div>
+              <div class="apt-label">Verbal Ability</div>
+              <div class="apt-meta">Last attempt: 1 week ago</div>
+              <div class="progress-track"><div class="progress-fill-bar" style="width: 68%;"></div></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Recent Activity -->
+      <section class="section" style="padding-top: 0;">
+        <div class="card">
+          <div class="dash-section-title">
+            <div>
+              <h2>Recent Activity</h2>
+              <p>Your latest actions on PlacementHub</p>
+            </div>
+          </div>
+          <div class="activity-list">
+            <div class="activity-item">
+              <div class="activity-icon blue"><i class="fas fa-code"></i></div>
+              <div class="activity-content">
+                <div class="activity-title">Solved "Merge Intervals"</div>
+                <div class="activity-desc">Arrays &amp; Strings · Medium difficulty</div>
+                <div class="activity-time">Today, 10:24 AM</div>
+              </div>
+            </div>
+            <div class="activity-item">
+              <div class="activity-icon purple"><i class="fas fa-calculator"></i></div>
+              <div class="activity-content">
+                <div class="activity-title">Completed Quantitative Aptitude quiz</div>
+                <div class="activity-desc">Scored 82% · 25 questions</div>
+                <div class="activity-time">3 days ago</div>
+              </div>
+            </div>
+            <div class="activity-item">
+              <div class="activity-icon green"><i class="fas fa-file-pdf"></i></div>
+              <div class="activity-content">
+                <div class="activity-title">Uploaded Aman_Resume_2026.pdf</div>
+                <div class="activity-desc">Submitted for community review</div>
+                <div class="activity-time">2 Aug 2026</div>
+              </div>
+            </div>
+            <div class="activity-item">
+              <div class="activity-icon amber"><i class="fas fa-comments"></i></div>
+              <div class="activity-content">
+                <div class="activity-title">Read Google SDE interview experience</div>
+                <div class="activity-desc">Shared by a final-year CS student</div>
+                <div class="activity-time">4 days ago</div>
+              </div>
+            </div>
+            <div class="activity-item">
+              <div class="activity-icon blue"><i class="fas fa-code"></i></div>
+              <div class="activity-content">
+                <div class="activity-title">Solved "Binary Tree Level Order Traversal"</div>
+                <div class="activity-desc">Trees &amp; Graphs · Medium difficulty</div>
+                <div class="activity-time">5 days ago</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-column">
+          <h4>About PlacementHub</h4>
+          <p>PlacementHub is your complete placement preparation platform. We help students master DSA, aptitude, and interview skills to land their dream jobs.</p>
+        </div>
+        <div class="footer-column">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="dsa.html">DSA</a></li>
+            <li><a href="quiz.html">Quiz</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="experience.html">Interview Experiences</a></li>
+            <li><a href="aptitude.html">Aptitude Practice</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+            <li><a href="#">Blog</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Contact</h4>
+          <div class="footer-contact">
+            <p><i class="fas fa-envelope"></i> contact@placementhub.com</p>
+            <p><i class="fas fa-phone"></i> +91 (555) 123-4567</p>
+            <p><i class="fas fa-map-marker-alt"></i> Bangalore, India</p>
+            <div class="footer-social">
+              <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+              <a href="#" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 PlacementHub. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Resume replace: clicking "Replace" opens file picker; on choice, update file card (demo only, no backend)
+    const replaceBtn = document.getElementById('replaceResumeBtn');
+    const resumeInput = document.getElementById('resumeInput');
+    const fileNameEl = document.getElementById('resumeFileName');
+    const fileMetaEl = document.getElementById('resumeFileMeta');
+
+    replaceBtn.addEventListener('click', () => resumeInput.click());
+
+    resumeInput.addEventListener('change', () => {
+      const file = resumeInput.files[0];
+      if (!file) return;
+      const sizeKB = Math.round(file.size / 1024);
+      const today = new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
+      fileNameEl.textContent = file.name;
+      fileMetaEl.textContent = `Uploaded on ${today} · ${sizeKB} KB`;
+    });
+  </script>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

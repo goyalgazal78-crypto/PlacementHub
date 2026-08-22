@@ -1,0 +1,29 @@
+/* ===========================
+   Dashboard Page Styles
+=========================== */
+
+.section {
+  padding: 40px 0;
+}
+
+.card {
+  background: linear-gradient(135deg, var(--surface) 0%, rgba(51, 65, 85, 0.5) 100%);
+  border: 1px solid var(--border);
+}
+
+.card h3 {
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-md);
+}
+
+.card p {
+  color: var(--text-secondary);
+}
+
+h2 {
+  color: var(--text-primary);
+}
+
+.section-heading p {
+  color: var(--text-secondary);
+}

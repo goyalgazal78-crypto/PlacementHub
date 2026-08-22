@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 56" role="img" aria-label="Atlassian">
+  <title>Atlassian</title>
+  <path d="M28 40 L40 16 L52 40 Z" fill="#2684FF"/>
+  <path d="M40 40 L50 22 L62 40 Z" fill="#0052CC"/>
+  <text x="120" y="36" text-anchor="middle" fill="#0052CC" font-family="Poppins, 'Segoe UI', Arial, sans-serif" font-size="21" font-weight="600">ATLASSIAN</text>
+</svg>
