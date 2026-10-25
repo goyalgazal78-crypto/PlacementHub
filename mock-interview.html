@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Mock Interviewer - PlacementHub</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="styleh.css">
+  <link rel="stylesheet" href="dsa.css">
+  <link rel="stylesheet" href="mock-interview.css">
+</head>
+<body>
+  <!-- Global Navigation -->
+  <nav class="navbar">
+    <a href="index.html" class="navbar-logo">PlacementHub</a>
+    <div class="navbar-center">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="dashboard.html" class="nav-link">Dashboard</a>
+      <a href="dsa.html" class="nav-link active">DSA</a>
+      <a href="quiz.html" class="nav-link">Quiz</a>
+      <a href="aptitude.html" class="nav-link">Aptitude</a>
+      <a href="experience.html" class="nav-link">Experience</a>
+    </div>
+    <div class="navbar-right">
+      <div class="theme-toggle" id="themeToggle"><div class="toggle-circle">🌙</div></div>
+      <a href="signin.html" class="btn btn-secondary btn-sm">Sign In</a>
+      <a href="signup.html" class="btn btn-primary btn-sm">Sign Up</a>
+    </div>
+    <div class="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </nav>
+
+  <!-- Main Container -->
+  <main class="dsa-main">
+    <div class="dsa-container">
+      <!-- Sidebar Navigation -->
+      <aside class="dsa-sidebar">
+        <div class="sidebar-toggle">
+          <i class="fas fa-chevron-left"></i>
+        </div>
+        <nav class="sidebar-nav">
+          <a href="dsa.html" class="sidebar-link">
+            <i class="fas fa-code"></i>
+            <span>DSA Sheet</span>
+          </a>
+          <a href="notes.html" class="sidebar-link">
+            <i class="fas fa-book"></i>
+            <span>Downloadable Notes</span>
+          </a>
+          <a href="progress.html" class="sidebar-link">
+            <i class="fas fa-chart-line"></i>
+            <span>Progress Tracker</span>
+          </a>
+          <a href="saved.html" class="sidebar-link">
+            <i class="fas fa-bookmark"></i>
+            <span>Saved Problems</span>
+          </a>
+          <a href="mock-interview.html" class="sidebar-link active">
+            <i class="fas fa-user-astronaut"></i>
+            <span>Mock Interview</span>
+          </a>
+        </nav>
+      </aside>
+
+      <!-- Main Content Area -->
+      <section class="dsa-content">
+        <!-- Header -->
+        <header class="dsa-header">
+          <h1 class="dsa-title">
+            <span class="title-primary">AI Mock Interviewer -</span>
+            <span class="title-accent">DSA Sheet Simulator</span>
+          </h1>
+
+          <div class="header-description">
+            <ul class="description-list">
+              <li>Practice 1-on-1 technical interviews on official DSA Sheet problems</li>
+              <li>5 Rigorous Stages: Problem Understanding &rarr; Approach &rarr; Optimization &rarr; Live Code &rarr; Wrap-up</li>
+              <li>100% Client-Side: Powered by direct browser LLM API calls with your private key</li>
+            </ul>
+          </div>
+
+          <div class="header-actions">
+            <button class="action-pill" id="openSettingsBtn">
+              <i class="fas fa-key"></i> API Key Settings
+            </button>
+            <button class="action-pill" id="openPastInterviewsBtn">
+              <i class="fas fa-history"></i> Past Interviews (<span id="pastCount">0</span>)
+            </button>
+          </div>
+        </header>
+
+        <!-- Main Interview Flow Container -->
+        <div class="interview-layout">
+          <!-- Selection & Setup Card -->
+          <div class="interview-setup-card" id="setupCard">
+            <h3 style="color: var(--text-primary); margin-bottom: 14px; font-size: 1.1rem; display: flex; align-items: center; gap: 8px;">
+              <i class="fas fa-sliders-h" style="color: var(--primary);"></i>
+              Select Problem from DSA Sheet
+            </h3>
+
+            <div class="setup-grid">
+              <!-- Difficulty Filters -->
+              <div class="diff-filter-group">
+                <button class="filter-pill active" data-difficulty="all">All</button>
+                <button class="filter-pill" data-difficulty="easy">Easy</button>
+                <button class="filter-pill" data-difficulty="medium">Medium</button>
+                <button class="filter-pill" data-difficulty="hard">Hard</button>
+              </div>
+
+              <!-- Problem Dropdown -->
+              <div class="problem-select-wrapper">
+                <select id="problemSelect" class="problem-select">
+                  <option value="" disabled selected>Loading DSA Sheet problems...</option>
+                </select>
+              </div>
+
+              <!-- Random Problem Button -->
+              <button class="action-pill" id="randomProblemBtn" title="Pick a random problem from sheet">
+                <i class="fas fa-dice"></i> Random
+              </button>
+
+              <!-- Start Interview Button -->
+              <button class="btn btn-primary" id="startInterviewBtn" style="white-space: nowrap; padding: 10px 22px;">
+                <i class="fas fa-play"></i> Start Interview
+              </button>
+            </div>
+          </div>
+
+          <!-- Active Session Bar -->
+          <div class="session-bar" id="sessionBar" style="display: none;">
+            <div class="session-info">
+              <span class="session-title" id="sessionProblemTitle">Two Sum Problem</span>
+              <span class="badge-tag badge-easy" id="sessionDiffBadge">EASY</span>
+              <span class="turn-pill" id="turnCounter">Turn: 0 / 25</span>
+            </div>
+
+            <!-- Stage Stepper Indicator -->
+            <div class="stage-stepper" id="stageStepper">
+              <div class="step-item active" data-stage="1">
+                <div class="step-circle">1</div>
+                <span>Understanding</span>
+              </div>
+              <div class="step-divider"></div>
+              <div class="step-item" data-stage="2">
+                <div class="step-circle">2</div>
+                <span>Approach</span>
+              </div>
+              <div class="step-divider"></div>
+              <div class="step-item" data-stage="3">
+                <div class="step-circle">3</div>
+                <span>Optimization</span>
+              </div>
+              <div class="step-divider"></div>
+              <div class="step-item" data-stage="4">
+                <div class="step-circle">4</div>
+                <span>Code</span>
+              </div>
+              <div class="step-divider"></div>
+              <div class="step-item" data-stage="5">
+                <div class="step-circle">5</div>
+                <span>Wrap-up</span>
+              </div>
+            </div>
+
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <!-- Live Countdown Timer -->
+              <div class="timer-badge" id="countdownTimer">
+                <i class="fas fa-clock"></i> <span id="timerDigits">30:00</span>
+              </div>
+
+              <!-- End Interview Button -->
+              <button class="action-pill" id="endInterviewBtn" style="border-color: var(--danger); color: #FCA5A5;">
+                <i class="fas fa-stop"></i> End Interview
+              </button>
+            </div>
+          </div>
+
+          <!-- Active Workspace (Problem Info + Chat + Code) -->
+          <div class="workspace-grid" id="interviewWorkspace" style="display: none;">
+            <!-- Left Side: Problem Card -->
+            <div class="problem-card">
+              <div class="problem-header-row">
+                <h2 class="problem-name-lg" id="cardProblemName">Problem Name</h2>
+              </div>
+
+              <div class="meta-tags">
+                <span class="badge-tag badge-easy" id="cardDiffBadge">EASY</span>
+                <span class="filter-pill" style="padding: 3px 10px; font-size: 0.75rem;" id="cardCategoryBadge">Array</span>
+              </div>
+
+              <div class="problem-meta-list">
+                <div class="meta-row">
+                  <i class="fas fa-stopwatch"></i>
+                  <span>Allocated Time: <strong id="cardDuration">30 mins</strong></span>
+                </div>
+                <div class="meta-row" id="cardPracticeRow">
+                  <i class="fas fa-external-link-alt"></i>
+                  <a href="#" target="_blank" id="cardPracticeLink" style="color: var(--primary-light); text-decoration: underline;">Practice on LeetCode</a>
+                </div>
+                <div class="meta-row" id="cardCompaniesRow">
+                  <i class="fas fa-building"></i>
+                  <span>Asked at: <strong id="cardCompanies">Top Tech</strong></span>
+                </div>
+              </div>
+
+              <div class="guidelines-box">
+                <strong>Interview Guidelines:</strong>
+                <p style="margin: 6px 0 0 0;">
+                  1. Restate problem & ask edge cases.<br>
+                  2. Propose your brute force approach.<br>
+                  3. Analyze time/space & optimize.<br>
+                  4. Write clean code in the editor.<br>
+                  5. The AI will never give away full solutions.
+                </p>
+              </div>
+
+              <div class="problem-action-buttons">
+                <button class="filter-pill" id="requestHintBtn" style="text-align: center; width: 100%; border-style: dashed;">
+                  <i class="fas fa-lightbulb"></i> Request Hint (<span id="hintCount">0</span>/2)
+                </button>
+              </div>
+            </div>
+
+            <!-- Right Side: Chat & Code Workspace -->
+            <div class="chat-workspace">
+              <!-- Error Banner (shows when missing key, rate limit, etc.) -->
+              <div class="error-banner" id="errorBanner" style="display: none;">
+                <span id="errorMessage"><i class="fas fa-exclamation-triangle"></i> Error message</span>
+                <button class="filter-pill" id="fixErrorBtn" style="padding: 4px 10px; font-size: 0.8rem;">Fix</button>
+              </div>
+
+              <!-- Chat Messages Panel -->
+              <div class="chat-card">
+                <div class="chat-card-header">
+                  <div class="interviewer-info">
+                    <div class="bot-avatar">
+                      <i class="fas fa-robot"></i>
+                    </div>
+                    <div>
+                      <div class="bot-name">Senior Staff Interviewer</div>
+                      <div class="bot-role">PlacementHub AI Engineering</div>
+                    </div>
+                  </div>
+                  <div style="display: flex; align-items: center; gap: 8px;">
+                    <span class="filter-pill" style="font-size: 0.75rem; padding: 4px 10px;" id="currentStageBadge">Stage: Understanding</span>
+                  </div>
+                </div>
+
+                <!-- Messages Container -->
+                <div class="chat-messages" id="chatMessages">
+                  <!-- Messages injected dynamically -->
+                </div>
+
+                <!-- Typing indicator -->
+                <div class="typing-indicator" id="typingIndicator" style="display: none; margin-top: 10px;">
+                  <div class="typing-dot"></div>
+                  <div class="typing-dot"></div>
+                  <div class="typing-dot"></div>
+                </div>
+              </div>
+
+              <!-- Code Editor Panel (Active during Code stage or expandable anytime) -->
+              <div class="code-panel" id="codePanel">
+                <div class="code-panel-header">
+                  <span class="panel-title">
+                    <i class="fas fa-code" style="color: var(--primary);"></i>
+                    Solution Code Editor
+                  </span>
+                  <div class="code-actions">
+                    <select id="codeLanguage" class="lang-select">
+                      <option value="cpp">C++</option>
+                      <option value="java">Java</option>
+                      <option value="python">Python 3</option>
+                      <option value="javascript">JavaScript</option>
+                    </select>
+                    <button class="filter-pill" id="loadStarterCodeBtn" title="Insert starter code template">
+                      <i class="fas fa-file-code"></i> Starter
+                    </button>
+                    <button class="filter-pill" id="submitCodeBtn" style="background: var(--primary); color: #fff; border-color: var(--primary);">
+                      <i class="fas fa-paper-plane"></i> Submit Code
+                    </button>
+                  </div>
+                </div>
+                <textarea id="codeEditor" class="code-textarea" spellcheck="false" placeholder="// Write your solution code here...
+// When ready, click 'Submit Code' to send it to the interviewer for review."></textarea>
+              </div>
+
+              <!-- Chat Input Bar -->
+              <div class="chat-input-bar">
+                <div class="chat-input-row">
+                  <textarea id="chatInput" class="chat-textarea" placeholder="Type your response or question to the interviewer... (Shift+Enter for newline)"></textarea>
+                  <button class="send-btn" id="sendMessageBtn">
+                    <span>Send</span>
+                    <i class="fas fa-paper-plane"></i>
+                  </button>
+                </div>
+                <div class="chat-input-footer">
+                  <span>Press <kbd style="background: var(--background); padding: 2px 6px; border-radius: 4px; border: 1px solid var(--border);">Enter</kbd> to send, <kbd style="background: var(--background); padding: 2px 6px; border-radius: 4px; border: 1px solid var(--border);">Shift+Enter</kbd> for new line</span>
+                  <span class="char-counter" id="charCounter">0 / 2000</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- ======================== MODALS ======================== -->
+
+  <!-- API Key Settings Modal -->
+  <div class="modal-overlay" id="apiKeyModal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div class="modal-title">
+          <i class="fas fa-key" style="color: var(--primary);"></i>
+          LLM Provider & API Key Settings
+        </div>
+        <button class="modal-close-btn" id="closeSettingsBtn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p style="font-size: 0.88rem; color: var(--text-secondary); margin: 0;">
+          Your API key is saved exclusively in your browser's <code style="color: var(--primary-light);">localStorage</code>. It is never uploaded to any backend or stored on our servers.
+        </p>
+
+        <div class="form-group">
+          <label class="form-label" for="providerSelect">AI Provider</label>
+          <select id="providerSelect" class="form-select">
+            <option value="gemini">Google Gemini (Recommended - Free Tier)</option>
+            <option value="openai">OpenAI (GPT-4o, GPT-4o-mini)</option>
+            <option value="groq">Groq Cloud (Fast Llama 3)</option>
+            <option value="openrouter">OpenRouter (Multi-model)</option>
+            <option value="demo">Interactive Demo Mode (No API key needed)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="apiKeyInput">API Key</label>
+          <div style="position: relative; width: 100%;">
+            <input type="password" id="apiKeyInput" class="form-input" style="width: 100%; padding-right: 40px;" placeholder="Paste your API key here (e.g. AIzaSy... or sk-...)">
+            <button type="button" id="toggleKeyVisibility" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); background: none; border: none; color: var(--text-tertiary); cursor: pointer;">
+              <i class="fas fa-eye"></i>
+            </button>
+          </div>
+          <small id="keyHelpText" style="color: var(--text-tertiary); font-size: 0.8rem;">
+            Get a free Gemini API key from <a href="https://aistudio.google.com/app/apikey" target="_blank" style="color: var(--primary-light); text-decoration: underline;">Google AI Studio</a>.
+          </small>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="modelInput">Model Name</label>
+          <div style="display: flex; gap: 8px;">
+            <input type="text" id="modelInput" class="form-input" style="flex: 1;" value="gemini-1.5-flash" placeholder="e.g. gemini-2.5-flash, gemini-1.5-flash, gpt-4o-mini">
+            <button type="button" id="detectModelsBtn" class="filter-pill" style="white-space: nowrap; font-size: 0.8rem;" title="Query your API key to find all supported models">
+              <i class="fas fa-search"></i> Detect Models
+            </button>
+          </div>
+          <div id="detectedModelsContainer" style="display: none; margin-top: 8px;">
+            <select id="detectedModelsSelect" class="form-select" style="font-size: 0.85rem; padding: 8px 12px;">
+              <option value="">-- Choose from models available on your key --</option>
+            </select>
+          </div>
+          <small id="quickPicksHelp" style="color: var(--text-tertiary); font-size: 0.78rem;">
+            Recommended:
+            <a href="#" class="model-quick-pick" data-model="gemini-3.1-pro-preview" style="color: var(--success); font-weight: 600; margin-right: 6px;">✨ gemini-3.1-pro-preview (Recommended by Google)</a>
+            <a href="#" class="model-quick-pick" data-model="gemini-1.5-flash" style="color: var(--primary-light); margin-right: 6px;">gemini-1.5-flash</a>
+            <a href="#" class="model-quick-pick" data-model="gemini-2.0-flash" style="color: var(--primary-light);">gemini-2.0-flash</a>
+          </small>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="customEndpointInput">Custom Endpoint (Optional)</label>
+          <input type="text" id="customEndpointInput" class="form-input" placeholder="Leave empty for provider default">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="filter-pill" id="clearKeyBtn" style="color: var(--danger); border-color: rgba(239, 68, 68, 0.4);">
+          Clear Key
+        </button>
+        <button class="btn btn-primary" id="saveSettingsBtn">
+          Save Settings
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Past Interviews Modal -->
+  <div class="modal-overlay" id="pastInterviewsModal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div class="modal-title">
+          <i class="fas fa-history" style="color: var(--primary);"></i>
+          Past Mock Interview Sessions
+        </div>
+        <button class="modal-close-btn" id="closePastModalBtn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div id="pastSessionsContainer" class="past-interviews-list">
+          <!-- Injected dynamically -->
+        </div>
+      </div>
+      <div class="modal-footer" style="justify-content: space-between;">
+        <button class="filter-pill" id="clearAllHistoryBtn" style="color: var(--danger); border-color: rgba(239, 68, 68, 0.4);">
+          <i class="fas fa-trash"></i> Clear History
+        </button>
+        <button class="filter-pill" id="closePastModalFooterBtn">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Final Report Card Modal -->
+  <div class="modal-overlay" id="reportCardModal">
+    <div class="modal-card" style="max-width: 680px;">
+      <div class="modal-header">
+        <div class="modal-title">
+          <i class="fas fa-award" style="color: var(--accent-tertiary);"></i>
+          Interview Performance Report
+        </div>
+        <button class="modal-close-btn" id="closeReportBtn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <!-- Hero Overall Score -->
+        <div class="report-overall-hero">
+          <div style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-tertiary); margin-bottom: 4px;">
+            Overall Evaluation
+          </div>
+          <div class="score-circle-lg">
+            <span id="reportOverallScore">8.5</span>
+            <span class="score-max">/10</span>
+          </div>
+          <div id="reportProblemTitle" style="font-weight: 600; color: var(--text-primary); font-size: 1.1rem;">
+            Problem Name
+          </div>
+          <div id="reportSummaryText" style="font-size: 0.88rem; color: var(--text-secondary); margin-top: 8px;">
+            Solid performance demonstrating clean communication and algorithmic optimization.
+          </div>
+        </div>
+
+        <!-- 5 Category Scores -->
+        <h4 style="color: var(--text-primary); margin: 6px 0 0 0; font-size: 0.95rem;">Competency Breakdown</h4>
+        <div class="score-category-bars">
+          <div class="score-row">
+            <div class="score-meta">
+              <span>Problem Understanding</span>
+              <span id="scoreValUnderstanding">8/10</span>
+            </div>
+            <div class="breakdown-bar-bg"><div class="breakdown-bar-fill" id="barUnderstanding" style="width: 80%;"></div></div>
+          </div>
+          <div class="score-row">
+            <div class="score-meta">
+              <span>Approach & Strategy</span>
+              <span id="scoreValApproach">8/10</span>
+            </div>
+            <div class="breakdown-bar-bg"><div class="breakdown-bar-fill" id="barApproach" style="width: 80%;"></div></div>
+          </div>
+          <div class="score-row">
+            <div class="score-meta">
+              <span>Complexity Analysis</span>
+              <span id="scoreValComplexity">7/10</span>
+            </div>
+            <div class="breakdown-bar-bg"><div class="breakdown-bar-fill" id="barComplexity" style="width: 70%;"></div></div>
+          </div>
+          <div class="score-row">
+            <div class="score-meta">
+              <span>Code Quality & Edge Cases</span>
+              <span id="scoreValCode">9/10</span>
+            </div>
+            <div class="breakdown-bar-bg"><div class="breakdown-bar-fill" id="barCode" style="width: 90%;"></div></div>
+          </div>
+          <div class="score-row">
+            <div class="score-meta">
+              <span>Technical Communication</span>
+              <span id="scoreValCommunication">8/10</span>
+            </div>
+            <div class="breakdown-bar-bg"><div class="breakdown-bar-fill" id="barCommunication" style="width: 80%;"></div></div>
+          </div>
+        </div>
+
+        <!-- Strengths & Areas to improve -->
+        <div class="feedback-lists-grid">
+          <div class="feedback-box strengths">
+            <h4 style="color: var(--success);"><i class="fas fa-check-circle"></i> Key Strengths</h4>
+            <ul id="reportStrengthsList">
+              <li>Identified boundary conditions early.</li>
+            </ul>
+          </div>
+          <div class="feedback-box improvements">
+            <h4 style="color: var(--warning);"><i class="fas fa-exclamation-triangle"></i> Areas to Improve</h4>
+            <ul id="reportImprovementsList">
+              <li>Consider trade-offs between recursion and iteration.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Suggested Next Problems from DSA Sheet -->
+        <div>
+          <h4 style="color: var(--text-primary); margin-bottom: 10px; font-size: 0.95rem;">
+            <i class="fas fa-forward" style="color: var(--primary);"></i> Recommended Next Problems (from DSA Sheet)
+          </h4>
+          <div class="suggested-problems-list" id="reportSuggestedList">
+            <!-- Injected dynamically -->
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="filter-pill" id="copyReportBtn">
+          <i class="fas fa-copy"></i> Copy Feedback
+        </button>
+        <button class="btn btn-primary" id="newInterviewFromReportBtn">
+          <i class="fas fa-redo"></i> New Interview
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <!-- Optional config file fallback -->
+  <script src="config.js" onerror="console.log('No local config.js found; using localStorage settings.')"></script>
+  <!-- Single Source of Truth for DSA Sheet Problems -->
+  <script src="dsa-problems.js"></script>
+  <!-- Mock Interview Logic -->
+  <script src="mock-interview.js"></script>
+</body>
+</html>
+
