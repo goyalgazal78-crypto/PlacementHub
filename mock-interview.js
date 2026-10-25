@@ -13,7 +13,7 @@
      ========================================================================== */
   const DEFAULT_CONFIG = {
     provider: 'gemini', // 'gemini' | 'groq' | 'openai' | 'openrouter' | 'demo'
-    model: 'gemini-1.5-flash',
+    model: 'gemini-2.5-flash',
     apiKey: '',
     endpoints: {
       gemini: 'https://generativelanguage.googleapis.com/v1beta/models',
@@ -123,7 +123,7 @@
 
     if (provider === 'gemini') {
       help.innerHTML = 'Get a free Gemini API key from <a href="https://aistudio.google.com/app/apikey" target="_blank" style="color: var(--primary-light); text-decoration: underline;">Google AI Studio</a> (key starts with <code>AIzaSy...</code>).';
-      if (modelInput && (!modelInput.value || modelInput.value.includes('llama') || modelInput.value.includes('gpt'))) modelInput.value = 'gemini-1.5-flash';
+      if (modelInput && (!modelInput.value || modelInput.value.includes('llama') || modelInput.value.includes('gpt'))) modelInput.value = 'gemini-2.5-flash';
       if (apiKeyInput) apiKeyInput.placeholder = 'AIzaSy...';
     } else if (provider === 'groq') {
       help.innerHTML = 'Get a free high-speed Groq key from <a href="https://console.groq.com/keys" target="_blank" style="color: var(--primary-light); text-decoration: underline;">Groq Console</a> (key starts with <code>gsk_...</code>).';
@@ -1483,14 +1483,16 @@
       suggestBtnHtml = '<button class="filter-pill" onclick="window.switchToModel(\'' + escapeHtml(suggestedModel) + '\')" style="background: var(--success); color: #fff; border-color: var(--success); font-weight: 600;"><i class="fas fa-magic"></i> Switch to ' + escapeHtml(suggestedModel) + ' &amp; Retry</button>';
     }
 
-    // Check if rate limited
+    // Check if rate limited or model not found
     const isRateLimited = details.includes('429') || details.toLowerCase().includes('rate limit');
     let rateLimitBtnsHtml = '';
     if (isRateLimited) {
       rateLimitBtnsHtml = [
-        '<button class="filter-pill" onclick="window.switchToModel(\'gemini-1.5-flash\')" style="background: var(--success); color: #fff; border-color: var(--success); font-weight: 600;"><i class="fas fa-bolt"></i> Switch to gemini-1.5-flash (High Limit)</button>',
+        '<button class="filter-pill" onclick="window.switchToModel(\'gemini-2.5-flash\')" style="background: var(--success); color: #fff; border-color: var(--success); font-weight: 600;"><i class="fas fa-bolt"></i> Switch to gemini-2.5-flash (High Limit)</button>',
         '<button class="filter-pill" id="retryCooldownBtn" onclick="window.retryAfterCountdown(15, this)" style="background: var(--surface); color: var(--text-primary); border-color: var(--border); font-weight: 600;"><i class="fas fa-clock"></i> Wait 15s &amp; Auto-Retry</button>'
       ].join('');
+    } else if (details.includes('gemini-1.5-flash') || details.includes('not found')) {
+      rateLimitBtnsHtml = '<button class="filter-pill" onclick="window.switchToModel(\'gemini-2.5-flash\')" style="background: var(--success); color: #fff; border-color: var(--success); font-weight: 600;"><i class="fas fa-bolt"></i> Switch to gemini-2.5-flash &amp; Retry</button>';
     }
 
     msgDiv.innerHTML = [
