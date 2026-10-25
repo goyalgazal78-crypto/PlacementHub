@@ -140,317 +140,510 @@ const mockTests = {
   ]
 };
 
+const $ = id => document.getElementById(id);
+const ATTEMPT_KEY = "placementhubQuizAttemptV2";
+const modal = $("startModal"), resumeModal = $("resumeModal"), setup = $("setupCard");
+const quiz = $("quizCard"), info = $("quizInfo"), result = $("resultCard");
+
 let activeTest = null;
+let subject = "Java", questions = [], current = 0, count = 5;
+let answers = [], bookmarked = [], timeLeft = 120, totalTime = 120, timerId = null;
+let submitted = false, timerWarningShown = false, attemptLabel = "Java";
+
+function formatTime(seconds){
+  const safeSeconds = Math.max(0, Math.floor(seconds || 0));
+  return String(Math.floor(safeSeconds / 60)).padStart(2, "0") + ":" + String(safeSeconds % 60).padStart(2, "0");
+}
+
+function shuffle(items){
+  const copy = [...items];
+  for(let i = copy.length - 1; i > 0; i--){
+    const randomIndex = Math.floor(Math.random() * (i + 1));
+    [copy[i], copy[randomIndex]] = [copy[randomIndex], copy[i]];
+  }
+  return copy;
+}
+
+function createQuestion(tuple, sourceIndex, topic){
+  const options = shuffle(tuple[1].map((text, originalIndex) => ({ text, isCorrect: originalIndex === tuple[2] })));
+  return {
+    id: `${subject}-${sourceIndex}`,
+    sourceIndex,
+    prompt: tuple[0],
+    options: options.map(option => option.text),
+    correctIndex: options.findIndex(option => option.isCorrect),
+    topic
+  };
+}
+
+function cloneQuestion(question){
+  const options = shuffle(question.options.map((text, index) => ({ text, isCorrect: index === question.correctIndex })));
+  return {
+    ...question,
+    options: options.map(option => option.text),
+    correctIndex: options.findIndex(option => option.isCorrect)
+  };
+}
+
+function getActiveTest(){
+  if(!activeTest || activeTest.subject !== subject) return null;
+  return mockTests[activeTest.subject]?.[activeTest.index] || null;
+}
 
 function renderMockCards(name){
   const grid = $("mockGrid");
+  const tests = mockTests[name] || [];
   grid.innerHTML = "";
-  mockTests[name].forEach((test, i) => {
+  tests.forEach((test, index) => {
     const card = document.createElement("article");
-    card.className = "mock-card";
     const levelClass = test.level === "Easy" ? "easy" : test.level === "Medium" ? "medium" : "hard";
-    card.innerHTML = `
-      <div class="card-top">
-        <span class="subject-pill">${name.toUpperCase()}</span>
-        <span class="level ${levelClass}">${test.level}</span>
-      </div>
-      <h3>${test.title}</h3>
-      <p>${test.desc}</p>
-      <div class="meta"><span>${test.idx.length} Questions</span><span>${formatTime(test.idx.length * 24)}</span></div>
-      <button class="card-start primary-btn">Start Test →</button>`;
-    card.querySelector(".card-start").onclick = () => openMockTest(name, i);
+    card.className = "mock-card";
+    card.innerHTML = `<div class="card-top"><span class="subject-pill">${name.toUpperCase()}</span><span class="level ${levelClass}">${test.level}</span></div><h3>${test.title}</h3><p>${test.desc}</p><div class="meta"><span>${test.idx.length} Questions</span><span>${formatTime(test.idx.length * 24)}</span></div><button class="card-start primary-btn">Start Test →</button>`;
+    card.querySelector(".card-start").addEventListener("click", () => openMockTest(name, index));
     grid.appendChild(card);
   });
-  $("testCount").textContent = mockTests[name].length + " tests";
-  $("mockTitle").textContent = name + " Mock Tests";
-  $("emptyState").classList.add("hidden");
+  $("testCount").textContent = `${tests.length} tests`;
+  $("mockTitle").textContent = `${name} Mock Tests`;
+  $("emptyState").classList.toggle("hidden", tests.length > 0);
 }
 
 function openMockTest(name, index){
-  activeTest = mockTests[name][index];
+  const test = mockTests[name]?.[index];
+  if(!test) return showToast("This mock test is not available.");
+  activeTest = { subject: name, index };
   subject = name;
-  count = activeTest.idx.length;
+  count = test.idx.length;
   totalTime = count * 24;
+  attemptLabel = test.title;
   $("modalSubject").textContent = subject;
   $("modalQuestions").textContent = count;
   $("modalTime").textContent = formatTime(totalTime);
-  $("modalText").textContent = "You are about to start the " + activeTest.title + " mock test.";
+  $("modalText").textContent = `You are about to start the ${test.title} mock test.`;
   modal.classList.remove("hidden");
 }
 
 function selectMockSubject(name){
   subject = name;
-  document.querySelectorAll(".filter-btn").forEach(b => b.classList.toggle("active", b.dataset.subject === name));
+  activeTest = null;
+  document.querySelectorAll(".filter-btn").forEach(button => button.classList.toggle("active", button.dataset.subject === name));
   renderMockCards(name);
 }
 
-document.querySelectorAll(".filter-btn").forEach(btn => btn.onclick = () => selectMockSubject(btn.dataset.subject));
-
-let subject="Java", questions=[], current=0, score=0, selected=null;
-let count=5, timeLeft=120, totalTime=120, timerId;
-let answers=[], bookmarked=[];
-
-const $=id=>document.getElementById(id);
-const modal=$("startModal"), setup=$("setupCard"), quiz=$("quizCard");
-const info=$("quizInfo"), result=$("resultCard");
-
-renderMockCards("Java");
-
-function chooseSubject(btn){
-  document.querySelectorAll(".subject-btn").forEach(b=>b.classList.remove("active"));
-  btn.classList.add("active");
-  subject=btn.dataset.subject;
-  $("selectedSubjectLabel").textContent=subject.toUpperCase()+" PRACTICE";
-  $("subjectDescription").textContent=descriptions[subject];
-  $("selectedSubject").textContent=subject;
+function getNewQuestions(){
+  const bank = questionBank[subject] || [];
+  const test = getActiveTest();
+  const entries = test
+    ? test.idx.map(index => ({ tuple: bank[index], index }))
+    : shuffle(bank.map((tuple, index) => ({ tuple, index }))).slice(0, Math.min(count, bank.length));
+  const topic = test?.title || subject;
+  return entries.filter(entry => Array.isArray(entry.tuple)).map(entry => createQuestion(entry.tuple, entry.index, topic));
 }
-document.querySelectorAll(".subject-btn").forEach(b=>b.onclick=()=>chooseSubject(b));
 
-document.querySelectorAll(".number-choice").forEach(b=>b.onclick=()=>{
-  document.querySelectorAll(".number-choice").forEach(x=>x.classList.remove("active"));
-  b.classList.add("active");
-  count=+b.dataset.count;
-  totalTime=count*24;
-  $("selectedCount").textContent=count+" Questions";
-  $("selectedTime").textContent=formatTime(totalTime);
-});
+function getResults(){
+  const correct = answers.reduce((total, answer, index) => total + (answer === questions[index]?.correctIndex ? 1 : 0), 0);
+  const unanswered = answers.filter(answer => answer === null).length;
+  return { correct, unanswered, wrong: questions.length - correct - unanswered, percent: questions.length ? Math.round((correct / questions.length) * 100) : 0 };
+}
 
-$("startBtn").onclick=()=>{
-  $("modalSubject").textContent=subject;
-  $("modalQuestions").textContent=count;
-  $("modalTime").textContent=formatTime(totalTime);
-  $("modalText").textContent="You are about to start your "+subject+" quiz.";
-  modal.classList.remove("hidden");
-};
-$("closeModal").onclick=()=>modal.classList.add("hidden");
-$("confirmStart").onclick=()=>{modal.classList.add("hidden");startQuiz()};
+function getTopicResults(){
+  return questions.reduce((groups, question, index) => {
+    const topic = question.topic || subject;
+    if(!groups[topic]) groups[topic] = { total: 0, correct: 0, unanswered: 0 };
+    groups[topic].total++;
+    if(answers[index] === null) groups[topic].unanswered++;
+    if(answers[index] === question.correctIndex) groups[topic].correct++;
+    return groups;
+  }, {});
+}
 
-function startQuiz(){
-  if(activeTest){
-    questions = activeTest.idx.map(i => questionBank[subject][i]);
-  } else {
-    questions=[...questionBank[subject]].sort(()=>Math.random()-.5).slice(0,count);
+function saveAttempt(){
+  if(submitted || !questions.length || quiz.classList.contains("hidden")) return;
+  try {
+    localStorage.setItem(ATTEMPT_KEY, JSON.stringify({ version: 2, subject, questions, current, answers, bookmarked, timeLeft, totalTime, activeTest, attemptLabel, savedAt: Date.now() }));
+  }catch(error){
+    console.warn("Quiz attempt could not be saved.", error);
   }
-  current=score=0; selected=null; timeLeft=totalTime;
-  answers=Array(questions.length).fill(null); bookmarked=[];
-  $("quizSubject").textContent=subject; $("liveScore").textContent=0;
+}
+
+function clearAttempt(){
+  localStorage.removeItem(ATTEMPT_KEY);
+}
+
+function getSavedAttempt(){
+  try {
+    const saved = JSON.parse(localStorage.getItem(ATTEMPT_KEY) || "null");
+    const valid = saved && saved.version === 2 && questionBank[saved.subject] && Array.isArray(saved.questions) && saved.questions.length && Array.isArray(saved.answers) && saved.answers.length === saved.questions.length && Number.isFinite(saved.timeLeft);
+    return valid ? saved : null;
+  }catch(error){
+    clearAttempt();
+    return null;
+  }
+}
+
+function showResumePrompt(){
+  const saved = getSavedAttempt();
+  if(!saved) return;
+  const elapsed = Math.floor((Date.now() - (saved.savedAt || Date.now())) / 1000);
+  const remaining = Math.max(0, saved.timeLeft - elapsed);
+  $("resumeText").textContent = `${saved.subject} · ${saved.questions.length} questions · ${formatTime(remaining)} remaining.`;
+  resumeModal.classList.remove("hidden");
+}
+
+function resumeQuiz(){
+  const saved = getSavedAttempt();
+  if(!saved) return resumeModal.classList.add("hidden");
+  const elapsed = Math.floor((Date.now() - (saved.savedAt || Date.now())) / 1000);
+  subject = saved.subject;
+  questions = saved.questions;
+  current = Math.min(Math.max(0, saved.current || 0), questions.length - 1);
+  answers = saved.answers.map(answer => Number.isInteger(answer) ? answer : null);
+  bookmarked = (saved.bookmarked || []).filter(index => Number.isInteger(index) && index >= 0 && index < questions.length);
+  timeLeft = Math.max(0, saved.timeLeft - elapsed);
+  totalTime = saved.totalTime;
+  activeTest = saved.activeTest || null;
+  attemptLabel = saved.attemptLabel || subject;
+  submitted = false;
+  timerWarningShown = timeLeft <= 30;
+  resumeModal.classList.add("hidden");
   setup.classList.add("hidden"); result.classList.add("hidden");
   info.classList.remove("hidden"); quiz.classList.remove("hidden");
-  showQuestion(); updateTimer();
-  clearInterval(timerId); timerId=setInterval(tick,1000);
-  window.scrollTo({top:document.querySelector(".mock-container").offsetTop-20,behavior:"smooth"});
+  $("quizSubject").textContent = subject;
+  showQuestion();
+  if(timeLeft <= 0) finishQuiz("time"); else startTimer();
+}
+
+function startTimer(){
+  clearInterval(timerId);
+  updateTimer();
+  timerId = setInterval(() => {
+    timeLeft = Math.max(0, timeLeft - 1);
+    updateTimer();
+    saveAttempt();
+    if(timeLeft === 0) finishQuiz("time");
+  }, 1000);
+}
+
+function startQuiz(options = {}){
+  const newQuestions = options.questions || getNewQuestions();
+  if(!newQuestions.length){
+    showToast("No questions are available for this quiz.");
+    return;
+  }
+  questions = newQuestions;
+  current = 0;
+  answers = Array(questions.length).fill(null);
+  bookmarked = [];
+  totalTime = options.totalTime || questions.length * 24;
+  timeLeft = totalTime;
+  attemptLabel = options.label || getActiveTest()?.title || subject;
+  submitted = false;
+  timerWarningShown = false;
+  clearAttempt();
+  modal.classList.add("hidden");
+  resumeModal.classList.add("hidden");
+  setup.classList.add("hidden"); result.classList.add("hidden");
+  info.classList.remove("hidden"); quiz.classList.remove("hidden");
+  $("quizSubject").textContent = subject;
+  showQuestion();
+  startTimer();
+  saveAttempt();
+  document.querySelector(".mock-container")?.scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
+function updateTimer(){
+  const timer = $("timer");
+  timer.textContent = formatTime(timeLeft);
+  timer.style.color = timeLeft <= 30 ? "#EF4444" : timeLeft <= 60 ? "#F59E0B" : "";
+  timer.classList.toggle("timer-warning", timeLeft <= 30 && timeLeft > 0);
+  if(timeLeft === 30 && !timerWarningShown){
+    timerWarningShown = true;
+    showToast("30 seconds left — review unanswered questions.");
+  }
+}
+
+function updateAttemptStatus(){
+  const answered = answers.filter(answer => answer !== null).length;
+  const results = getResults();
+  $("answeredCount").textContent = `${answered} / ${questions.length}`;
+  $("liveScore").textContent = results.correct;
+  const progress = questions.length ? Math.round((answered / questions.length) * 100) : 0;
+  $("progressBar").style.width = `${progress}%`;
+  $("progressText").textContent = `${progress}% answered`;
 }
 
 function showQuestion(){
-  const q=questions[current];
-  selected=answers[current];
-  $("questionNumber").textContent=(current+1)+" / "+questions.length;
-  let p=(current+1)/questions.length*100;
-  $("progressBar").style.width=p+"%"; $("progressText").textContent=Math.round(p)+"%";
-  $("question").textContent=q[0]; $("message").textContent="";
-  $("options").innerHTML="";
-  q[1].forEach((text,i)=>{
-    let b=document.createElement("button");
-    b.className="option"; b.textContent=String.fromCharCode(65+i)+". "+text;
-    if(i===selected)b.classList.add("selected");
-    b.onclick=()=>{selected=i;answers[current]=i;showQuestion()};
-    $("options").appendChild(b);
+  const question = questions[current];
+  if(!question) return;
+  $("questionNumber").textContent = `${current + 1} / ${questions.length}`;
+  $("question").textContent = question.prompt;
+  $("message").textContent = "";
+  $("options").innerHTML = "";
+  question.options.forEach((text, index) => {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "option";
+    button.textContent = `${String.fromCharCode(65 + index)}. ${text}`;
+    button.setAttribute("aria-pressed", String(answers[current] === index));
+    if(index === answers[current]) button.classList.add("selected");
+    button.addEventListener("click", () => selectAnswer(index));
+    $("options").appendChild(button);
   });
-  $("nextBtn").textContent=current===questions.length-1?"Finish Quiz →":"Next Question →";
-  $("bookmarkBtn").textContent=bookmarked.includes(current)?"★ Bookmarked":"☆ Bookmark";
-  $("bookmarkBtn").classList.toggle("saved",bookmarked.includes(current));
+  $("prevBtn").disabled = current === 0;
+  $("nextBtn").textContent = current === questions.length - 1 ? "Finish Quiz →" : "Next Question →";
+  $("skipBtn").textContent = answers[current] === null ? "Skip" : "Clear Answer";
+  $("bookmarkBtn").textContent = bookmarked.includes(current) ? "★ Bookmarked" : "☆ Bookmark";
+  $("bookmarkBtn").classList.toggle("saved", bookmarked.includes(current));
+  updateAttemptStatus();
   drawNumbers();
 }
 
+function selectAnswer(index){
+  if(submitted || !questions[current] || index < 0 || index >= questions[current].options.length) return;
+  answers[current] = index;
+  saveAttempt();
+  showQuestion();
+}
+
 function drawNumbers(){
-  $("palette").innerHTML="";
-  questions.forEach((_,i)=>{
-    let b=document.createElement("button");
-    b.textContent=i+1;
-    if(i===current)b.classList.add("current");
-    if(answers[i]!==null)b.classList.add("answered");
-    if(bookmarked.includes(i))b.classList.add("bookmarked");
-    b.onclick=()=>{current=i;showQuestion()};
-    $("palette").appendChild(b);
+  const palette = $("palette");
+  palette.innerHTML = "";
+  questions.forEach((_, index) => {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.textContent = index + 1;
+    button.setAttribute("aria-label", `Question ${index + 1}${answers[index] === null ? ", unanswered" : ", answered"}`);
+    if(index === current) button.classList.add("current");
+    if(answers[index] !== null) button.classList.add("answered"); else button.classList.add("unanswered");
+    if(bookmarked.includes(index)) button.classList.add("bookmarked");
+    button.addEventListener("click", () => { current = index; saveAttempt(); showQuestion(); });
+    palette.appendChild(button);
   });
 }
 
-$("bookmarkBtn").onclick=()=>{
-  if(bookmarked.includes(current))
-    bookmarked=bookmarked.filter(i=>i!==current);
-  else {bookmarked.push(current);showToast("Question bookmarked ⭐")}
-  showQuestion();
-};
-
-if($("surpriseMini")) $("surpriseMini").onclick=()=>{
-  let list=Object.keys(questionBank);
-  subject=list[Math.floor(Math.random()*list.length)];
-  count=[5,10,15][Math.floor(Math.random()*3)];
-  totalTime=count*24;
-  $("modalSubject").textContent=subject;
-  $("modalQuestions").textContent=count;
-  $("modalTime").textContent=formatTime(totalTime);
-  $("modalText").textContent="Random challenge: "+subject+" with "+count+" questions.";
-  modal.classList.remove("hidden");
-};
-
-$("nextBtn").onclick=()=>{
-  if(selected===null){$("message").textContent="Please select an answer first.";return}
-  if(selected===questions[current][2])score++;
-  $("liveScore").textContent=score;
-  if(current<questions.length-1){current++;showQuestion()}else finishQuiz();
-};
-
-function tick(){
-  timeLeft--; updateTimer();
-  if(timeLeft<=0){clearInterval(timerId);finishQuiz()}
-}
-function updateTimer(){
-  $("timer").textContent=formatTime(timeLeft);
-  $("timer").style.color=timeLeft<=30?"#EF4444":timeLeft<=60?"#F59E0B":"";
-}
-function formatTime(s){
-  return String(Math.floor(s/60)).padStart(2,"0")+":"+String(s%60).padStart(2,"0");
-}
-
-function finishQuiz(){
-  clearInterval(timerId);
-  quiz.classList.add("hidden"); info.classList.add("hidden"); result.classList.remove("hidden");
-
-  let percent=Math.round(score/questions.length*100), wrong=questions.length-score;
-  let used=totalTime-timeLeft;
-
-  $("score").textContent=score+" / "+questions.length;
-  $("percentage").textContent=percent+"%";
-  $("correctCount").textContent=score;
-  $("wrongCount").textContent=wrong;
-  $("timeUsed").textContent=formatTime(used);
-  $("performanceFill").style.width=percent+"%";
-  $("accuracyFill").style.width=percent+"%";
-
-  if(percent>=90){
-    $("resultTitle").textContent="Outstanding! 🎉";
-    $("resultMessage").textContent="Excellent performance. You look well prepared for this topic.";
-    $("strongArea").textContent="Excellent accuracy";
-    $("weakArea").textContent="Speed & consistency";
-    $("nextStep").textContent="Try a harder quiz";
-    $("aiTitle").textContent="You're ready for a challenge 🚀";
-    $("aiSuggestion").textContent="Try a longer or harder quiz and test your speed.";
-  }else if(percent>=70){
-    $("resultTitle").textContent="Good Job! 👏";
-    $("resultMessage").textContent="You're on the right track. A little more practice can make you stronger.";
-    $("strongArea").textContent="Core concepts";
-    $("weakArea").textContent="Accuracy under time";
-    $("nextStep").textContent="Review mistakes";
-    $("aiTitle").textContent="You're on the right track ✨";
-    $("aiSuggestion").textContent="Review your "+wrong+" mistake"+(wrong===1?"":"s")+" and retry this subject.";
-  }else{
-    $("resultTitle").textContent="Keep Practicing! 💪";
-    $("resultMessage").textContent="Review the basics and try another quiz.";
-    $("strongArea").textContent="Needs revision";
-    $("weakArea").textContent="Fundamentals";
-    $("nextStep").textContent="Practice basics";
-    $("aiTitle").textContent="Let's strengthen the basics 💪";
-    $("aiSuggestion").textContent="Revise the basics, then try a short 5-question quiz.";
+function moveQuestion(direction, requireAnswer){
+  if(requireAnswer && answers[current] === null){
+    $("message").textContent = "Choose an answer or use Skip to continue.";
+    return;
   }
+  if(current + direction >= questions.length) return finishQuiz("manual");
+  current = Math.max(0, current + direction);
+  saveAttempt();
+  showQuestion();
+}
 
-  $("accuracyValue").textContent=percent+"%";
+function finishQuiz(reason){
+  if(submitted || !questions.length) return;
+  submitted = true;
+  clearInterval(timerId);
+  clearAttempt();
+  quiz.classList.add("hidden");
+  info.classList.add("hidden");
+  result.classList.remove("hidden");
+  const results = getResults();
+  const used = totalTime - timeLeft;
+  $("score").textContent = `${results.correct} / ${questions.length}`;
+  $("percentage").textContent = `${results.percent}%`;
+  $("correctCount").textContent = results.correct;
+  $("wrongCount").textContent = results.wrong;
+  $("unansweredCount").textContent = results.unanswered;
+  $("timeUsed").textContent = formatTime(used);
+  $("performanceFill").style.width = `${results.percent}%`;
+  $("accuracyFill").style.width = `${results.percent}%`;
+  updateResultMessage(results, reason);
+  renderTopicPerformance();
   makeReview();
   updateStreak();
   createConfetti();
-  showToast("Quiz completed! Score: "+percent+"%");
-  window.scrollTo({top:document.querySelector(".mock-container").offsetTop-20,behavior:"smooth"});
+  showToast(reason === "time" ? "Time is up — your quiz was submitted." : `Quiz completed! Score: ${results.percent}%`);
+  document.querySelector(".mock-container")?.scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
+function updateResultMessage(results, reason){
+  const topicResults = getTopicResults();
+  const entries = Object.entries(topicResults).map(([topic, value]) => ({ topic, percent: Math.round((value.correct / value.total) * 100) }));
+  const strongest = entries.sort((a, b) => b.percent - a.percent)[0];
+  const weakest = entries.sort((a, b) => a.percent - b.percent)[0];
+  $("accuracyValue").textContent = `${results.percent}%`;
+  $("strongArea").textContent = strongest && strongest.percent >= 70 ? strongest.topic : "Keep practising";
+  $("weakArea").textContent = weakest && weakest.percent < 70 ? weakest.topic : "No topic needs focus";
+  $("nextStep").textContent = results.unanswered ? "Review unanswered questions" : results.wrong ? "Retry incorrect questions" : "Try a harder quiz";
+  if(results.percent >= 90){
+    $("resultTitle").textContent = "Outstanding! 🎉";
+    $("resultMessage").textContent = "Excellent performance on this placement practice set.";
+    $("aiTitle").textContent = "You're ready for a challenge 🚀";
+    $("aiSuggestion").textContent = "Try a longer or harder mock test to keep building speed.";
+  }else if(results.percent >= 70){
+    $("resultTitle").textContent = "Good Job! 👏";
+    $("resultMessage").textContent = "You are on the right track. Review the missed questions to improve accuracy.";
+    $("aiTitle").textContent = "Target your missed questions ✨";
+    $("aiSuggestion").textContent = `Retry the ${results.wrong + results.unanswered} question(s) that need more practice.`;
+  }else{
+    $("resultTitle").textContent = "Keep Practicing! 💪";
+    $("resultMessage").textContent = "Review the answer key, then retry the questions you missed.";
+    $("aiTitle").textContent = "Build the basics step by step 💪";
+    $("aiSuggestion").textContent = "Use Review Mistakes, then take the focused retry quiz.";
+  }
+  if(reason === "time") $("resultMessage").textContent += " The timer reached zero, so unanswered questions were included in the result.";
+}
+
+function renderTopicPerformance(){
+  const container = $("topicPerformance");
+  const groups = getTopicResults();
+  container.innerHTML = "<span class=\"eyebrow\">TOPIC PERFORMANCE</span><h3>Performance by quiz topic</h3>";
+  Object.entries(groups).forEach(([topic, value]) => {
+    const accuracy = Math.round((value.correct / value.total) * 100);
+    const row = document.createElement("div");
+    row.className = "topic-row";
+    row.innerHTML = `<div><strong>${topic}</strong><small>${value.correct} correct · ${value.total - value.correct - value.unanswered} wrong · ${value.unanswered} unanswered</small></div><strong>${accuracy}%</strong>`;
+    container.appendChild(row);
+  });
 }
 
 function makeReview(){
-  let box=$("wrongAnswers"), mistakes=0;
-  box.innerHTML="";
-  questions.forEach((q,i)=>{
-    if(answers[i]!==q[2]){
-      mistakes++;
-      let your=answers[i]===null?"Not answered":q[1][answers[i]];
-      box.innerHTML+=`
-      <div class="mistake-card">
-        <span class="review-question-number">QUESTION ${i+1}</span>
-        <h4>${q[0]}</h4>
-        <div class="answer-line"><span class="label">Your answer</span><span class="your-answer">${your} ✕</span></div>
-        <div class="answer-line"><span class="label">Correct answer</span><span class="correct-answer">${q[1][q[2]]} ✓</span></div>
-        <div class="answer-explanation"><strong>Why:</strong> The correct choice is <strong>${q[1][q[2]]}</strong>. Revise this concept and try again.</div>
-      </div>`;
-    }
+  const box = $("wrongAnswers");
+  const missed = questions.map((question, index) => ({ question, index })).filter(({ question, index }) => answers[index] !== question.correctIndex);
+  box.innerHTML = "";
+  missed.forEach(({ question, index }) => {
+    const yourAnswer = answers[index] === null ? "Not answered" : question.options[answers[index]];
+    const card = document.createElement("div");
+    card.className = "mistake-card";
+    card.innerHTML = `<span class="review-question-number">QUESTION ${index + 1} · ${question.topic}</span><h4>${question.prompt}</h4><div class="answer-line"><span class="label">Your answer</span><span class="your-answer">${yourAnswer} ✕</span></div><div class="answer-line"><span class="label">Correct answer</span><span class="correct-answer">${question.options[question.correctIndex]} ✓</span></div><div class="answer-explanation"><strong>Answer key:</strong> The existing question bank marks <strong>${question.options[question.correctIndex]}</strong> as the correct option. No additional explanation was supplied in the source data.</div>`;
+    box.appendChild(card);
   });
-  $("reviewSubtitle").textContent=mistakes
-    ?"You have "+mistakes+" mistake"+(mistakes===1?"":"s")+" to review."
-    :"Perfect attempt — there is nothing to review.";
-  if(!mistakes)box.innerHTML='<div class="perfect-message">🎉 Perfect! Every answer was correct.</div>';
+  $("reviewSubtitle").textContent = missed.length ? `You have ${missed.length} question${missed.length === 1 ? "" : "s"} to review.` : "Perfect attempt — there is nothing to review.";
+  if(!missed.length) box.innerHTML = '<div class="perfect-message">🎉 Perfect! Every answer was correct.</div>';
+  $("retryIncorrectBtn").disabled = !missed.length;
+}
+
+function retryIncorrect(){
+  const retryQuestions = questions.filter((question, index) => answers[index] !== question.correctIndex).map(cloneQuestion);
+  if(!retryQuestions.length) return showToast("There are no missed questions to retry.");
+  activeTest = null;
+  startQuiz({ questions: retryQuestions, totalTime: retryQuestions.length * 24, label: `${attemptLabel} Retry` });
 }
 
 function createConfetti(){
-  let box=$("confetti"); box.innerHTML="";
-  for(let i=0;i<25;i++){
-    let p=document.createElement("i");
-    p.className="confetti-piece";
-    p.style.setProperty("--x",(Math.random()*500-250)+"px");
-    p.style.setProperty("--y",(Math.random()*-350-60)+"px");
-    p.style.background=["#2563EB","#14B8A6","#F59E0B","#EF4444","#8B5CF6"][i%5];
-    box.appendChild(p);
+  const box = $("confetti");
+  if(!box) return;
+  box.innerHTML = "";
+  for(let i = 0; i < 25; i++){
+    const piece = document.createElement("i");
+    piece.className = "confetti-piece";
+    piece.style.setProperty("--x", `${Math.random() * 500 - 250}px`);
+    piece.style.setProperty("--y", `${Math.random() * -350 - 60}px`);
+    piece.style.background = ["#2563EB", "#14B8A6", "#F59E0B", "#EF4444", "#8B5CF6"][i % 5];
+    box.appendChild(piece);
   }
 }
 
 function updateStreak(){
-  let today=new Date().toDateString(), saved=localStorage.getItem("placementhubQuizDay");
-  let streak=Number(localStorage.getItem("placementhubQuizStreak")||0);
-  if(saved!==today)streak++;
-  localStorage.setItem("placementhubQuizStreak",streak);
-  localStorage.setItem("placementhubQuizDay",today);
-  if($("streakNumber")) $("streakNumber").textContent=streak;
+  const today = new Date().toDateString();
+  const savedDay = localStorage.getItem("placementhubQuizDay");
+  let streak = Number(localStorage.getItem("placementhubQuizStreak") || 0);
+  if(savedDay !== today) streak++;
+  localStorage.setItem("placementhubQuizStreak", streak);
+  localStorage.setItem("placementhubQuizDay", today);
+  if($("streakNumber")) $("streakNumber").textContent = streak;
 }
 
 function showToast(text){
-  let t=$("toast"); t.textContent=text; t.classList.remove("hidden");
+  const toast = $("toast");
+  toast.textContent = text;
+  toast.classList.remove("hidden");
   clearTimeout(window.toastTimer);
-  window.toastTimer=setTimeout(()=>t.classList.add("hidden"),2200);
+  window.toastTimer = setTimeout(() => toast.classList.add("hidden"), 2200);
 }
 
-$("restartBtn").onclick=()=>startQuiz();
-$("changeQuizBtn").onclick=()=>{
+document.querySelectorAll(".filter-btn").forEach(button => button.addEventListener("click", () => selectMockSubject(button.dataset.subject)));
+document.querySelectorAll(".subject-btn").forEach(button => button.addEventListener("click", () => {
+  subject = button.dataset.subject;
+  activeTest = null;
+  document.querySelectorAll(".subject-btn").forEach(item => item.classList.toggle("active", item === button));
+  $("selectedSubjectLabel").textContent = `${subject.toUpperCase()} PRACTICE`;
+  $("subjectDescription").textContent = descriptions[subject];
+  $("selectedSubject").textContent = subject;
+}));
+document.querySelectorAll(".number-choice").forEach(button => button.addEventListener("click", () => {
+  document.querySelectorAll(".number-choice").forEach(item => item.classList.toggle("active", item === button));
+  count = Number(button.dataset.count);
+  totalTime = count * 24;
+  $("selectedCount").textContent = `${count} Questions`;
+  $("selectedTime").textContent = formatTime(totalTime);
+}));
+
+$("startBtn").addEventListener("click", () => {
+  activeTest = null;
+  $("modalSubject").textContent = subject;
+  $("modalQuestions").textContent = count;
+  $("modalTime").textContent = formatTime(totalTime);
+  $("modalText").textContent = `You are about to start your ${subject} quiz.`;
+  modal.classList.remove("hidden");
+});
+$("closeModal").addEventListener("click", () => modal.classList.add("hidden"));
+$("confirmStart").addEventListener("click", () => startQuiz());
+$("resumeBtn").addEventListener("click", resumeQuiz);
+$("startOverBtn").addEventListener("click", () => { clearAttempt(); resumeModal.classList.add("hidden"); showToast("Saved attempt removed. Choose a mock test to start again."); });
+$("bookmarkBtn").addEventListener("click", () => {
+  if(bookmarked.includes(current)) bookmarked = bookmarked.filter(index => index !== current);
+  else { bookmarked.push(current); showToast("Question bookmarked ⭐"); }
+  saveAttempt();
+  showQuestion();
+});
+$("prevBtn").addEventListener("click", () => moveQuestion(-1, false));
+$("nextBtn").addEventListener("click", () => moveQuestion(1, true));
+$("skipBtn").addEventListener("click", () => {
+  if(answers[current] !== null){ answers[current] = null; saveAttempt(); showQuestion(); return; }
+  moveQuestion(1, false);
+});
+$("submitBtn").addEventListener("click", () => finishQuiz("manual"));
+$("retryIncorrectBtn").addEventListener("click", retryIncorrect);
+if($("surpriseMini")) $("surpriseMini").addEventListener("click", () => {
+  const subjects = Object.keys(questionBank);
+  subject = subjects[Math.floor(Math.random() * subjects.length)];
+  count = [5, 10, 15][Math.floor(Math.random() * 3)];
+  totalTime = count * 24;
+  activeTest = null;
+  $("modalSubject").textContent = subject;
+  $("modalQuestions").textContent = count;
+  $("modalTime").textContent = formatTime(totalTime);
+  $("modalText").textContent = `Random challenge: ${subject} with ${count} questions.`;
+  modal.classList.remove("hidden");
+});
+$("changeQuizBtn").addEventListener("click", () => {
   result.classList.add("hidden");
   info.classList.add("hidden");
   quiz.classList.add("hidden");
-  if($("reviewBox")) $("reviewBox").classList.add("hidden");
-  activeTest=null;
+  $("reviewBox").classList.add("hidden");
+  activeTest = null;
   renderMockCards(subject);
-  document.querySelector(".mock-container").scrollIntoView({behavior:"smooth"});
-};
-
-$("themeBtn").onclick=()=>{
+  document.querySelector(".mock-container")?.scrollIntoView({ behavior: "smooth" });
+});
+$("restartBtn").addEventListener("click", () => startQuiz());
+$("reviewBtn").addEventListener("click", () => { makeReview(); $("reviewBox").classList.remove("hidden"); });
+$("closeReview").addEventListener("click", () => $("reviewBox").classList.add("hidden"));
+$("reviewBox").addEventListener("click", event => { if(event.target === $("reviewBox")) $("reviewBox").classList.add("hidden"); });
+$("themeBtn").addEventListener("click", () => {
   document.body.classList.toggle("light-theme");
-  let light=document.body.classList.contains("light-theme");
-  $("themeBtn").textContent=light?"☀":"☾";
-  localStorage.setItem("placementhubTheme",light?"light":"dark");
-};
+  const light = document.body.classList.contains("light-theme");
+  $("themeBtn").textContent = light ? "☀" : "☾";
+  localStorage.setItem("placementhubTheme", light ? "light" : "dark");
+});
+$("menuBtn").addEventListener("click", () => {
+  const nav = document.querySelector(".nav-links");
+  nav.style.display = nav.style.display === "flex" ? "none" : "flex";
+});
 
-$("menuBtn").onclick=()=>{
-  let nav=document.querySelector(".nav-links");
-  nav.style.display=nav.style.display==="flex"?"none":"flex";
-};
+document.addEventListener("keydown", event => {
+  if(quiz.classList.contains("hidden") || !modal.classList.contains("hidden") || !resumeModal.classList.contains("hidden") || !$("reviewBox").classList.contains("hidden")) return;
+  if(event.ctrlKey || event.metaKey || event.altKey || ["INPUT", "TEXTAREA", "SELECT"].includes(event.target.tagName)) return;
+  if(event.key === "Enter" && event.target.tagName === "BUTTON") return;
+  if(/^[1-4]$/.test(event.key)){ event.preventDefault(); selectAnswer(Number(event.key) - 1); }
+  if(event.key === "ArrowLeft"){ event.preventDefault(); moveQuestion(-1, false); }
+  if(event.key === "ArrowRight"){ event.preventDefault(); moveQuestion(1, false); }
+  if(event.key === "Enter"){ event.preventDefault(); moveQuestion(1, true); }
+});
 
-$("reviewBtn").onclick=()=>{
-  makeReview();
-  $("reviewBox").classList.remove("hidden");
-};
-$("closeReview").onclick=()=>$("reviewBox").classList.add("hidden");
-$("reviewBox").onclick=e=>{
-  if(e.target===$("reviewBox"))$("reviewBox").classList.add("hidden");
-};
-
-if($("surpriseStart")) $("surpriseStart").onclick=()=>{
-  modal.classList.add("hidden");
-  startQuiz();
-};
-
-let savedTheme=localStorage.getItem("placementhubTheme");
-if(savedTheme==="light"){
-  document.body.classList.add("light-theme");
-  $("themeBtn").textContent="☀";
-}
+const savedTheme = localStorage.getItem("placementhubTheme");
+if(savedTheme === "light"){ document.body.classList.add("light-theme"); $("themeBtn").textContent = "☀"; }
+renderMockCards("Java");
+showResumePrompt();

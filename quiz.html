@@ -109,11 +109,24 @@
             </div>
         </div>
 
+        <div class="start-popup hidden" id="resumeModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="resumeTitle">
+            <div class="start-box">
+                <span class="eyebrow">SAVED ATTEMPT</span>
+                <h2 id="resumeTitle">Resume your quiz?</h2>
+                <p id="resumeText">Your answers and remaining time were saved on this device.</p>
+                <div class="resume-actions">
+                    <button class="secondary-btn" id="startOverBtn">Start Over</button>
+                    <button class="primary-btn" id="resumeBtn">Resume Quiz</button>
+                </div>
+            </div>
+        </div>
+
         <div class="quiz-details hidden" id="quizInfo">
             <div class="info-box"><span>SUBJECT</span><strong id="quizSubject">Java</strong></div>
             <div class="info-box"><span>QUESTION</span><strong id="questionNumber">1 / 5</strong></div>
             <div class="info-box"><span>TIME LEFT</span><strong id="timer">02:00</strong></div>
             <div class="info-box"><span>SCORE</span><strong id="liveScore">0</strong></div>
+            <div class="info-box"><span>ANSWERED</span><strong id="answeredCount">0 / 0</strong></div>
         </div>
 
         <div class="question-card hidden" id="quizCard">
@@ -139,7 +152,12 @@
 
             <div class="quiz-bottom">
                 <p class="message" id="message"></p>
-                <button class="primary-btn next-btn" id="nextBtn">Next Question →</button>
+                <div class="quiz-actions">
+                    <button class="secondary-btn" id="prevBtn">← Previous</button>
+                    <button class="secondary-btn" id="skipBtn">Skip</button>
+                    <button class="primary-btn next-btn" id="nextBtn">Next Question →</button>
+                    <button class="secondary-btn submit-btn" id="submitBtn">Submit Quiz</button>
+                </div>
             </div>
         </div>
 
@@ -157,6 +175,7 @@
             <div class="result-details">
                 <div><span>Correct</span><strong id="correctCount">0</strong></div>
                 <div><span>Wrong</span><strong id="wrongCount">0</strong></div>
+                <div><span>Unanswered</span><strong id="unansweredCount">0</strong></div>
                 <div><span>Time Used</span><strong id="timeUsed">00:00</strong></div>
             </div>
 
@@ -190,6 +209,8 @@
                 </div>
             </div>
 
+            <div class="topic-performance" id="topicPerformance" aria-live="polite"></div>
+
             <div class="review-popup hidden" id="reviewBox">
                 <div class="review-box">
                     <div class="review-title">
@@ -206,6 +227,7 @@
 
             <div class="result-buttons">
                 <button class="secondary-btn review-trigger" id="reviewBtn">Review Mistakes</button>
+                <button class="secondary-btn" id="retryIncorrectBtn">Retry Incorrect</button>
                 <button class="secondary-btn" id="changeQuizBtn">All Mock Tests</button>
                 <button class="primary-btn restart-btn" id="restartBtn">Try Again</button>
             </div>
@@ -214,6 +236,7 @@
 </main>
 
 <div class="toast hidden" id="toast">Test completed!</div>
+<div id="confetti" class="confetti" aria-hidden="true"></div>
 
 <footer class="footer">
     <div>
