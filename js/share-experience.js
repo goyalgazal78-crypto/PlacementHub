@@ -1,113 +1,77 @@
-/* Share Experience Page */
-
-/* Validates the form, saves the submission to localStorage,
-   then hands the visitor back to the Experience page. */
-
-/** Opens/closes the mobile nav menu when the hamburger icon is tapped. */
-const setupMobileNav = () => {
-  const navbar = document.querySelector('.navbar');
-  const hamburger = document.querySelector('.hamburger');
-  if (!navbar || !hamburger) return;
-
-  hamburger.addEventListener('click', () => {
-    navbar.classList.toggle('nav-open');
-  });
-
-  // Tapping a link should close the menu instead of leaving it open
-  // behind the page it navigates to.
-  navbar.querySelectorAll('.navbar-center a').forEach(link => {
-    link.addEventListener('click', () => navbar.classList.remove('nav-open'));
-  });
-
-  // Tapping anywhere outside the menu closes it too.
-  document.addEventListener('click', (event) => {
-    if (navbar.classList.contains('nav-open') && !navbar.contains(event.target)) {
-      navbar.classList.remove('nav-open');
-    }
-  });
-};
-
-setupMobileNav();
-
-const setupCompanyPicker = () => {
-  document.querySelectorAll('.company-card').forEach(label => {
-    label.addEventListener('click', (event) => {
-      event.preventDefault();
- 
-      const input = document.getElementById(label.getAttribute('for'));
-      if (!input) return;
- 
-      input.checked = true;
-      input.dispatchEvent(new Event('change', { bubbles: true }));
-      input.focus({ preventScroll: true });
-    });
-  });
-};
- 
-setupCompanyPicker();
+/* ==========================================================================
+   Share Experience - PlacementHub
+   Handles form validation, collecting responses, saving them to localStorage,
+   and redirecting back to the experience explorer page.
+   ========================================================================== */
 
 const shareForm = document.getElementById('share-form');
 
-/** Reads a field's trimmed value, or an empty string if it is missing. */
-const readValue = (id) => {
-  const field = document.getElementById(id);
-  return field ? field.value.trim() : '';
-};
+/**
+ * Reads and trims an input field's value by ID.
+ * Returns an empty string if element is not found or empty.
+ */
+const readValue = (id) => document.getElementById(id)?.value.trim() || '';
 
-/** Builds two-letter initials for the avatar, e.g. "Priya Singh" -> "PS". */
+/**
+ * Builds initials for the student's avatar.
+ * e.g., "Priya Singh" -> "PS", "Amit" -> "A", "" -> "AS"
+ */
 const buildInitials = (fullName) => {
-  const parts = fullName.split(/\s+/).filter(Boolean);
+  const parts = fullName.trim().split(/\s+/).filter(Boolean);
   if (!parts.length) return 'AS';
-  const first = parts[0].charAt(0);
-  const last = parts.length > 1 ? parts[parts.length - 1].charAt(0) : '';
+  const first = parts[0][0];
+  const last = parts.length > 1 ? parts[parts.length - 1][0] : '';
   return (first + last).toUpperCase();
 };
 
-/** Collects the filled-in rounds, skipping any the student left blank. */
+/**
+ * Collects interview rounds (1 through 5), skipping any left blank.
+ */
 const collectRounds = () => {
   const rounds = [];
-
-  for (let index = 1; index <= 5; index++) {
-    const title = readValue(`round-title-${index}`);
-    const detail = readValue(`round-detail-${index}`);
+  for (let i = 1; i <= 5; i++) {
+    const title = readValue(`round-title-${i}`);
+    const detail = readValue(`round-detail-${i}`);
 
     if (title || detail) {
       rounds.push({
-        title: title || `Round ${index}`,
+        title: title || `Round ${i}`,
         detail: detail || 'No details shared.'
       });
     }
   }
-
   return rounds;
 };
 
-/** Collects every ticked topic chip. */
-const collectTopics = () => {
-  const checked = document.querySelectorAll('input[name="topics"]:checked');
-  return Array.from(checked).map(topic => topic.value);
-};
+/**
+ * Collects all checked topic tags (e.g. Arrays, System Design).
+ */
+const collectTopics = () =>
+  Array.from(document.querySelectorAll('input[name="topics"]:checked'), el => el.value);
 
-/** Only http and https links are stored, so a saved link can never be script. */
+/**
+ * Validates that a URL is a valid http or https web address.
+ */
 const sanitiseUrl = (url) => {
-  if (!url) return '';
   try {
     const parsed = new URL(url);
     return ['http:', 'https:'].includes(parsed.protocol) ? parsed.href : '';
-  } catch (error) {
+  } catch {
     return '';
   }
 };
 
-/** Shows or hides one of the inline error messages. */
+/**
+ * Shows or hides an inline error message element.
+ */
 const toggleError = (id, show) => {
-  const message = document.getElementById(id);
-  if (message) message.hidden = !show;
+  const el = document.getElementById(id);
+  if (el) el.hidden = !show;
 };
 
 /**
- * Runs validation and reports the first problem.
- * Returns the selected company element, or null when the form is not ready.
+ * Validates company selection, consent checkbox, and native form fields.
+ * Returns the checked company input element on success, or null if invalid.
  */
 const validateForm = () => {
   const company = document.querySelector('input[name="company"]:checked');
@@ -116,14 +80,13 @@ const validateForm = () => {
   toggleError('company-error', !company);
   toggleError('consent-error', consent && !consent.checked);
 
-  // The company radios are visually hidden, so the browser cannot focus them
-  // to show a native message. Scroll to the picker manually instead.
+  // If no company selected, smoothly scroll up to the picker
   if (!company) {
-    document.querySelector('.company-picker').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    document.querySelector('.company-picker')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
     return null;
   }
 
-  // Everything else can use native validation.
+  // Trigger browser's native field validation (required, email, url, etc.)
   if (!shareForm.checkValidity()) {
     const firstInvalid = shareForm.querySelector(':invalid');
     if (firstInvalid && firstInvalid.type !== 'radio') {
@@ -136,25 +99,22 @@ const validateForm = () => {
   return company;
 };
 
-/** Turns the filled-in form into the object stored in localStorage. */
+/**
+ * Bundles the form fields into an experience object for saving.
+ */
 const buildExperience = (companyId) => {
-  const isAnonymous = document.getElementById('anonymous').checked;
-  const name = isAnonymous ? 'Anonymous Student' : readValue('name');
-  const branch = readValue('branch');
-  const batch = readValue('batch');
-  const role = readValue('role');
-  const jobType = document.querySelector('input[name="jobType"]:checked');
-  const videoUrl = sanitiseUrl(readValue('video-url'));
+  const isAnonymous = document.getElementById('anonymous')?.checked;
+  const rawName = readValue('name');
 
   return {
     id: Date.now(),
     company: companyId,
-    name,
-    initials: isAnonymous ? 'AS' : buildInitials(readValue('name')),
-    branch,
-    batch,
-    role,
-    jobType: jobType ? jobType.value : 'Full-time',
+    name: isAnonymous ? 'Anonymous Student' : rawName,
+    initials: isAnonymous ? 'AS' : buildInitials(rawName),
+    branch: readValue('branch'),
+    batch: readValue('batch'),
+    role: readValue('role'),
+    jobType: document.querySelector('input[name="jobType"]:checked')?.value || 'Full-time',
     year: readValue('year'),
     package: readValue('package'),
     mode: readValue('mode'),
@@ -162,27 +122,73 @@ const buildExperience = (companyId) => {
     tip: readValue('tip'),
     topics: collectTopics(),
     rounds: collectRounds(),
-    videoUrl,
+    videoUrl: sanitiseUrl(readValue('video-url')),
     videoTitle: readValue('video-title') || 'Watch this experience on YouTube'
   };
 };
 
+/**
+ * Enables clicking company card labels to reliably check the underlying radio.
+ */
+const setupCompanyPicker = () => {
+  document.querySelectorAll('.company-card').forEach(label => {
+    label.addEventListener('click', (e) => {
+      e.preventDefault();
+      const radio = document.getElementById(label.getAttribute('for'));
+      if (radio) {
+        radio.checked = true;
+        radio.dispatchEvent(new Event('change', { bubbles: true }));
+      }
+    });
+  });
+};
+
+/**
+ * Controls mobile hamburger navigation menu open/close behavior.
+ */
+const setupMobileNav = () => {
+  const navbar = document.querySelector('.navbar');
+  const hamburger = document.querySelector('.hamburger');
+  if (!navbar || !hamburger) return;
+
+  // Toggle nav drawer on hamburger tap
+  hamburger.addEventListener('click', () => navbar.classList.toggle('nav-open'));
+
+  // Close when tapping any navigation link
+  navbar.querySelectorAll('.navbar-center a').forEach(link => {
+    link.addEventListener('click', () => navbar.classList.remove('nav-open'));
+  });
+
+  // Close when tapping outside the navbar
+  document.addEventListener('click', (e) => {
+    if (!navbar.contains(e.target)) navbar.classList.remove('nav-open');
+  });
+};
+
+// Form submission handler
 if (shareForm) {
-  shareForm.addEventListener('submit', (event) => {
-    event.preventDefault();
+  shareForm.addEventListener('submit', (e) => {
+    e.preventDefault();
 
     const company = validateForm();
     if (!company) return;
 
     const saved = ExperienceStore.add(buildExperience(company.value));
-
     if (!saved) {
       alert('Your browser blocked local storage, so this experience could not be saved. Try disabling private browsing.');
       return;
     }
 
-    // Hand off to the Experience page, which opens this company's panel
-    // and highlights the new card.
+    // Redirect to the experience explorer and select the submitted company
     window.location.href = `experience.html?submitted=${company.value}`;
   });
 }
+
+// Initialize listeners
+setupMobileNav();
+setupCompanyPicker();
+
+// Initialize listeners
+setupMobileNav();
+setupCompanyPicker();
+
