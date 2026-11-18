@@ -60,7 +60,11 @@
             <i class="fas fa-bookmark"></i>
             <span>Saved Problems</span>
           </a>
-        </nav>
+        <a href="mock-interview.html" class="sidebar-link">
+  <i class="fas fa-user-astronaut"></i>
+  <span>Mock Interview</span>
+</a>
+</nav>
       </aside>
 
       <!-- Main Content -->
@@ -115,6 +119,11 @@
           <div class="stat-value" id="streakDays">0</div>
           <div class="stat-label">Day Streak 🔥</div>
         </div>
+              <div class="stat-card">
+          <div class="stat-value" id="interviewAvgScore">-</div>
+          <div class="stat-label">Interview Avg /10 🤖</div>
+          <div class="progress-bar"><div class="progress-fill" id="interviewScoreBar" style="width: 0%; background: var(--accent-tertiary);"></div></div>
+        </div>
       </div>
 
       <h2 style="color: var(--text-primary);">Progress by Difficulty</h2>
@@ -140,6 +149,23 @@
       <div class="category-progress" id="categoryProgress">
         <p style="text-align: center; color: var(--text-secondary);">Save problems from DSA sheet to see category breakdown</p>
       </div>
+
+      <h2 style="color: var(--text-primary); margin-top: var(--spacing-2xl);">AI Mock Interview Performance</h2>
+      <div class="difficulty-card" style="margin-top: var(--spacing-sm); border-left: 4px solid var(--accent-tertiary);">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 12px;">
+          <div>
+            <h3 style="color: var(--primary-light); margin: 0;">Completed Sessions: <span id="interviewCount">0</span></h3>
+            <p style="color: var(--text-secondary); margin: 4px 0 0 0; font-size: 0.9rem;">Average Score: <strong id="interviewAvgText" style="color: var(--accent-tertiary);">None yet</strong></p>
+          </div>
+          <a href="mock-interview.html" class="action-pill" style="text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">
+            <i class="fas fa-user-astronaut"></i> Go to Mock Interview
+          </a>
+        </div>
+        <div id="recentInterviewsList" style="margin-top: 12px; font-size: 0.9rem; color: var(--text-secondary);">
+          No mock interview sessions recorded yet. Practice with the AI Interviewer to see your progress!
+        </div>
+      </div>
+
 
       <div style="background: var(--surface); border-left: 4px solid var(--primary); padding: var(--spacing-lg); border-radius: var(--radius-lg); margin-top: var(--spacing-3xl);">
         <h3 style="color: var(--primary);">💡 Pro Tips</h3>

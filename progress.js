@@ -37,6 +37,40 @@ const CATEGORIES = {
       updateCategoryProgress(saved, completed);
       let streak = parseInt(localStorage.getItem('streak')) || 0;
       document.getElementById('streakDays').textContent = streak;
+
+      // Update Mock Interview stats
+      try {
+        const mockInterviews = JSON.parse(localStorage.getItem('mockInterviews')) || [];
+        const interviewAvgEl = document.getElementById('interviewAvgScore');
+        const interviewBarEl = document.getElementById('interviewScoreBar');
+        const interviewCountEl = document.getElementById('interviewCount');
+        const interviewAvgTextEl = document.getElementById('interviewAvgText');
+        const recentInterviewsList = document.getElementById('recentInterviewsList');
+
+        if (mockInterviews.length > 0) {
+          const totalScore = mockInterviews.reduce(function(acc, item) { return acc + (Number(item.score) || 0); }, 0);
+          const avgScore = (totalScore / mockInterviews.length).toFixed(1);
+          const pct = Math.min(100, Math.round((avgScore / 10) * 100));
+
+          if (interviewAvgEl) interviewAvgEl.textContent = avgScore + '/10';
+          if (interviewBarEl) interviewBarEl.style.width = pct + '%';
+          if (interviewCountEl) interviewCountEl.textContent = mockInterviews.length;
+          if (interviewAvgTextEl) interviewAvgTextEl.textContent = avgScore + ' / 10 (' + pct + '%)';
+
+          if (recentInterviewsList) {
+            const recent = mockInterviews.slice(-3).reverse();
+            recentInterviewsList.innerHTML = recent.map(function(session) {
+              return '<div style="display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid var(--border);">' +
+                '<span><strong>' + (session.problemName || 'Problem') + '</strong> <small style="color: var(--text-tertiary); margin-left: 8px;">' + (session.date || '') + '</small></span>' +
+                '<span style="color: var(--accent-tertiary); font-weight: 600;">' + session.score + '/10</span>' +
+                '</div>';
+            }).join('');
+          }
+        }
+      } catch (err) {
+        console.error('Error loading mock interview stats:', err);
+      }
+
     }
 
     function updateCategoryProgress(saved, completed) {

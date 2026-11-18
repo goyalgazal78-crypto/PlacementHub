@@ -1,0 +1,13 @@
+# Secrets and Local Configuration
+config.js
+
+# OS & Editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Node & Scratch files
+node_modules/
+*.log
+
